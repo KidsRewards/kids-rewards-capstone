@@ -1,4 +1,4 @@
-package com.codeup.kidsrewardscapstone.repositories;
-
-public interface AdminRepositories {
-}
+//package com.codeup.kidsrewardscapstone.repositories;
+//
+//public interface AdminRepositories {
+//}

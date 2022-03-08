@@ -29,13 +29,13 @@ public class Reward {
     public Reward() {
     }
 
-    public Reward(long id, String icon, String title, String body, long points, User user_id) {
+    public Reward(long id, String icon, String title, String body, long points, User user) {
         this.id = id;
         this.icon = icon;
         this.title = title;
         this.body = body;
         this.points = points;
-        this.user_id = user_id;
+        this.user = user;
     }
 
     public Reward(Reward copy) {
@@ -44,7 +44,7 @@ public class Reward {
         title = copy.title;
         body = copy.body;
         points = copy.points;
-        user_id = copy.user_id;
+        user = copy.user;
     }
 
     public long getId() {
@@ -87,11 +87,11 @@ public class Reward {
         this.points = points;
     }
 
-    public User getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(User user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 }// end class Reward

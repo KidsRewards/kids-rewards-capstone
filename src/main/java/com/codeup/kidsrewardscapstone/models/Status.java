@@ -1,33 +1,45 @@
 package com.codeup.kidsrewardscapstone.models;
 
-import org.springframework.scheduling.config.Task;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="status")
+@Table(name="statuses")
 public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String status_desc;
+    private String statusDesc;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "status")
-    private List<Task> task ;
+    private List<Task> tasks;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "status")
-    private List<Wishitem> wishitem;
+    private List<WishItem> wishItems;
 
-    public Status(Long id, String status_desc) {
+    public Status(Long id, String statusDesc) {
         this.id = id;
-        this.status_desc = status_desc;
+        this.statusDesc = statusDesc;
+    }
+
+    public Status(Long id, String statusDesc, List<Task> tasks, List<WishItem> wishItems) {
+        this.id = id;
+        this.statusDesc = statusDesc;
+        this.tasks = tasks;
+        this.wishItems = wishItems;
     }
 
     public Status() {
 
+    }
+
+    public Status(Status copy){
+        id = copy.id;
+        statusDesc = copy.statusDesc;
+        tasks = copy.tasks;
+        wishItems = copy.wishItems;
     }
 
     public Long getId() {
@@ -38,11 +50,11 @@ public class Status {
         this.id = id;
     }
 
-    public String getStatus_desc() {
-        return status_desc;
+    public String getStatusDesc() {
+        return statusDesc;
     }
 
-    public void setStatus_desc(String status_desc) {
-        this.status_desc = status_desc;
+    public void setStatusDesc(String statusDesc) {
+        this.statusDesc = statusDesc;
     }
 }
