@@ -38,6 +38,15 @@ public class Reward {
         this.user_id = user_id;
     }
 
+    public Reward(Reward copy) {
+        id = copy.id;
+        icon = copy.icon;
+        title = copy.title;
+        body = copy.body;
+        points = copy.points;
+        user_id = copy.user_id;
+    }
+
     public long getId() {
         return id;
     }

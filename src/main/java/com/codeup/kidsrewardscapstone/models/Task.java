@@ -51,6 +51,16 @@ public class Task {
         this.status = status;
     }
 
+    public Task(Task copy) {
+        id = copy.id;
+        title = copy.title;
+        description = copy.description;
+        points = copy.points;
+        due_date = copy.due_date;
+        user = copy.user;
+        status = copy.status;
+    }
+
     public long getId() {
         return id;
     }
