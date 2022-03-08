@@ -1,4 +1,4 @@
-package com.codeup.kidsrewardscapstone.Configuration;
+package com.codeup.kidsrewardscapstone.configuration;
 
 import com.codeup.kidsrewardscapstone.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

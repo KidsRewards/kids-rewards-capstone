@@ -1,6 +1,6 @@
 package com.codeup.kidsrewardscapstone.models;
 
-import org.springframework.scheduling.config.Task;
+
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,7 +16,7 @@ public class Status {
     private String status_desc;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "status")
-    private List<Task> task ;
+    private List<Tasks> task ;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "status")
     private List<Wishitem> wishitem;
