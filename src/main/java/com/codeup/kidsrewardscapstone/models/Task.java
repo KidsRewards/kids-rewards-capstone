@@ -21,28 +21,32 @@ public class Task {
     @Column(nullable = false)
     private long due_date;
 
-    @OneToOne
-    @JoinColumn (name = "admin_id")
-    private Admin admin;
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn (name = "user_id")
     private User user;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn (name = "status_id")
     private Status status;
 
     public Task() {
     }
 
-    public Task(long id, String title, String description, long points, long due_date, Admin admin, User user, Status status) {
+    public Task(long id, String title, String description, long points, long due_date, User user, Status status) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.points = points;
         this.due_date = due_date;
-        this.admin = admin;
+        this.user = user;
+        this.status = status;
+    }
+
+    public Task(String title, String description, long points, long due_date, User user, Status status) {
+        this.title = title;
+        this.description = description;
+        this.points = points;
+        this.due_date = due_date;
         this.user = user;
         this.status = status;
     }
@@ -85,14 +89,6 @@ public class Task {
 
     public void setDue_date(long due_date) {
         this.due_date = due_date;
-    }
-
-    public Admin getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(Admin admin) {
-        this.admin = admin;
     }
 
     public User getUser() {

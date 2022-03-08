@@ -21,8 +21,10 @@ public class Reward {
     @Column(nullable = false)
     private long points;
 
-    @OneToOne
-    private User user_id;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
     public Reward() {
     }
