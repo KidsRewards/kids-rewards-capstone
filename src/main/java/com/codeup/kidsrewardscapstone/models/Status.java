@@ -1,6 +1,9 @@
 package com.codeup.kidsrewardscapstone.models;
 
+import org.springframework.scheduling.config.Task;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="status")
@@ -11,6 +14,12 @@ public class Status {
 
     @Column(nullable = false)
     private String status_desc;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "status")
+    private List<Task> task ;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "status")
+    private List<Wishitem> wishitem;
 
     public Status(Long id, String status_desc) {
         this.id = id;
