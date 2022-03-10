@@ -38,14 +38,14 @@ public class Reward {
         this.user = user;
     }
 
-    public Reward(Reward copy) {
-        id = copy.id;
-        icon = copy.icon;
-        title = copy.title;
-        body = copy.body;
-        points = copy.points;
-        user = copy.user;
-    }
+//    public Reward(Reward copy) {
+//        id = copy.id;
+//        icon = copy.icon;
+//        title = copy.title;
+//        body = copy.body;
+//        points = copy.points;
+//        user = copy.user;
+//    }
 
     public long getId() {
         return id;
