@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+//Defines a service that Spring Security will use to load the authentication and authorization information of users
 @Service
 public class AdminDetailsLoader implements UserDetailsService {
     private final AdminRepository admins;
@@ -16,7 +17,8 @@ public class AdminDetailsLoader implements UserDetailsService {
         this.admins = admins;
     }
 
-    public AdminWithRoles loadAdminByUsername(String username) throws UsernameNotFoundException {
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Admin admin = admins.findByUsername(username);
         if(admin == null){
             throw new UsernameNotFoundException("No user found for " + username);
@@ -24,8 +26,8 @@ public class AdminDetailsLoader implements UserDetailsService {
         return new AdminWithRoles(admin);
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
+//    @Override
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//        return null;
+//    }
 }
