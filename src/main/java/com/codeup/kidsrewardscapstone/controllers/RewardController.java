@@ -15,9 +15,17 @@ public class RewardController {
         this.rewardDao = rewardDao;
     }
 
+//    @GetMapping("/rewards")
+//    public String showRewards(Model model) {
+//        model.addAttribute("reward", new Reward());
+//        return "rewards/reward";
+//    }
+
     @GetMapping("/rewards")
     public String showRewards(Model model) {
-        model.addAttribute("reward", new Reward());
+        model.addAttribute("allRewards", rewardDao.findAll());
         return "rewards/reward";
     }
-}
+
+
+}// END class
