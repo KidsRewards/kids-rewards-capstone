@@ -1,10 +1,15 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Status</title>
+    <meta charset="UTF-8"/>
+    <title th:text="${status.getId()}"></title>
 </head>
 <body>
-    <h1>Status</h1>
+<h1 th:text="${status.getId()}"></h1>
+<!--<p th:text="${status.getAuthor().getName()}"></p>-->
+<ul>
+<!--    <li th:each="genre : ${singleBook.getGenres()}" th:text="${status.getName()}"></li>-->
+</ul>
 </body>
 </html>

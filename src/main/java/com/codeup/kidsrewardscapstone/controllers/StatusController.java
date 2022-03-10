@@ -19,4 +19,9 @@ public class StatusController {
         model.addAttribute("status", new Status());
         return "statuses/status";
     }
+    @GetMapping("/statuses/{id}")
+    public String showStatus(@PathVariable long id, Model model) {
+        model.addAttribute("statuses",statusDao.getById(id));
+        return "statuses/status";
+    }
 }
