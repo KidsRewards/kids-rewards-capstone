@@ -27,5 +27,12 @@ public class RewardController {
         return "rewards/reward";
     }
 
+    @GetMapping("/rewards/create")
+    public String showCreateForm(Model model) {
+        model.addAttribute("reward", new Reward());
+        model.addAttribute("rewards", rewardDao.findAll());
+        return "rewards/create";
+    }
+
 
 }// END class
