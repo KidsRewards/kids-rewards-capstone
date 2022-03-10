@@ -1,5 +1,6 @@
 package com.codeup.kidsrewardscapstone.controllers;
 
+import com.codeup.kidsrewardscapstone.models.Status;
 import com.codeup.kidsrewardscapstone.repositories.StatusRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +15,8 @@ public class StatusController {
         this.statusDao = statusDao;
     }
     @GetMapping("/statuses")
-    public String showStatus(@PathVariable long id, Model model){
-        model.addAttribute("status", statusDao.getById(id));
-        return "status";
+    public String showStatus(Model model){
+        model.addAttribute("status", new Status());
+        return "statuses/status";
     }
 }
