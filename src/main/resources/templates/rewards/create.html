@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,7 +12,7 @@
     <div class="container">
         <h1 style="text-align: center">Add a reward for <span>PLACEHOLDER</span></h1>
 
-        <form th:action="@{/rewards/create}" th:method="POST" th:object="${reward}">
+        <form th:action="@{/rewards/create}" th:method="POST" th:object="${newReward}">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" th:field="*{title}">
