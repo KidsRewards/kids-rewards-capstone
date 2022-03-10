@@ -1,5 +1,6 @@
 package com.codeup.kidsrewardscapstone.controllers;
 
+import com.codeup.kidsrewardscapstone.models.Task;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +16,8 @@ public class TaskController {
     }
 
     @GetMapping("/tasks")
-    public String showTasks(@PathVariable long id, Model model) {
-        model.addAttribute("task", taskDao.getById(id));
-        return "task";
+    public String showTasks(Model model) {
+        model.addAttribute("task", new Task());
+        return "tasks/task";
     }
 }
