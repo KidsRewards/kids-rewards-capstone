@@ -1,12 +1,11 @@
 package com.codeup.kidsrewardscapstone.controllers;
 
+import com.codeup.kidsrewardscapstone.models.Reward;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.codeup.kidsrewardscapstone.repositories.RewardRepository;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class RewardController {
@@ -17,8 +16,8 @@ public class RewardController {
     }
 
     @GetMapping("/rewards")
-    public String showRewards(@PathVariable long id, Model model) {
-        model.addAttribute("reward", rewardDao.getById(id));
-        return "reward";
+    public String showRewards(Model model) {
+        model.addAttribute("reward", new Reward());
+        return "rewards/reward";
     }
 }

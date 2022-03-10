@@ -17,6 +17,6 @@ public class TaskController {
     @GetMapping("/tasks")
     public String showTasks(@PathVariable long id, Model model) {
         model.addAttribute("task", taskDao.getById(id));
-        return "task";
+        return "tasks/task";
     }
 }
