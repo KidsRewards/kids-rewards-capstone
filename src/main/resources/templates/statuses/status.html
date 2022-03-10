@@ -1,15 +1,16 @@
 
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title th:text="${status.getId()}"></title>
+    <title >Status</title>
+
 </head>
 <body>
-<h1 th:text="${status.getId()}"></h1>
-<!--<p th:text="${status.getAuthor().getName()}"></p>-->
+<h1 >Status</h1>
+<!--<p th:text="${status.getId().getStatusDesc()}"></p>-->
 <ul>
-<!--    <li th:each="genre : ${singleBook.getGenres()}" th:text="${status.getName()}"></li>-->
+<!--    <li th:each="statuses : ${status.getId()}" th:text="${status.getStatusDesc()}"></li>-->
 </ul>
 </body>
 </html>
