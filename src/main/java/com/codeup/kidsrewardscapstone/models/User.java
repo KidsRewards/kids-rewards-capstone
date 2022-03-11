@@ -23,10 +23,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column
     private long pointsTotal;
 
-    @Column(nullable = false)
+    @Column
     private Boolean isParent;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
