@@ -29,6 +29,13 @@ public class Reward {
     public Reward() {
     }
 
+    public Reward(String icon, String title, String body, long points) {
+        this.icon = icon;
+        this.title = title;
+        this.body = body;
+        this.points = points;
+    }
+
     public Reward(long id, String icon, String title, String body, long points, User user) {
         this.id = id;
         this.icon = icon;
