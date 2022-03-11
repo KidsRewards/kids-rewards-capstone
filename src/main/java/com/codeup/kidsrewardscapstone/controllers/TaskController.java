@@ -64,7 +64,7 @@ public class TaskController {
     @GetMapping("/tasks/{id}/edit")
     public String showEditRewardForm(@PathVariable long id, Model model) {
         model.addAttribute("rewardToEdit", taskDao.getById(id));
-        return "rewards/edit";
+        return "tasks/edit";
     }
 
     @PostMapping("/tasks/{id}/edit")
