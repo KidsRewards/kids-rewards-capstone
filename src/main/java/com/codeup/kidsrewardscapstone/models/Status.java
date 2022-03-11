@@ -19,6 +19,8 @@ public class Status {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "status")
     private List<WishItem> wishItems;
 
+
+
     public Status(Long id, String statusDesc) {
         this.id = id;
         this.statusDesc = statusDesc;
@@ -57,4 +59,18 @@ public class Status {
     public void setStatusDesc(String statusDesc) {
         this.statusDesc = statusDesc;
     }
+
+//    added for USER in Taskcontroller
+@ManyToOne
+@JoinColumn(name = "admin")
+private User user;
+
+    public User getUser() {
+        return user ;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
+//for USER in taskController
+
 }
