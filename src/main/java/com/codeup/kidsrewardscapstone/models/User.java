@@ -166,5 +166,4 @@ public class User {
     public void setFamilies(List<Family> families) {
         this.families = families;
     }
-
 }

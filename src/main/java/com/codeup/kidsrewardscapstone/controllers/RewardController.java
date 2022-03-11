@@ -44,30 +44,29 @@ public class RewardController {
             @RequestParam(name = "title") String title,
             @RequestParam(name = "body") String body,
             @RequestParam(name = "points") Long points
-//            @RequestParam(name = "rewardId") long rewardId
     ) {
         Reward reward = new Reward();
         reward.setIcon(icon);
         reward.setTitle(title);
         reward.setBody(body);
         reward.setPoints(points);
-//        reward.getId(rewardId);
 
         rewardsDao.save(reward);
         return "redirect:/rewards";
     }
 
     @GetMapping("/rewards/{id}/edit")
-    public String showEditRewardForm(@PathVariable long id, Model model) {
+    public String showEditForm(@PathVariable long id, Model model) {
+        Reward rewardtoEdit = rewardsDao.getById(id);
         model.addAttribute("rewardToEdit", rewardsDao.getById(id));
         return "rewards/edit";
     }
 
     @PostMapping("/rewards/{id}/edit")
-    public String submitRewardToEdit(@ModelAttribute Reward rewardToEdit, @PathVariable long id) {
-        rewardToEdit.setUser(usersDao.getById(1L));
+    public String submitEdit(@ModelAttribute Reward rewardToEdit, @PathVariable long id) {
+
         rewardsDao.save(rewardToEdit);
-        return "redirect:/rewards/" + id;
+        return "redirect:/rewards";
     }
 
     @GetMapping("/rewards/{id}/delete")
@@ -75,5 +74,4 @@ public class RewardController {
         rewardsDao.deleteById(id);
         return "redirect:/rewards";
     }
-
 }// END class
