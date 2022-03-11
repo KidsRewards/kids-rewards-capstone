@@ -1,6 +1,6 @@
 package com.codeup.kidsrewardscapstone;
 
-import com.codeup.kidsrewardscapstone.services.AdminDetailsLoader;
+import com.codeup.kidsrewardscapstone.services.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,10 +13,10 @@ import org.springframework.test.context.event.annotation.BeforeTestExecution;
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private AdminDetailsLoader adminsLoader;
+    private UserDetailsLoader usersLoader;
 
-    public SecurityConfiguration(AdminDetailsLoader adminsLoader){
-        this.adminsLoader = adminsLoader;
+    public SecurityConfiguration(UserDetailsLoader usersLoader){
+        this.usersLoader = usersLoader;
     }
 
     @Bean
@@ -27,7 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth
-                .userDetailsService(adminsLoader) //how to find admins by their username
+                .userDetailsService(usersLoader) //how to find admins by their username
                 .passwordEncoder(passwordEncoder()); //how to encode and verify passwords
     }
 
@@ -54,7 +54,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(
-                        "/admins/index", // only authenticated users can create posts
+                        "admins/index", // only authenticated users can create posts
                         "/posts/{id}/edit"// only authenticated users can edit posts
                 )
                 .authenticated()
