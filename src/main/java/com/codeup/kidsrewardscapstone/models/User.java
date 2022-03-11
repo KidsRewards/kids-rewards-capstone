@@ -18,14 +18,16 @@ public class User {
     private String username;
 
     @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
     private long pointsTotal;
 
-    @ManyToOne
-    @JoinColumn(name="admin_id")
-    private Admin admin;
+    @Column(nullable = false)
+    private Boolean isParent;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Task> tasks;
@@ -36,41 +38,53 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<WishItem> wishItems;
 
-    public User(){}
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="users_families",
+            joinColumns = {@JoinColumn(name="user_id")},
+            inverseJoinColumns = {@JoinColumn(name="family_id")}
+    )
+    private List<Family> families;
 
-    public User(long id, String username, String password, Admin admin) {
+    public User(){};
+
+    public User(long id, String username, String email, String password, long pointsTotal) {
         this.id = id;
         this.username = username;
-        this.password = password;
-        this.admin = admin;
-    }
-
-    public User(String username, String password, Admin admin) {
-        this.username = username;
-        this.password = password;
-        this.admin = admin;
-    }
-
-    public User(long id, String username, String password, long pointsTotal, Admin admin, List<Task> tasks, List<Reward> rewards, List<WishItem> wishItems) {
-        this.id = id;
-        this.username = username;
+        this.email = email;
         this.password = password;
         this.pointsTotal = pointsTotal;
-        this.admin = admin;
+    }
+
+    public User(long id, String username) {
+        this.id = id;
+        this.username = username;
+    }
+
+    public User(long id, String username, String email, String password, long pointsTotal, Boolean isParent, List<Task> tasks, List<Reward> rewards, List<WishItem> wishItems, List<Family> families) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.pointsTotal = pointsTotal;
+        this.isParent = isParent;
         this.tasks = tasks;
         this.rewards = rewards;
         this.wishItems = wishItems;
+        this.families = families;
     }
 
     public User(User copy){
         id = copy.id;
         username = copy.username;
+        email = copy.email;
         password = copy.password;
         pointsTotal = copy.pointsTotal;
-        admin = copy.admin;
+        isParent = copy.isParent;
         tasks = copy.tasks;
         rewards = copy.rewards;
         wishItems = copy.wishItems;
+        families = copy.families;
     }
 
     public long getId() {
@@ -89,6 +103,14 @@ public class User {
         this.username = username;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -97,11 +119,51 @@ public class User {
         this.password = password;
     }
 
-    public Admin getAdmin() {
-        return admin;
+    public long getPointsTotal() {
+        return pointsTotal;
     }
 
-    public void setAdmin(Admin admin) {
-        this.admin = admin;
+    public void setPointsTotal(long pointsTotal) {
+        this.pointsTotal = pointsTotal;
+    }
+
+    public Boolean getParent() {
+        return isParent;
+    }
+
+    public void setParent(Boolean parent) {
+        isParent = parent;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public List<Reward> getRewards() {
+        return rewards;
+    }
+
+    public void setRewards(List<Reward> rewards) {
+        this.rewards = rewards;
+    }
+
+    public List<WishItem> getWishItems() {
+        return wishItems;
+    }
+
+    public void setWishItems(List<WishItem> wishItems) {
+        this.wishItems = wishItems;
+    }
+
+    public List<Family> getFamilies() {
+        return families;
+    }
+
+    public void setFamilies(List<Family> families) {
+        this.families = families;
     }
 }

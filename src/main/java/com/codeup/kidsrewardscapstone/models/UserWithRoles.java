@@ -6,10 +6,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-public class AdminWithRoles extends Admin implements UserDetails {
+public class UserWithRoles extends User implements UserDetails {
 
-    public AdminWithRoles(Admin admin) {
-        super(admin);  // Call the copy constructor defined in Admin
+    public UserWithRoles(User user) {
+        super(user);  // Call the copy constructor defined in Admin
     }
 
     @Override
