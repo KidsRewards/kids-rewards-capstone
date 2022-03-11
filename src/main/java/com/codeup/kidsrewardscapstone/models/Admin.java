@@ -51,7 +51,7 @@ public class Admin {
         username = copy.username;
         email = copy.email;;
         password = copy.password;
-        users = copy.users;
+//        users = copy.users;
     }
 
     public long getId() {

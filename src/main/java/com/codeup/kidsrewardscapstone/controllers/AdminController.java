@@ -32,4 +32,6 @@ public class AdminController {
         adminDao.save(admin);
         return "redirect:/login";
     }
+
+
 }
