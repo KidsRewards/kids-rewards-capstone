@@ -12,6 +12,17 @@
 
 <!--Thymeleaf action syntax-->
 <form th:action="@{/rewards/{id}/edit (id = ${rewardToEdit.getId()})}" th:method="POST" th:object="${rewardToEdit}">
+    <p>Icon</p>
+    <select th:field="*{icon}" name="icon" th:value="${rewardToEdit.getIcon()}">Icon
+        <option value="icon1">Icon 1</option>
+        <option value="icon2">Icon 2</option>
+        <option value="icon3">Icon 3</option>
+        <option value="icon4">Icon 4</option>
+        <option value="icon5">Icon 5</option>
+    </select>
+    <br>
+    <br>
+
     <div class="form-group">
         <label for="title">Title</label>
         <input type="text" class="form-control" id="title" name="title" th:value="${rewardToEdit.getTitle()}" th:fields="*{title}">
@@ -22,6 +33,13 @@
         <!--Textarea elements do not have a value attribute, so we will represent the body using the th:text-->
         <textarea class="form-control" id="body" rows="3" name="body" th:text="${rewardToEdit.getBody()}" th:field="*{body}"></textarea>
     </div>
+
+    <div class="form-group">
+        <label for="points">Points</label>
+        <!--Textarea elements do not have a value attribute, so we will represent the body using the th:text-->
+        <textarea class="form-control" id="points" rows="3" name="points" th:text="${rewardToEdit.getPoints()}" th:field="*{points}"></textarea>
+    </div>
+
     <button type="submit">Submit</button>
 </form>
 <!-- Scripts -->

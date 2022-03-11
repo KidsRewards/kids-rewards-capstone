@@ -18,3 +18,5 @@ VALUES
     ('Title 6', 'Body 6', 'https://via.placeholder.com/150
 
 C/O https://placeholder.com/', 10);
+
+DESCRIBE rewards;
