@@ -23,10 +23,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column
     private long pointsTotal;
 
-    @Column(nullable = false)
+    @Column
     private Boolean isParent;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -165,16 +165,5 @@ public class User {
 
     public void setFamilies(List<Family> families) {
         this.families = families;
-    }
-
-    @ManyToOne(optional = false)
-    private Status statuses;
-
-    public Status getStatuses() {
-        return statuses;
-    }
-
-    public void setStatuses(Status statuses) {
-        this.statuses = statuses;
     }
 }
