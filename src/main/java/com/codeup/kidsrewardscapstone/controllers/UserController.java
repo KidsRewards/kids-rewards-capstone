@@ -22,7 +22,7 @@ public class UserController {
     @GetMapping("/users")
     public String showUsers(Model model) {
         model.addAttribute("allUsers", usersDao.findAll());
-        return "users/reward";
+        return "users/index";
     }
 
     @GetMapping("/sign-up")
