@@ -18,11 +18,7 @@
     <input id="password" type="password" th:field="*{password}" />
 
     <label for="isParent">Are you a parent?</label>
-    <input type="checkbox" id="isParent" name="isPresent" value="false"  th:checked="${false}"/>
-
-<!--    <input type="checkbox" name="isParent" id="isParent"/>-->
-<!--    <input type="hidden" name="isParent" value="false"/>-->
-<!--    <input type="checkbox" id="isParent" name="isParent" th:checked="${isParent}"/>-->
+    <input type="checkbox" id="isParent" th:field="*{parent}" value="*{parent}"/>
 
     <input value="Register!" type="submit" />
 </form>
