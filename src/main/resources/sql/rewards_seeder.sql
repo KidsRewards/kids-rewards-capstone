@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS kidsrewards_db;
+
 CREATE DATABASE IF NOT EXISTS kidsrewards_db;
 
 CREATE USER IF NOT EXISTS kidsrewards_user@localhost IDENTIFIED BY 'p@$$w0rd';
