@@ -61,16 +61,16 @@ public class Status {
     }
 
 //    added for USER in Taskcontroller
-@ManyToOne
-@JoinColumn(name = "admin")
-private User user;
-
-    public User getUser() {
-        return user ;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
+//@OneToMany(mappedBy = "statuses")
+//@JoinColumn(name = "id")
+//private User user;
+//
+//    public User getUser() {
+//        return user ;
+//    }
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 //for USER in taskController
 
 }
