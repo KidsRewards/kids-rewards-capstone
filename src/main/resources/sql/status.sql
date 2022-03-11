@@ -4,7 +4,7 @@ USE kidsrewards_db;
 # VALUES ('Pending', 'Approved', 'Rejected');
 
 
-INSERT INTO statuses(id, statusDesc)
+INSERT INTO statuses(id, status_desc)
 VALUES
         (1, 'Pending'),
        (2, 'Approved'),

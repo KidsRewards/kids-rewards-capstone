@@ -5,9 +5,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tasks")
 public class Task {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false)
+    private String icon;
 
     @Column(nullable = false)
     private String title;
@@ -60,7 +64,12 @@ public class Task {
 //        user = copy.user;
 //        status = copy.status;
 //    }
-
+public Task(String icon, String title, String description, long points) {
+    this.icon = icon;
+    this.title = title;
+    this.description = description;
+    this.points = points;
+}
     public long getId() {
         return id;
     }
@@ -80,11 +89,6 @@ public class Task {
     public String getDescription() {
         return description;
     }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public long getPoints() {
         return points;
     }
@@ -116,4 +120,27 @@ public class Task {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    @ManyToOne(optional = false)
+    private Status statuses;
+
+    public Status getStatuses() {
+        return statuses;
+    }
+    public void setStatuses(Status statuses) {
+        this.statuses = statuses;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }
