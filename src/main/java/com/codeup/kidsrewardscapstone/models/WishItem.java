@@ -27,6 +27,11 @@ public class WishItem {
     public WishItem() {
     }
 
+    public WishItem(String title, String body) {
+        this.title = title;
+        this.body = body;
+    }
+
     public WishItem(long id, String title, String body, Status status, User user) {
         this.id = id;
         this.title = title;
