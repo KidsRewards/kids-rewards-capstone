@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Sign up</title>
-    <th:block th:include="partials/bootstrap :: styling"></th:block>
+<!--    <th:block th:include="partials/bootstrap :: styling"></th:block>-->
 </head>
 <body>
 <h1>Create an account</h1>
@@ -17,8 +17,11 @@
     <label for="password">Password</label>
     <input id="password" type="password" th:field="*{password}" />
 
-    <input value="Sign me up!" type="submit" />
+    <label for="isParent">Are you a parent?</label>
+    <input type="checkbox" id="isParent" th:field="*{parent}" value="*{parent}"/>
+
+    <input value="Register!" type="submit" />
 </form>
-<th:block th:replace="partials/bootstrap :: scripts"></th:block>
+<!--<th:block th:replace="partials/bootstrap :: scripts"></th:block>-->
 </body>
 </html>

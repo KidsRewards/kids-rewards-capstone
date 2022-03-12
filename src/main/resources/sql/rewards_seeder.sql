@@ -15,10 +15,3 @@ VALUES
        ('Title 4', 'Body 4', 'icon4 filepath', 25),
        ('Title 5', 'Body 5', 'icon5 filepath', 30);
 
-INSERT INTO rewards(title, body, icon, points)
-VALUES
-    ('Title 6', 'Body 6', 'https://via.placeholder.com/150
-
-C/O https://placeholder.com/', 10);
-
-DESCRIBE rewards;
