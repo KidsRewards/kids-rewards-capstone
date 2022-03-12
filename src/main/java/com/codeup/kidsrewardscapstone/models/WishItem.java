@@ -79,14 +79,5 @@ public class WishItem {
     public void setUser(User user) {
         this.user = user;
     }
-    @ManyToOne(optional = false)
-    private Status statuses;
 
-    public Status getStatuses() {
-        return statuses;
-    }
-
-    public void setStatuses(Status statuses) {
-        this.statuses = statuses;
-    }
 }
