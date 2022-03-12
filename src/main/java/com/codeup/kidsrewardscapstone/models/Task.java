@@ -54,6 +54,14 @@ public class Task {
         this.user = user;
         this.status = status;
     }
+    public Task(String title, String description, long points, long due_date, User user) {
+        this.title = title;
+        this.description = description;
+        this.points = points;
+        this.due_date = due_date;
+        this.user = user;
+      
+    }
 
 //    public Task(Task copy) {
 //        id = copy.id;
@@ -121,15 +129,6 @@ public Task(String icon, String title, String description, long points) {
         this.status = status;
     }
 
-    @ManyToOne(optional = false)
-    private Status statuses;
-
-    public Status getStatuses() {
-        return statuses;
-    }
-    public void setStatuses(Status statuses) {
-        this.statuses = statuses;
-    }
 
     public String getIcon() {
         return icon;

@@ -21,9 +21,10 @@ public class TaskController {
     private TaskRepository taskDao;
     private UserRepository usersDao;
 
-    public TaskController(StatusRepository statusDao, TaskRepository taskDao) {
+    public TaskController(StatusRepository statusDao, TaskRepository taskDao, UserRepository usersDao) {
         this.statusDao = statusDao;
         this.taskDao = taskDao;
+        this.usersDao = usersDao;
     }
     @GetMapping("/tasks")
     public String viewTasks(Model model) {
