@@ -11,10 +11,35 @@
             <h1 style="text-align: center">Welcome ADMIN PLACEHOLDER NAME!</h1>
         </header>
         <nav th:replace="partials/rewards :: navbar"></nav>
-        <h2 style="text-align: center">What would you like to do?</h2>
-        <p>Option 1</p>
-        <p>Option 2</p>
-        <p>Option 3</p>
+
+        <div class="container">
+<!--            <h2>What would you like to do?</h2>-->
+
+            <form th:action="@{/rewards/index}" th:method="POST" th:object="${newReward}">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"><h2>What would you like to do?</h2></label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>View Rewards</option>
+                        <option>Add Rewards</option>
+<!--                        <option>Edit Rewards</option>-->
+<!--                        <option>Delete Rewards</option>-->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2"><h2>Select User(s)</h2></label>
+                    <small class="form-text text-muted">Hold down CTRL(Command for Mac) + click to select multiple users.</small>
+                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                        <option>John</option>
+                        <option>Jane</option>
+                        <option>Sam</option>
+                        <option>Jenny</option>
+                        <option>Pablo</option>
+                    </select>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
 
         <th:block th:replace="partials/bootstrap :: scripts"></th:block>
     </body>
