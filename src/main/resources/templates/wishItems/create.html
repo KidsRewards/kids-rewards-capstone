@@ -9,8 +9,9 @@
     <title>Add a WishItem for PLACEHOLDER</title>
 </head>
 <body>
+<nav th:replace="partials/wishitems :: navbar"></nav>
 <div class="container">
-    <h1 style="text-align: center">Add a WishItem for <span>PLACEHOLDER</span></h1>
+    <h1 style="text-align: center">Add a Wish Item for <span>PLACEHOLDER</span></h1>
 
     <form th:action="@{/wishitems/create}" th:method="POST" th:object="${newWishitem}">
         <br>
