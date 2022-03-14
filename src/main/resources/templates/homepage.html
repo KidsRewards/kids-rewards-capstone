@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/bootstrap :: styling">
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1 class="text-center">KidsRewards</h1>
+    <nav th:replace="partials/navbar :: navbar"></nav>
+    <a href="/sign-up" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Register</a>
+    <br>
+    <a href="/login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>
+
+  <footer th:replace="partials/bootstrap :: scripts"></footer>
+</body>
+</html>
