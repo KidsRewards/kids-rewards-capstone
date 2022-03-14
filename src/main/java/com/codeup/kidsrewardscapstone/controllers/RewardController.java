@@ -20,9 +20,15 @@ public class RewardController {
         this.usersDao = usersDao;
     }
 
+//    @GetMapping("/rewards")
+//    public String viewRewards(Model model) {
+//        model.addAttribute("allRewards", rewardsDao.findAll());
+//        return "rewards/index";
+//    }
+
     @GetMapping("/rewards")
-    public String viewRewards(Model model) {
-        model.addAttribute("allRewards", rewardsDao.findAll());
+    public String home(Model model) {
+//        model.addAttribute("allRewards", rewardsDao.findAll());
         return "rewards/index";
     }
 
@@ -73,5 +79,11 @@ public class RewardController {
     public String delete(@PathVariable long id) {
         rewardsDao.deleteById(id);
         return "redirect:/rewards";
+    }
+
+    @GetMapping("/rewards/user-rewards-all")
+    public String viewRewards(Model model) {
+        model.addAttribute("allRewards", rewardsDao.findAll());
+        return "rewards/user-rewards-all";
     }
 }// END class

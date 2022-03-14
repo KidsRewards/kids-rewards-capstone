@@ -9,6 +9,7 @@
     <title>Single Reward</title>
 </head>
 <body>
+<nav th:replace="partials/rewards :: navbar"></nav>
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title" th:text="${singleReward.getTitle()}">Card title</h5>

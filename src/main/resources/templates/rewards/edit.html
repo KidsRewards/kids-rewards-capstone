@@ -9,7 +9,7 @@
     <title>Edit a Reward for PLACEHOLDER</title>
 </head>
 <body>
-
+<nav th:replace="partials/rewards :: navbar"></nav>
 <!--Thymeleaf action syntax-->
 <form th:action="@{/rewards/{id}/edit (id = ${rewardToEdit.getId()})}" th:method="POST" th:object="${rewardToEdit}">
     <p>Icon</p>
