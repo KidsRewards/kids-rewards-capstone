@@ -13,6 +13,9 @@ public class Status {
     @Column(nullable = false)
     private String statusDesc;
 
+    @Column(nullable = false)
+    private String user;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "status")
     private List<Task> tasks;
 
@@ -25,7 +28,11 @@ public class Status {
         this.id = id;
         this.statusDesc = statusDesc;
     }
-
+    public Status(Long id, String statusDesc, String user) {
+        this.id = id;
+        this.statusDesc = statusDesc;
+        this.user = user;
+    }
     public Status(Long id, String statusDesc, List<Task> tasks, List<WishItem> wishItems) {
         this.id = id;
         this.statusDesc = statusDesc;
@@ -59,6 +66,14 @@ public class Status {
     public void setStatusDesc(String statusDesc) {
         this.statusDesc = statusDesc;
     }
+
+    public String getUser() {
+        return user;
+    }
+    public void setUser(String user){
+        this.user = user;
+    }
+
 
 //    added for USER in Taskcontroller
 //@OneToMany(mappedBy = "statuses")

@@ -10,29 +10,38 @@
     <title>Edit a Task for PLACEHOLDER</title>
 </head>
 <body>
-
+<nav th:replace="partials/navbar:: navbar"></nav>
 <!--Thymeleaf action syntax-->
-<form th:action="@{/tasks/{id}/edit (id = ${taskToEdit.getId()})}" th:method="POST" th:object="${taskToEdit}">
+<form th:action="@{/task/{id}?edit =(id == ${tasktoEdit.getId()})}" th:method="POST" th:object="${tasktoEdit}">
+
+    <div class="form-group">
+        <label for="title">Tasks</label>
+        <input type="text" class="form-control" id="title" name="title" th:value="${tasktotEdit.getTitle()}" th:fields="*{title}">
+    </div>
+    <input type="hidden" th:value="${tasktoEdit.getId()}" th:field="*{id}">
     <p>Icon</p>
-    <select th:field="*{icon}" name="icon" th:value="${taskToEdit.getIcon()}">Icon
-        <option value="icon1">Icon 1</option>
-        <option value="icon2">Icon 2</option>
-        <option value="icon3">Icon 3</option>
-        <option value="icon4">Icon 4</option>
-        <option value="icon5">Icon 5</option>
-    </select>
+
+    <label>
+        <select th:field="*{icon}" name="icon" th:value="${tasktoEdit.getIcon()}">Icon
+            <option value="icon1">Icon 1</option>
+            <option value="icon2">Icon 2</option>
+            <option value="icon3">Icon 3</option>
+            <option value="icon4">Icon 4</option>
+            <option value="icon5">Icon 5</option>
+        </select>
+    </label>
     <br>
     <br>
 
     <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" th:value="${taskToEdit.getTitle()}" th:fields="*{title}">
+        <input type="text" class="form-control"  name="title" th:value="${tasktoEdit.getId()}" th:fields="*{id}">
     </div>
-    <input type="hidden" th:value="${taskToEdit.getId()}" th:field="*{id}">
+    <input type="hidden" th:value="${tasktoEdit.getId()}" th:field="*{id}">
     <div class="form-group">
-        <label for="body">Body</label>
+        <label for="body">Description</label>
         <!--Textarea elements do not have a value attribute, so we will represent the body using the th:text-->
-        <textarea class="form-control" id="body" rows="3" name="body" th:text="${taskToEdit.getDescription()}" th:field="*{description}"></textarea>
+        <textarea class="form-control" id="body" rows="3" name="body" th:text="${tasktoEdit.getDescription()}" th:field="*{description}"></textarea>
     </div>
 
     <div class="form-group">

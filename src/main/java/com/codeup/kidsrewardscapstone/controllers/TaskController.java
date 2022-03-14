@@ -26,6 +26,7 @@ public class TaskController {
         this.taskDao = taskDao;
         this.usersDao = usersDao;
     }
+
     @GetMapping("/tasks")
     public String viewTasks(Model model) {
         model.addAttribute("allTasks", taskDao.findAll());
@@ -63,26 +64,25 @@ public class TaskController {
     }
 
     @GetMapping("/tasks/{id}/edit")
-    public String showEditRewardForm(@PathVariable long id, Model model) {
+    public String showEditTaskForm(@PathVariable long id, Model model) {
         model.addAttribute("rewardToEdit", taskDao.getById(id));
         return "tasks/edit";
     }
 
     @PostMapping("/tasks/{id}/edit")
-    public String submitRewardToEdit(@ModelAttribute Task taskToEdit, @PathVariable long id) {
-        taskToEdit.setUser(usersDao.getById(1L));
-        taskDao.save(taskToEdit);
-        return "redirect:/tasks/" + id;
+    public String submitTaskToEdit(@ModelAttribute Task tasktoEdit, @PathVariable long id) {
+//        tasktoEdit.setUser(usersDao.getById(1L));
+        if (taskDao.getById(id).getUser().getId() == ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId()) {
+            tasktoEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+            taskDao.save(tasktoEdit);
+        }
+            return "redirect:/tasks";
     }
-
-    @GetMapping("/tasks/{id}/delete")
-    public String delete(@PathVariable long id) {
-        taskDao.deleteById(id);
-        return "redirect:/tasks";
-    }
-
-}
-
+        @GetMapping("/tasks/{id}/delete")
+        public String delete (@PathVariable long id) {
+            taskDao.deleteById(id);
+            return "redirect:/tasks";
+        }
 //    @GetMapping("/tasks")
 //    public String showTasks(Model model) {
 //        model.addAttribute("task", new Task());
@@ -95,26 +95,26 @@ public class TaskController {
 
 
 //
-//@GetMapping("/statuses/{id}/edit")
-//public String showEditStatus(@PathVariable long id, Model model) {
-//    Status statusToEdit = statusDao.getById(id);
-//    User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+@GetMapping("/statuses/{id}/edit")
+public String showEditStatus(@PathVariable long id, Model model) {
+    Status statusToEdit = statusDao.getById(id);
+    User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //    if (statusToEdit.getUser().getId() == loggedInUser.getId()) {
-//        model.addAttribute("statusToEdit", statusToEdit);
-//        return "statuses/edit";
+        model.addAttribute("statusToEdit", statusToEdit);
+        return "statuses/edit";
 //    } else {
-//        return "redirect:/status";//?? or redirect tasks??
+//        return "redirect:/statuses";//?? or redirect tasks??
 //    }
-//}
+}
+}
 //    //to show the edit of status?
 //    @PostMapping("/statuses/{id}/edit")
 //    public String submitEdit(@ModelAttribute Status statusToEdit, @PathVariable long id) {
-//        if (statusDao.getById(id).getUser().getId() == ((User) SecurityContextHolder.getContext()
-//                .getAuthentication().getPrincipal()).getId()) {
-//            statusToEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+////        if (statusDao.getById(id).getUser().getId() == ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId()) {
+////            statusToEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 //
 //            statusDao.save(statusToEdit);
 //        }
 //        return "redirect:/status";
-//    }
+////    }
 //}
