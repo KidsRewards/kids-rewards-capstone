@@ -10,22 +10,22 @@
 </head>
 <body>
 
-<!--&lt;!&ndash;Thymeleaf action syntax&ndash;&gt;-->
-<!--<form th:action="@{/wishitems/{id}/edit (id = ${wishItemToEdit.getId()})}" th:method="POST" th:object="${wishItemToEdit}">-->
+<!--Thymeleaf action syntax-->
+<form th:action="@{/wishitems/{id}/edit (id = ${wishItemToEdit.getId()})}" th:method="POST" th:object="${wishItemToEdit}">
 
     <br>
     <br>
 
-<!--    <div class="form-group">-->
-<!--        <label for="title">Title</label>-->
-<!--        <input type="text" class="form-control" id="title" name="title" th:value="${wishItemToEdit.getTitle()}" th:fields="*{title}">-->
-<!--    </div>-->
-<!--    <input type="hidden" th:value="${wishItemToEdit.getId()}" th:field="*{id}">-->
-<!--    <div class="form-group">-->
-<!--        <label for="body">Body</label>-->
-<!--        &lt;!&ndash;Textarea elements do not have a value attribute, so we will represent the body using the th:text&ndash;&gt;-->
-<!--        <textarea class="form-control" id="body" rows="3" name="body" th:text="${wishItemToEdit.getBody()}" th:field="*{body}"></textarea>-->
-<!--    </div>-->
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" th:value="${wishItemToEdit.getTitle()}" th:fields="*{title}">
+    </div>
+    <input type="hidden" th:value="${wishItemToEdit.getId()}" th:field="*{id}">
+    <div class="form-group">
+        <label for="body">Body</label>
+        <!--Textarea elements do not have a value attribute, so we will represent the body using the th:text-->
+        <textarea class="form-control" id="body" rows="3" name="body" th:text="${wishItemToEdit.getBody()}" th:field="*{body}"></textarea>
+    </div>
 
     <button type="submit">Submit</button>
 </form>

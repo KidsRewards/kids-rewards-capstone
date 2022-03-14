@@ -1,6 +1,5 @@
 package com.codeup.kidsrewardscapstone.controllers;
 
-import com.codeup.kidsrewardscapstone.models.Reward;
 import com.codeup.kidsrewardscapstone.models.WishItem;
 import com.codeup.kidsrewardscapstone.repositories.WishItemRepository;
 import org.springframework.stereotype.Controller;
@@ -23,12 +22,12 @@ public class WishItemController {
 
     @GetMapping("/wishitems/{id}")
     public String showWishItems(@PathVariable long id, Model model) {
-        model.addAttribute("Wishitems", wishitemsDao.getById(id));
+        model.addAttribute("singleWishitem", wishitemsDao.getById(id));
         return "wishitems/show";
     }
 
     @GetMapping("/wishitems/create")
-    public String showCreate(Model model) {
+    public String showCreateForm(Model model) {
         model.addAttribute("newWishitem", new WishItem());
         return "wishitems/create";
     }
@@ -38,25 +37,25 @@ public class WishItemController {
             @RequestParam(name = "title") String title,
             @RequestParam(name = "body") String body
     ) {
-        WishItem WishItem = new WishItem();
-        WishItem.setTitle(title);
-        WishItem.setBody(body);
+        WishItem wishItem = new WishItem();
+        wishItem.setTitle(title);
+        wishItem.setBody(body);
 
-        wishitemsDao.save(WishItem);
+        wishitemsDao.save(wishItem);
         return "redirect:/wishitems";
     }
 
     @GetMapping("/wishitems/{id}/edit")
     public String showEditWishItems(@PathVariable long id, Model model) {
-        model.addAttribute("rewardToEdit", wishitemsDao.getById(id));
+        model.addAttribute("wishItemToEdit", wishitemsDao.getById(id));
         return "wishitems/edit";
     }
 
     @PostMapping("/wishitems/{id}/edit")
     public String submitWishItemToEdit(@ModelAttribute WishItem wishItemToEdit, @PathVariable long id) {
-//        rewardToEdit.setUser(usersDao.getById(1L));
+
         wishitemsDao.save(wishItemToEdit);
-        return "redirect:/wishitems/" + id;
+        return "redirect:/wishitems";
     }
 
     @GetMapping("/wishitems/{id}/delete")
