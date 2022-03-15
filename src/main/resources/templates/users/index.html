@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="partials/bootstrap :: styling">
+    <meta charset="UTF-8">
+    <title>Welcome!</title>
+</head>
+<body>
+<h1>Welcome</h1>
+<a href="/createfamily" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Create Family</a>
+<a href="/rewards" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Reward Store</a>
+<footer th:replace="partials/bootstrap :: scripts"></footer>
+</body>
+</html>
