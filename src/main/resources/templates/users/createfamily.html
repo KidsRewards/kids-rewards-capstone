@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Family</title>
+</head>
+<body>
+    <h1>Create A Family</h1>
+    <form th:action="@{/createfamily}" method="Post" th:object="${family}">
+        <label for="name">Family Name</label>
+        <input id="name" th:field="*{name}" />
+    </form>
+</body>
+</html>

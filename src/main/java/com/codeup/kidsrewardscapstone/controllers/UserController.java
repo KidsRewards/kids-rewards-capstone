@@ -1,5 +1,6 @@
 package com.codeup.kidsrewardscapstone.controllers;
 
+import com.codeup.kidsrewardscapstone.models.Family;
 import com.codeup.kidsrewardscapstone.models.User;
 import com.codeup.kidsrewardscapstone.repositories.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,13 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
     private UserRepository usersDao;
     private PasswordEncoder passwordEncoder;
+//    private FamilyReposity familiesDao;
 
     public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
         this.usersDao = userDao;
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/users")
+    @GetMapping("/index")
     public String showUsers(Model model) {
         model.addAttribute("allUsers", usersDao.findAll());
         return "users/index";
@@ -38,5 +40,6 @@ public class UserController {
         usersDao.save(user);
         return "redirect:/login";
     }
+
 }
 

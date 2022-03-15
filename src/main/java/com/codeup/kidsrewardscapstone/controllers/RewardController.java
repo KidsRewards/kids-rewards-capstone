@@ -28,7 +28,7 @@ public class RewardController {
 
     @GetMapping("/rewards")
     public String home(Model model) {
-//        model.addAttribute("allRewards", rewardsDao.findAll());
+        model.addAttribute("allRewards", rewardsDao.findAll());
         return "rewards/index";
     }
 
@@ -44,20 +44,27 @@ public class RewardController {
         return "rewards/create";
     }
 
-    @PostMapping("/rewards/create")
-    public String create(
-            @RequestParam(name = "icon") String icon,
-            @RequestParam(name = "title") String title,
-            @RequestParam(name = "body") String body,
-            @RequestParam(name = "points") Long points
-    ) {
-        Reward reward = new Reward();
-        reward.setIcon(icon);
-        reward.setTitle(title);
-        reward.setBody(body);
-        reward.setPoints(points);
+//    @PostMapping("/rewards/create")
+//    public String create(
+//            @RequestParam(name = "icon") String icon,
+//            @RequestParam(name = "title") String title,
+//            @RequestParam(name = "body") String body,
+//            @RequestParam(name = "points") Long points
+//    ) {
+//        Reward reward = new Reward();
+//        reward.setIcon(icon);
+//        reward.setTitle(title);
+//        reward.setBody(body);
+//        reward.setPoints(points);
+//
+//        rewardsDao.save(reward);
+//        return "redirect:/rewards";
+//    }
 
-        rewardsDao.save(reward);
+    @PostMapping("/rewards/create")
+    public String createReward(@ModelAttribute Reward newReward){
+        newReward.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        rewardsDao.save(newReward);
         return "redirect:/rewards";
     }
 
@@ -85,5 +92,10 @@ public class RewardController {
     public String viewRewards(Model model) {
         model.addAttribute("allRewards", rewardsDao.findAll());
         return "rewards/user-rewards-all";
+    }
+
+    @GetMapping("/rewards/index")
+    public String showRewardStore(Model model){
+        return "rewards/show";
     }
 }// END class
