@@ -52,4 +52,5 @@ public class Family {
     public void setUsers(List<User> users) {
         this.users = users;
     }
+
 }
