@@ -63,5 +63,12 @@ public class WishItemController {
         wishitemsDao.deleteById(id);
         return "redirect:/wishitems";
     }
-}
+
+    @GetMapping("/wishitems/user-wishitems-all")
+    public String viewWishItems(Model model) {
+        model.addAttribute("allWishitems", wishitemsDao.findAll());
+        return "wishitems/user-wishitems-all";
+    }
+}// END class
+
 
