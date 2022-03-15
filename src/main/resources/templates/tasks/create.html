@@ -11,7 +11,9 @@
 <body>
 <div class="container">
     <h1 style="text-align: center">Add a Task for <span>PLACEHOLDER</span></h1>
-
+    <li class="nav-item active">
+        <a class="nav-link" href="http://localhost:8080/tasks/create"> <span class="sr-only">(current)</span></a>
+    </li>
     <form th:action="@{/tasks/create}" th:method="POST" th:object="${newTask}">
         <p>Icon</p>
         <select th:field="*{icon}" name="icon">Icon
