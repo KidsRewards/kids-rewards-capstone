@@ -8,39 +8,26 @@
 </head>
 <body>
 <header>
-  <h1 style="text-align: center">Welcome PLACEHOLDER NAME!</h1>
+<!--  <h1 style="text-align: center">Welcome PLACEHOLDER NAME!</h1>-->
 </header>
 <nav th:replace="partials/wishitems :: navbar"></nav>
 
-<div class="container">
-  <!--            <h2>What would you like to do?</h2>-->
+</head>
+<body>
+<h2 style="text-align: center">Here are the items in your Wish List:</h2>
 
-  <form th:action="@{/wishitems/index}" th:method="POST" th:object="${newWishitem}">
-    <div class="form-group">
-      <label for="exampleFormControlSelect1"><h2>What would you like to do?</h2></label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>View Wish Items</option>
-        <option>Add Wish Items</option>
-        <option>Edit Wish Items</option>
-        <option>Delete Wish Items</option>
-      </select>
+<div class="container d-flex justify-content-around">
+  <div th:each="wishItem : ${allWishitems}" class="d-flex card" style="width: 18rem; margin: 1em;">
+    <img src="..." class="card-img-top" alt="icon place holder image">
+    <div class="card-body">
+      <h5 th:text="${wishItem.title}" class="card-title"></h5>
+      <p th:text="${wishItem.body}" class="card-text"></p>
+      <p>WishItem ID: <span th:text="${wishItem.getId()}"></span></p>
+      <a th:href="@{/wishitems/{id}/edit (id=${wishItem.id})}" class="btn btn-success">Edit</a>
+      <a href="#" class="btn btn-danger">Delete</a>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect2"><h2>Select User(s)</h2></label>
-      <small class="form-text text-muted">Hold down CTRL(Command for Mac) + click to select multiple users.</small>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>John</option>
-        <option>Jane</option>
-        <option>Sam</option>
-        <option>Jenny</option>
-        <option>Pablo</option>
-      </select>
-    </div>
-    <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  </div>
 </div>
-
 <th:block th:replace="partials/bootstrap :: scripts"></th:block>
 </body>
 </html>

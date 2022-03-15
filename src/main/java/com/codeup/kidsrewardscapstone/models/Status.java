@@ -16,10 +16,6 @@ public class Status {
 //    @Column(nullable = false)
 //    private User user;
 
-    @ManyToOne
-    @JoinColumn(name="user")
-    private User user;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "status")
     private List<Task> tasks;
 
@@ -74,12 +70,12 @@ public class Status {
 //@JoinColumn(name = "id")
 //private User user;
 //
-    public User getUser() {
-        return user ;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user ;
+//    }
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 //for USER in taskController
 
 }
