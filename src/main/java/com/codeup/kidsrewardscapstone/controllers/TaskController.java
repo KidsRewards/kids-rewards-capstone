@@ -59,22 +59,11 @@ public class TaskController {
     }
 
     @PostMapping("/tasks/create")
-    public String create(
-            @RequestParam(name = "icon") String icon,
-            @RequestParam(name = "title") String title,
-            @RequestParam(name = "description") String description,
-            @RequestParam(name = "points") Long points
-    ) {
-        Task task = new Task();
-        task.setIcon(icon);
-        task.setTitle(title);
-        task.setDescription(description);
-        task.setPoints(points);
-//        reward.getId(rewardId);
-
-        taskDao.save(task);
-        return "redirect:/task";
-    }
+    public String create(@ModelAttribute Task newTask) {
+        newTask.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        taskDao.save(newTask);
+        return "redirect:/tasks";
+}
 
     @GetMapping("/tasks/{id}/edit")
     public String showEditTaskForm(@PathVariable long id, Model model) {
@@ -89,12 +78,12 @@ public class TaskController {
             tasktoEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
             taskDao.save(tasktoEdit);
         }
-            return "redirect:/task";
+            return "redirect:/tasks";
     }
         @GetMapping("/tasks/{id}/delete")
         public String delete (@PathVariable long id) {
             taskDao.deleteById(id);
-            return "redirect:/task";
+            return "redirect:/tasks";
         }
 
 
