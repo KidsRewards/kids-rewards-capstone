@@ -35,11 +35,18 @@ public class TaskController {
 
     @GetMapping("/tasks/{id}")
     public String taskDetails(@PathVariable long id, Model model) {
+        Task task = taskDao.getById(id);
+        boolean isTaskOwner = false;
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser"){
+            User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            isTaskOwner = loggedInUser.getId() == task.getUser().getId();
+        }
         model.addAttribute("singleTask", taskDao.getById(id));
+        model.addAttribute("isTaskOwner", isTaskOwner);
         return "tasks/show";
     }
 
-    //Learning that this was "ambiguous". i.e. more than 1 same mapping
+    //Learning that this was "ambiguous". i.e. more than 1 duplicate mapping
 //    @GetMapping("/tasks")
 //    public String showTasks(Model model) {
 //        model.addAttribute("task", new Task());
