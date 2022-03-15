@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<h1 style="text-align: center"><span></span> Tasks:</h1>
+<h1 style="text-align: center"><span>Task Index</span> Tasks:</h1>
 
 <div class="container d-flex justify-content-around">
     <div th:each="task : ${allTasks}" class="d-flex card" style="width: 18rem; margin: 1em;">
@@ -20,8 +20,9 @@
             <p th:text="${task.description}" class="card-text"></p>
             <p>Points: <span th:text="${task.points}"></span></p>
             <p>Reward ID: <span th:text="${task.getId()}"></span></p>
+<!--            <p>Status: <span th:text="${status.getId()}"></span></p>-->
 <!--            <a href="#" class="btn btn-success">Purchase</a>-->
-            <button onclick='remove()' class="btn btn-danger" >Delete</button>
+<!--            <button onclick='remove()' class="btn btn-danger" >Delete</button>-->
         </div>
     </div>
 </div>
