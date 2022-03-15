@@ -44,28 +44,12 @@ public class RewardController {
         return "rewards/create";
     }
 
-//    @PostMapping("/rewards/create")
-//    public String create(
-//            @RequestParam(name = "icon") String icon,
-//            @RequestParam(name = "title") String title,
-//            @RequestParam(name = "body") String body,
-//            @RequestParam(name = "points") Long points
-//    ) {
-//        Reward reward = new Reward();
-//        reward.setIcon(icon);
-//        reward.setTitle(title);
-//        reward.setBody(body);
-//        reward.setPoints(points);
-//
-//        rewardsDao.save(reward);
-//        return "redirect:/rewards";
-//    }
-
     @PostMapping("/rewards/create")
     public String createReward(@ModelAttribute Reward newReward){
-        newReward.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        newReward.setUser(loggedInUser);
         rewardsDao.save(newReward);
-        return "redirect:/rewards";
+        return "redirect:/rewards/user-rewards-all";
     }
 
     @GetMapping("/rewards/{id}/edit")
