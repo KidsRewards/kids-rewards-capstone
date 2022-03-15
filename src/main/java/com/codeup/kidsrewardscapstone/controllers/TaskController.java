@@ -90,7 +90,7 @@ public String taskDetails(@PathVariable long id, Model model) {
             return "redirect:/tasks";
         }
 
-
+}
 //  _____________ Status ____________//
 //@GetMapping("/statuses/{id}/edit")
 //public String showEditStatus(@PathVariable long id, Model model) {
