@@ -83,26 +83,26 @@ public class TaskController {
         newTask.setUser(taskUser);
 //        model.addAttribute("status", statusId);
         taskDao.save(newTask);
-        return "redirect:/tasks";
+        return "redirect:/index";
     }
 
     @GetMapping("/tasks/{id}/edit")
     public String showEditTaskForm(@PathVariable long id, Model model) {
-        Task tasktoEdit = taskDao.getById(id);
-        User loggeInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (tasktoEdit.getUser().getId() == loggeInUser.getId()) {
-            model.addAttribute("tasktoEdit", tasktoEdit);
+        Task task = taskDao.getById(id);
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (loggedInUser.getId() == task.getUser().getId()) {
+            model.addAttribute("task", task);
             return "tasks/edit";
         } else {
-            return "redirect:/tasks";
+            return "redirect:/tasks/";
         }
     }
     @PostMapping("/tasks/{id}/edit")
-    public String submitEditTask(@ModelAttribute Task tasktoEdit, @PathVariable long id) {
-        if (taskDao.getById(id).getUser().getId() == ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId()) {
-            tasktoEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-            taskDao.save(tasktoEdit);
-        }
+    public String submitEditTask(@ModelAttribute Task task, @PathVariable long id) {
+//        if (taskDao.getById(id).getUser().getId() == ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId()) {
+//            tasktoEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+           task.setUser(usersDao.getById(1L));
+            taskDao.save(task);
         return "redirect:/tasks";
     }
 
