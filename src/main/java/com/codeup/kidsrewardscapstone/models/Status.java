@@ -16,10 +16,6 @@ public class Status {
 //    @Column(nullable = false)
 //    private User user;
 
-//    @ManyToOne
-//    @JoinColumn(name="user")
-//    private User user;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "status")
     private List<Task> tasks;
 

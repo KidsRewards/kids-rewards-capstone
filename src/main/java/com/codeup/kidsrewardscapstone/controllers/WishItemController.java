@@ -1,7 +1,11 @@
 package com.codeup.kidsrewardscapstone.controllers;
 
+import com.codeup.kidsrewardscapstone.models.Reward;
+import com.codeup.kidsrewardscapstone.models.User;
 import com.codeup.kidsrewardscapstone.models.WishItem;
+import com.codeup.kidsrewardscapstone.repositories.UserRepository;
 import com.codeup.kidsrewardscapstone.repositories.WishItemRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,9 +13,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class WishItemController {
     private WishItemRepository wishitemsDao;
+    private UserRepository usersDao;
 
-    public WishItemController(WishItemRepository wishitemsDao) {
+
+    public WishItemController(WishItemRepository wishitemsDao, UserRepository usersDao) {
         this.wishitemsDao = wishitemsDao;
+        this.usersDao = usersDao;
     }
 
     @GetMapping("/wishitems")
@@ -32,16 +39,23 @@ public class WishItemController {
         return "wishitems/create";
     }
 
-    @PostMapping("/wishitems/create")
-    public String create(
-            @RequestParam(name = "title") String title,
-            @RequestParam(name = "body") String body
-    ) {
-        WishItem wishItem = new WishItem();
-        wishItem.setTitle(title);
-        wishItem.setBody(body);
+//    @PostMapping("/wishitems/create")
+//    public String create(
+//            @RequestParam(name = "title") String title,
+//            @RequestParam(name = "body") String body
+//    ) {
+//        WishItem wishItem = new WishItem();
+//        wishItem.setTitle(title);
+//        wishItem.setBody(body);
+//
+//        wishitemsDao.save(wishItem);
+//        return "redirect:/wishitems";
+//    }
 
-        wishitemsDao.save(wishItem);
+    @PostMapping("/wishitems/create")
+    public String createWishItem(@ModelAttribute WishItem newWishItem){
+        newWishItem.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        wishitemsDao.save(newWishItem);
         return "redirect:/wishitems";
     }
 
@@ -53,7 +67,7 @@ public class WishItemController {
 
     @PostMapping("/wishitems/{id}/edit")
     public String submitWishItemToEdit(@ModelAttribute WishItem wishItemToEdit, @PathVariable long id) {
-
+        wishItemToEdit.setUser(usersDao.getById(1L));
         wishitemsDao.save(wishItemToEdit);
         return "redirect:/wishitems";
     }
@@ -64,11 +78,11 @@ public class WishItemController {
         return "redirect:/wishitems";
     }
 
-    @GetMapping("/wishitems/user-wishitems-all")
-    public String viewWishItems(Model model) {
-        model.addAttribute("allWishitems", wishitemsDao.findAll());
-        return "wishitems/user-wishitems-all";
-    }
-}// END class
+//    @GetMapping("/wishitems/user-wishitems-all")
+//    public String viewWishItems(Model model) {
+//        model.addAttribute("allWishitems", wishitemsDao.findAll());
+//        return "wishitems/index";
+//    }
+}
 
 

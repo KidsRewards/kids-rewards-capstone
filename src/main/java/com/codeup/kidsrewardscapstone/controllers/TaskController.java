@@ -107,6 +107,7 @@ public class TaskController {
     }
 
 
+
     @GetMapping("/tasks/{id}/delete")
     public String delete(@PathVariable long id) {
         taskDao.deleteById(id);
@@ -115,22 +116,4 @@ public class TaskController {
 
 }
 
-
-//        return "redirect:/status";@GetMapping("/statuses/{id}/edit")
-//        public String showEditStatus(@PathVariable long id, Model model) {
-//            Status statusToEdit = statusDao.getById(id);
-//            User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//            if (statusToEdit.getUser().getId() == loggedInUser.getId()) {
-//                model.addAttribute("statusToEdit", statusToEdit);
-//                return "statuses/edit";
-//            } else {
-//                return "redirect:/statuses";//?? or redirect tasks??
-//            }
-//        }
-//
-//        //to show the edit of status?
-//        @PostMapping("/statuses/{id}/edit")
-//        public String submitEdit(@ModelAttribute Status statusToEdit, @Path
-//    }
-//}
 
