@@ -39,6 +39,12 @@ public class TaskController {
         return "tasks/show";
     }
 
+    //Learning that this was "ambiguous". i.e. more than 1 same mapping
+//    @GetMapping("/tasks")
+//    public String showTasks(Model model) {
+//        model.addAttribute("task", new Task());
+//        return "redirect:task/tasks";
+//    }
     @GetMapping("/tasks/create")
     public String showCreateForm(Model model) {
         model.addAttribute("newTask", new Task());
@@ -60,7 +66,7 @@ public class TaskController {
 //        reward.getId(rewardId);
 
         taskDao.save(task);
-        return "redirect:/tasks";
+        return "redirect:/task";
     }
 
     @GetMapping("/tasks/{id}/edit")
@@ -76,45 +82,36 @@ public class TaskController {
             tasktoEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
             taskDao.save(tasktoEdit);
         }
-            return "redirect:/tasks";
+            return "redirect:/task";
     }
         @GetMapping("/tasks/{id}/delete")
         public String delete (@PathVariable long id) {
             taskDao.deleteById(id);
-            return "redirect:/tasks";
+            return "redirect:/task";
         }
-//    @GetMapping("/tasks")
-//    public String showTasks(Model model) {
-//        model.addAttribute("task", new Task());
-//        return "tasks/task";
-//    }
-//
-//}
+
 
 //  _____________ Status ____________//
-
-
-//
 @GetMapping("/statuses/{id}/edit")
 public String showEditStatus(@PathVariable long id, Model model) {
     Status statusToEdit = statusDao.getById(id);
     User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//    if (statusToEdit.getUser().getId() == loggedInUser.getId()) {
+    if (statusToEdit.getUser().getId() == loggedInUser.getId()) {
         model.addAttribute("statusToEdit", statusToEdit);
         return "statuses/edit";
-//    } else {
-//        return "redirect:/statuses";//?? or redirect tasks??
-//    }
+    } else {
+        return "redirect:/statuses";//?? or redirect tasks??
+    }
 }
+
+    //to show the edit of status?
+    @PostMapping("/statuses/{id}/edit")
+    public String submitEdit(@ModelAttribute Status statusToEdit, @PathVariable long id) {
+        if (statusDao.getById(id).getUser().getId() == ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId()) {
+            statusToEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+
+          statusDao.save(statusToEdit);
+        }
+        return "redirect:/status";
+    }
 }
-//    //to show the edit of status?
-//    @PostMapping("/statuses/{id}/edit")
-//    public String submitEdit(@ModelAttribute Status statusToEdit, @PathVariable long id) {
-////        if (statusDao.getById(id).getUser().getId() == ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId()) {
-////            statusToEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-//
-//            statusDao.save(statusToEdit);
-//        }
-//        return "redirect:/status";
-////    }
-//}
