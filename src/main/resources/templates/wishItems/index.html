@@ -24,7 +24,7 @@
       <p th:text="${wishItem.body}" class="card-text"></p>
       <p>WishItem ID: <span th:text="${wishItem.getId()}"></span></p>
       <a th:href="@{/wishitems/{id}/edit (id=${wishItem.id})}" class="btn btn-success">Edit</a>
-      <a href="#" class="btn btn-danger">Delete</a>
+      <a th:href="@{/wishitems/{id}/delete (id=${wishItem.id})}" class="btn btn-danger">Delete</a>
     </div>
   </div>
 </div>
