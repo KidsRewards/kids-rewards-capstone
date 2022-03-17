@@ -22,7 +22,10 @@
             <p>Points: <span th:text="${reward.points}"></span></p>
             <p>Reward ID: <span th:text="${reward.getId()}"></span></p>
             <a href="#" class="btn btn-success">Purchase</a>
-            <a href="#" class="btn btn-danger">Delete</a>
+            <form th:action="@{/rewards/{id}/delete (id = ${reward.getId()})}">
+                <button class="btn btn-danger">Delete</button>
+            </form>
+<!--            <a href="@{/rewards/{id}/delete} (id = ${reward.getId()})" class="btn btn-danger">Delete</a>-->
         </div>
     </div>
 </div>

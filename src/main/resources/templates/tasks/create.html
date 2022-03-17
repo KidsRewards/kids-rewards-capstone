@@ -50,7 +50,13 @@
             <input type="text" class="form-control" id="points" name="points" th:field="*{points}">
         </div>
 
-        <button th:type="submit">Submit</button>
+<!--        Allows for the admin to view available statuses to choose from-->
+<!--        <span th:each="status : ${status}">-->
+<!--            <input type="checkbox" th:field="*{status}" th:id="genre + ${status.id}" th:value="${status.id}">-->
+<!--            <label th:for="status + ${status.id}" th:text="${status.statusDesc}"></label>-->
+<!--        </span>-->
+
+        <button type="submit">Submit</button>
     </form>
 </div>
 <!-- Scripts -->

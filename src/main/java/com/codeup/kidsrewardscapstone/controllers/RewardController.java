@@ -61,17 +61,18 @@ public class RewardController {
 
     @PostMapping("/rewards/{id}/edit")
     public String submitEdit(@ModelAttribute Reward rewardToEdit, @PathVariable long id) {
-
         rewardsDao.save(rewardToEdit);
         return "redirect:/rewards";
     }
 
+//    Grants the ability for the user to delete a reward if implemented in the html
     @GetMapping("/rewards/{id}/delete")
-    public String delete(@PathVariable long id) {
-        rewardsDao.deleteById(id);
-        return "redirect:/rewards";
+    public String deleteReward(@PathVariable long id) {
+        rewardsDao.delete(rewardsDao.getById(id));
+        return "redirect:/rewards/user-rewards-all";
     }
 
+//    Shows all rewards in the reward store, need to refactor to only show the rewards associated with single user
     @GetMapping("/rewards/user-rewards-all")
     public String viewRewards(Model model) {
         model.addAttribute("allRewards", rewardsDao.findAll());
