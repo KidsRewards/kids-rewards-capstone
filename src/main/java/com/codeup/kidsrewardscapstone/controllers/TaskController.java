@@ -68,16 +68,10 @@ public class TaskController {
             return "tasks/show";
         }
 
-
-    //Learning that this was "ambiguous". i.e. more than 1 duplicate mapping
-//    @GetMapping("/tasks")
-//    public String showTasks(Model model) {
-//        model.addAttribute("task", new Task());
-//        return "redirect:task/tasks";
-//    }
     @GetMapping("/tasks/create")
     public String showCreateForm(Model model) {
         model.addAttribute("newTask", new Task());
+        model.addAttribute("status", statusDao.findAll());
         return "tasks/create";
     }
 
@@ -85,7 +79,8 @@ public class TaskController {
     public String submitCreateForm(@ModelAttribute Task newTask) {
         User taskUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         newTask.setUser(taskUser);
-//        model.addAttribute("status", statusId);
+//        Adds a status of 1 to the task
+        newTask.setStatus(statusDao.getById(1L));
         taskDao.save(newTask);
         return "redirect:/tasks/index";
     }
