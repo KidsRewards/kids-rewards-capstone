@@ -9,26 +9,29 @@
     <title>Add a Task for PLACEHOLDER</title>
 </head>
 <body>
+<nav th:replace="partials/navbar:: navbar"></nav>
 <div class="container">
     <h1 style="text-align: center">Add a Task for <span>PLACEHOLDER</span></h1>
 
     <form th:action="@{/tasks/create}" th:method="POST" th:object="${newTask}">
         <p>Icon</p>
         <label>
-            <select th:field="*{icon}" name="icon" th:value="${task.getIcon()}">Icon
+            <select th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icon
                 <option value="icon1">Icon 1</option>
                 <option value="icon2">Icon 2</option>
                 <option value="icon3">Icon 3</option>
                 <option value="icon4">Icon 4</option>
                 <option value="icon5">Icon 5</option>
-                <option value="icon6">Custom</option>
+                <option  id="icon6" value="icon6">Custom</option>
             </select>
         </label>
         <!--    <div class="mb-2 mx-2">-->
         <!--        <form th:action="@{/tasks/index}" th:method="POST" id="submitAvatar">-->
         <input class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl">
-        <button type="button" class="btn btn-outline-secondary mb-3 whiteFont" id="open">Choose your 3D File
-        </button><span id="uploadMessage" class="mx-3"></span>
+            <button type="button" class="btn btn-outline-secondary mb-3 whiteFont" id="open">
+                Choose your 3D File
+            </button>
+        <span id="uploadMessage" class="mx-3"></span>
         <br>
 
 
@@ -47,10 +50,11 @@
             <input type="text" class="form-control" id="points" name="points" th:field="*{points}">
         </div>
 
-        <button type="submit">Submit</button>
+        <button th:type="submit">Submit</button>
     </form>
 </div>
 <!-- Scripts -->
+<script th:src="@{/js/main.js}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>

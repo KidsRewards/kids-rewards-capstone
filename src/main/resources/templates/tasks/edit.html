@@ -11,16 +11,16 @@
 </head>
 <body>
 <nav th:replace="partials/navbar:: navbar"></nav>
-<!--Thymeleaf action syntax-->
+<!--Thymeleaf action syntax  for EDIT  -->
 <form th:action="@{/tasks/{id}/edit (id = ${task.getId()})}" th:method="POST" th:object="${task}">
 
     <div class="form-group">
         <label for="title">Tasks</label>
         <input type="text" class="form-control" id="title" name="title" th:value="${task.getTitle()}" th:fields="*{title}">
     </div>
+
     <input type="hidden" th:value="${task.getId()}" th:field="*{id}">
     <p>Icon</p>
-
     <label>
         <select th:field="*{icon}" name="icon" th:value="${task.getIcon()}">Icon
             <option value="icon1">Icon 1</option>
@@ -28,13 +28,14 @@
             <option value="icon3">Icon 3</option>
             <option value="icon4">Icon 4</option>
             <option value="icon5">Icon 5</option>
-            <option value="icon6">Custom</option>
+            <option id="icon6" value="icon6">Custom</option>
         </select>
     </label>
 <!--    <div class="mb-2 mx-2">-->
 <!--        <form th:action="@{/tasks/index}" th:method="POST" id="submitAvatar">-->
             <input class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl">
-            <button type="button" class="btn btn-outline-secondary mb-3 whiteFont" id="open">Choose your 3D File
+            <button href="javascript:unhide('pickedFile')" type="button" class="btn btn-outline-secondary mb-3 whiteFont" id="open">
+                Choose your 3D File
             </button><span id="uploadMessage" class="mx-3"></span>
 <!--        </form>-->
 <!--    </div>-->
@@ -62,6 +63,7 @@
 </form>
 <!-- Scripts -->
 <script th:src="@{/js/main.js}"></script>
+
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

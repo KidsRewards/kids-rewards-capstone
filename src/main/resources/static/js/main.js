@@ -25,6 +25,18 @@
             $('#uploadMessage').text('Upload Succeed!');
             $('#submitAvatar').submit();
         }
+//
+//
+//         let type = "text/html"
+//     function unhide(pickedFile){
+//     var item = document.getElementById(pickedFile);
+//     if(item){
+//     item.className=(item.className=='hidden')?'unhidden':'hidden';
+// }
+//     document.getElementById(pickedFile).className ='hidden';
+// }
+
+
     });
     //stays hidden until picked
 //value of select
