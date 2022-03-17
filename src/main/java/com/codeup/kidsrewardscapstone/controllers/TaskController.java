@@ -33,10 +33,9 @@ public class TaskController {
         return "tasks/index";
     }
     @PostMapping("tasks/index")
-    public String viewTasks(@RequestParam (name = "imgurl") String imgurl){
-        System.out.println(imgurl);
-        System.out.println("test test");
-        return "tasks/index";
+    public String viewTasks(){
+
+        return "redirect:/tasks/index";
     }
     //
 //    @GetMapping("/tasks/{id}")
@@ -88,7 +87,7 @@ public class TaskController {
         newTask.setUser(taskUser);
 //        model.addAttribute("status", statusId);
         taskDao.save(newTask);
-        return "tasks/index";
+        return "redirect:/tasks/index";
     }
 
     @GetMapping("/tasks/{id}/edit")
@@ -97,18 +96,20 @@ public class TaskController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (loggedInUser.getId() == task.getUser().getId()) {
             model.addAttribute("task", task);
+
             return "tasks/edit";
         } else {
-            return "redirect:/tasks/";
+            return "redirect:/tasks/index";
         }
     }
     @PostMapping("/tasks/{id}/edit")
-    public String submitEditTask(@ModelAttribute Task task, @PathVariable long id) {
+    public String submitEditTask(@ModelAttribute Task task, @PathVariable long id, @RequestParam (name = "imgurl") String imgurl ) {
 //        if (taskDao.getById(id).getUser().getId() == ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId()) {
 //            tasktoEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
            task.setUser(usersDao.getById(1L));
+        task.setIcon(imgurl);
             taskDao.save(task);
-        return "redirect:/tasks";
+        return "redirect:/tasks/index";
     }
 
 

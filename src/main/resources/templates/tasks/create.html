@@ -12,17 +12,25 @@
 <div class="container">
     <h1 style="text-align: center">Add a Task for <span>PLACEHOLDER</span></h1>
 
-    <form th:action="@{/tasks/index}" th:method="POST" th:object="${newTask}">
+    <form th:action="@{/tasks/create}" th:method="POST" th:object="${newTask}">
         <p>Icon</p>
-        <select th:field="*{icon}" name="icon">Icon
-            <option value="icon1">Icon 1</option>
-            <option value="icon2">Icon 2</option>
-            <option value="icon3">Icon 3</option>
-            <option value="icon4">Icon 4</option>
-            <option value="icon5">Icon 5</option>
-        </select>
+        <label>
+            <select th:field="*{icon}" name="icon" th:value="${task.getIcon()}">Icon
+                <option value="icon1">Icon 1</option>
+                <option value="icon2">Icon 2</option>
+                <option value="icon3">Icon 3</option>
+                <option value="icon4">Icon 4</option>
+                <option value="icon5">Icon 5</option>
+                <option value="icon6">Custom</option>
+            </select>
+        </label>
+        <!--    <div class="mb-2 mx-2">-->
+        <!--        <form th:action="@{/tasks/index}" th:method="POST" id="submitAvatar">-->
+        <input class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl">
+        <button type="button" class="btn btn-outline-secondary mb-3 whiteFont" id="open">Choose your 3D File
+        </button><span id="uploadMessage" class="mx-3"></span>
         <br>
-        <br>
+
 
         <div class="form-group">
             <label for="title">Title</label>
