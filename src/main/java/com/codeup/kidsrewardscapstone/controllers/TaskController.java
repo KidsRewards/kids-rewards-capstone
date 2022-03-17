@@ -32,7 +32,12 @@ public class TaskController {
         model.addAttribute("allTasks", taskDao.findAll());
         return "tasks/index";
     }
-
+    @PostMapping("tasks/index")
+    public String viewTasks(@RequestParam (name = "imgurl") String imgurl){
+        System.out.println(imgurl);
+        System.out.println("test test");
+        return "tasks/index";
+    }
     //
 //    @GetMapping("/tasks/{id}")
 //    public String taskDetails(@PathVariable long id, Model model) {
@@ -83,7 +88,7 @@ public class TaskController {
         newTask.setUser(taskUser);
 //        model.addAttribute("status", statusId);
         taskDao.save(newTask);
-        return "redirect:/index";
+        return "tasks/index";
     }
 
     @GetMapping("/tasks/{id}/edit")
