@@ -16,7 +16,7 @@
 </li>
 <div class="container d-flex justify-content-around">
     <div th:each="task : ${allTasks}" class="d-flex card" style="width: 18rem; margin: 1em;">
-        <img src="uploadId" class="card-img-top" alt="icon place holder image">
+        <img th:src="${task.getIcon()}" class="card-img-top" alt="icon place holder image">
         <div class="card-body">
             <h5 th:text="${task.title}" class="card-title"></h5>
             <p th:text="${task.description}" class="card-text"></p>
@@ -28,6 +28,7 @@
         </div>
     </div>
 </div>
+<!--//only shows options  use seeder file for pics??-->
 <!---->
 <!--<div sec:authorize="isAuthenticated()" th:if="${#authentication.principal.Id == user.id}">-->
 <!--    <form th:action="@{/profile/{id}/changeAvatar(id=${user.id})}" class="d-flex flex-column"-->
@@ -48,42 +49,37 @@
 <!---->
 
 
-<div class="mb-2 mx-2">
-    <form th:action="@{/tasks/index}" th:method="POST" id="submitAvatar">
-    <input class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl">
-    <button type="button" class="btn btn-outline-secondary mb-3 whiteFont" id="open">Choose your 3D File
-    </button><span id="uploadMessage" class="mx-3"></span>
-    </form>
-</div>
-<script>
-window.addEventListener('DOMContentLoaded', function () {
-const client = filestack.init("AiikjNxWRRM2I3SUfhK3yz");
-const options = {
-maxFiles: 1,
-uploadInBackground: false,
-// accept: [".jpeg"],
-onUploadDone: uploadFile
-};
-const picker = client.picker(options);
-const openBtn = document.getElementById('open');
-openBtn.addEventListener('click', () => picker.open());
-function uploadFile(result) {
-const fileData = result.filesUploaded[0];
-console.log(fileData);
-console.log(fileData.url);
-console.log(fileData.mimeType);
-$('#pickedFile').val(fileData.url);
-$('#open').text(fileData.filename);
-$('#uploadMessage').text('Upload Succeed!');
-}
-});</script>
+
+<!--<script>-->
+<!--window.addEventListener('DOMContentLoaded', function () {-->
+<!--const client = filestack.init("AiikjNxWRRM2I3SUfhK3yz");-->
+<!--const options = {-->
+<!--maxFiles: 1,-->
+<!--uploadInBackground: false,-->
+<!--// accept: [".jpeg"],-->
+<!--onUploadDone: uploadFile-->
+<!--};-->
+<!--const picker = client.picker(options);-->
+<!--const openBtn = document.getElementById('open');-->
+<!--openBtn.addEventListener('click', () => picker.open());-->
+<!--function uploadFile(result) {-->
+<!--const fileData = result.filesUploaded[0];-->
+<!--console.log(fileData);-->
+<!--console.log(fileData.url);-->
+<!--console.log(fileData.mimeType);-->
+<!--$('#pickedFile').val(fileData.url);-->
+<!--$('#open').text(fileData.filename);-->
+<!--$('#uploadMessage').text('Upload Succeed!');-->
+<!--}-->
+<!--});</script>&ndash;&gt;-->
 
 <!-- Scripts   -->
-<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<!--<script th:src="@{/js/main.js}"></script>-->
+
+<!--<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>-->
 
 <th:block th:include="/partials/bootstrap :: scripts"></th:block>
-
-
+<!--<script src="../../static/js/main.js"></script>-->
 <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
 <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>-->
 </body>
