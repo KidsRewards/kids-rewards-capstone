@@ -21,62 +21,62 @@
             <label for="title">Tasks</label>
             <input type="text" class="form-control" id="title" name="title" th:value="${task.getTitle()}" th:fields="*{title}">
         </div>
-<!--            <input type="hidden" th:value="${task.getId()}" th:field="*{id}">-->
-<!--        <p>Icon</p>-->
-<!--            <form class="update-icons">-->
-<!--                <select class="icons" th:field="*{icon}" name="icon" th:value="${task.getIcon()}">Icon-->
-<!--                    <option value="icon1">Icon 1</option>-->
-<!--                    <option value="icon2">Icon 2</option>-->
-<!--                    <option value="icon3">Icon 3</option>-->
-<!--                    <option value="icon4">Icon 4</option>-->
-<!--                    <option value="icon5">Icon 5</option>-->
-<!--                    <option value="6">Custom</option>-->
-<!--                </select>-->
-<!--    &lt;!&ndash;    <div class="mb-2 mx-2">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <form th:action="@{/tasks/index}" th:method="POST" id="submitAvatar">&ndash;&gt;-->
-<!--                <button id="open" type="button" name="clicked" class="btn btn-outline-secondary mb-3 whiteFont" disabled>-->
-<!--                    Choose your 3D File-->
-<!--                </button>-->
-<!--                <input class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />-->
-<!--                <span id="uploadMessage" class="mx-3"></span>-->
-<!--    -->
-<!--            <br>-->
-<!--            <br>-->
-<!--        <div class="form-group">-->
-<!--            <label for="title">Title</label>-->
-<!--            <input type="text" class="form-control"  name="title" th:value="${task.getId()}" th:fields="*{id}">-->
-<!--        </div>-->
-<!--        <input type="hidden" th:value="${task.getId()}" th:field="*{id}">-->
-<!--        <div class="form-group">-->
-<!--            <label for="body">Description</label>-->
-<!--            &lt;!&ndash;Textarea elements do not have a value attribute, so we will represent the body using the th:text&ndash;&gt;-->
-<!--            <textarea class="form-control" id="body" rows="3" name="body" th:text="${task.getDescription()}" th:field="*{description}"></textarea>-->
-<!--        </div>-->
-<!--    -->
-<!--        <div class="form-group">-->
-<!--            <label for="points">Points</label>-->
-<!--            &lt;!&ndash;Textarea elements do not have a value attribute, so we will represent the body using the th:text&ndash;&gt;-->
-<!--            <textarea class="form-control" id="points" rows="3" name="points" th:text="${task.getPoints()}" th:field="*{points}"></textarea>-->
-<!--        </div>-->
-<!--    -->
-<!--        <button th:type="submit">Submit</button>-->
-<!--    </form>-->
-<!--        &lt;!&ndash;    BELOW is the snippet for "custom" icon to enable/disable filestack button&ndash;&gt;-->
-<!--        &lt;!&ndash;    used scripts here for function to work withing the </div> >&ndash;&gt;-->
-<!--        <th:block th:include="/partials/bootstrap :: scripts"></th:block>-->
-<!--        <script type="text/javascript">-->
-<!--            $(".icons").change(function(e){-->
-<!--                e.preventDefault();-->
-<!--                e.stopPropagation();-->
-<!--                var button = $(this).next("button");-->
-<!--                if(this.value === "6") {-->
-<!--                    button.prop("disabled", false);-->
-<!--                }else{-->
-<!--                    button.prop("disabled", true)-->
-<!--                }-->
-<!--                console.log(button.prop('disabled'));-->
-<!--            });-->
-<!--        </script>-->
+            <input type="hidden" th:value="${task.getId()}" th:field="*{id}">
+        <p>Icon</p>
+            <form class="update-icons">
+                <select class="icons" th:field="*{icon}" name="icon" th:value="${task.getIcon()}">Icon
+                    <option value="icon1">Icon 1</option>
+                    <option value="icon2">Icon 2</option>
+                    <option value="icon3">Icon 3</option>
+                    <option value="icon4">Icon 4</option>
+                    <option value="icon5">Icon 5</option>
+                    <option value="6">Custom</option>
+                </select>
+    <!--    <div class="mb-2 mx-2">-->
+    <!--        <form th:action="@{/tasks/index}" th:method="POST" id="submitAvatar">-->
+                <button id="open" type="button" name="clicked" class="btn btn-outline-secondary mb-3 whiteFont" disabled>
+                    Choose your 3D File
+                </button>
+                <input class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />
+                <span id="uploadMessage" class="mx-3"></span>
+
+            <br>
+            <br>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control"  name="title" th:value="${task.getId()}" th:fields="*{id}">
+        </div>
+        <input type="hidden" th:value="${task.getId()}" th:field="*{id}">
+        <div class="form-group">
+            <label for="body">Description</label>
+            <!--Textarea elements do not have a value attribute, so we will represent the body using the th:text-->
+            <textarea class="form-control" id="body" rows="3" name="body" th:text="${task.getDescription()}" th:field="*{description}"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="points">Points</label>
+            <!--Textarea elements do not have a value attribute, so we will represent the body using the th:text-->
+            <textarea class="form-control" id="points" rows="3" name="points" th:text="${task.getPoints()}" th:field="*{points}"></textarea>
+        </div>
+
+        <button th:type="submit">Submit</button>
+    </form>
+        <!--    BELOW is the snippet for "custom" icon to enable/disable filestack button-->
+        <!--    used scripts here for function to work withing the </div> >-->
+        <th:block th:include="/partials/bootstrap :: scripts"></th:block>
+        <script type="text/javascript">
+            $(".icons").change(function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                var button = $(this).next("button");
+                if(this.value === "6") {
+                    button.prop("disabled", false);
+                }else{
+                    button.prop("disabled", true)
+                }
+                console.log(button.prop('disabled'));
+            });
+        </script>
     </form>
     </div>
 
