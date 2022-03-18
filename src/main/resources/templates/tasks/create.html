@@ -17,8 +17,10 @@
         <form class="update-icons">
                 <select id="icon" class="icons" th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icon
                     <option href="#" value="icon1"><img class="img" th:src="@{img/pup1.jpeg}">Icon 1</option>
-                    <option value="icon2">Icon 2</option>
-                    <option value="icon3">Icon 3</option>
+                    <option style="background-image:url('../img/pup2.jpeg');" value="icon2">Icon 2</option>
+<!--                    list-style-image: url('../images/bullet.jpg');-->
+
+                    <option style="list-style-image: url('img/pup4.jpeg')" value="icon3">Icon3</option>
                     <option value="icon4">Icon 4</option>
                     <option value="icon5">Icon 5</option>
                     <option  value='6'>Custom</option>
@@ -69,7 +71,7 @@
 
             }else{
                 button.css("display", "none");
-                 button.prop("disabled", true);
+                button.prop("disabled", true);
 
             }
 
@@ -78,6 +80,22 @@
 
 
     </script>
+        <script>
+            var iconSelect;
+
+            window.onload = function(){
+
+                iconSelect = new IconSelect("icon");
+
+                var icons = [];
+                icons.push({'iconFilePath':'img/pup3.jpeg', 'iconValue':'3'});
+                icons.push({'iconFilePath':'img/pup4.jpeg', 'iconValue':'4'});
+                icons.push({'iconFilePath':'img/pup5.jpeg', 'iconValue':'5'});
+
+                iconSelect.refresh(icons);
+
+            };
+        </script>
     </form>
 </div>
 

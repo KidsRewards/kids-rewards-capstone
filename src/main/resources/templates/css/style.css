@@ -1,5 +1,27 @@
 /********** Template CSS **********/
-
+select#icon
+option[value="icon2"]   {
+    background-image:url('../img/pup2.jpeg');
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('../img/pup2.jpeg');
+}
+select {
+    margin: 50px;
+    width: 150px;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid #CCC;
+    height: 34px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('../img/pup2.jpeg') 96% / 15% no-repeat #EEE;
+}
+/*select#gender option[value="others"] { background-image:url(others.png); }*/
 /*:root {*/
 /*    --primary: #009CFF;*/
 /*    --light: #F3F6F9;*/
