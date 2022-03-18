@@ -25,7 +25,7 @@
     <p>Icon</p>
         <form class="update-icons">
             <select class="icons" th:field="*{icon}" name="icon" th:value="${task.getIcon()}">Icon
-                <option value="icon1">Icon 1</option>
+                <option th:src="@{img/pup1.jpeg}" value="icon1">Icon 1</option>
                 <option value="icon2">Icon 2</option>
                 <option value="icon3">Icon 3</option>
                 <option value="icon4">Icon 4</option>
