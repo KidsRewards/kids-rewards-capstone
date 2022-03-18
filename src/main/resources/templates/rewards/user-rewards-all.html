@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-    <h1 style="text-align: center">Welcome PLACEHOLDER NAME!</h1>
+    <h1 class="text-center" th:inline="text">[[${#httpServletRequest.remoteUser}]] Reward Store</h1>
 </header>
 <nav th:replace="partials/rewards :: navbar"></nav>
 <h2 style="text-align: center">Here are the items available for purchase:</h2>
