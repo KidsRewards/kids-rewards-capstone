@@ -1,5 +1,6 @@
 // (function ($) {
     "use strict";
+
 //FILESTACK
 //     const client = filestack.init("AiikjNxWRRM2I3SUfhK3yz");
 //     client.picker().open();
@@ -25,19 +26,9 @@
             $('#uploadMessage').text('Upload Succeed!');
             $('#submitAvatar').submit();
         }
-//
-//
-//         let type = "text/html"
-//     function unhide(pickedFile){
-//     var item = document.getElementById(pickedFile);
-//     if(item){
-//     item.className=(item.className=='hidden')?'unhidden':'hidden';
-// }
-//     document.getElementById(pickedFile).className ='hidden';
-// }
 
+});
 
-    });
     //stays hidden until picked
 //value of select
 //if value 6/ show

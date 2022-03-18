@@ -1,0 +1,28 @@
+<!--Implemented in FamilyController-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sign up</title>
+    <!--    <th:block th:include="partials/bootstrap :: styling"></th:block>-->
+</head>
+<body>
+<h1>Create a Child</h1>
+<form th:action="@{/createchild}" method="POST" th:object="${user}">
+    <label for="username">Username</label>
+    <input id="username" th:field="*{username}" />
+
+    <label for="email">Email</label>
+    <input id="email" th:field="*{email}" />
+
+    <label for="password">Password</label>
+    <input id="password" type="password" th:field="*{password}" />
+
+    <label for="isParent">Are you a parent?</label>
+    <input type="checkbox" id="isParent" th:field="*{parent}" value="*{parent}"/>
+
+    <input value="Register!" type="submit" />
+</form>
+<!--<th:block th:replace="partials/bootstrap :: scripts"></th:block>-->
+</body>
+</html>

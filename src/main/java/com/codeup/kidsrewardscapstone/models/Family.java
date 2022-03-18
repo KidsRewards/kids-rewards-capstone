@@ -11,14 +11,22 @@ public class Family {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
+//    @Column(nullable = false, unique = true)
     private String name;
 
     @ManyToMany(mappedBy = "families")
     private List<User> users;
 
     public Family(){};
-
+//
+//    public Family(List<User> users){
+//        this.users = users;
+//    }
+//
+//    public Family(long id){
+//        this.id = id;
+//    }
     public Family(long id, String name, List<User> users) {
         this.id = id;
         this.name = name;
