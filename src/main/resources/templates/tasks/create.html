@@ -12,13 +12,11 @@
 <body>
 <nav th:replace="partials/navbar:: navbar"></nav>
 <div class="container">
-    <h1 style="text-align: center">Add a Task for <span>PLACEHOLDER</span></h1>
-
     <form th:action="@{/tasks/create}" th:method="POST" th:object="${newTask}">
         <p>Icon</p>
         <form class="update-icons">
-                <select class="icons" th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icon
-                    <option value="icon1">Icon 1</option>
+                <select  class="icons" th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icon
+                    <option href="#" value="icon1"><img class="img" th:href="@{../img/pup1.jpeg}">Icon 1</option>
                     <option value="icon2">Icon 2</option>
                     <option value="icon3">Icon 3</option>
                     <option value="icon4">Icon 4</option>
