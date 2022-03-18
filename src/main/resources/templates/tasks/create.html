@@ -15,8 +15,8 @@
     <form th:action="@{/tasks/create}" th:method="POST" th:object="${newTask}">
         <p>Icon</p>
         <form class="update-icons">
-                <select  class="icons" th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icon
-                    <option href="#" value="icon1"><img class="img" th:href="@{../img/pup1.jpeg}">Icon 1</option>
+                <select id="icon" class="icons" th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icon
+                    <option href="#" value="icon1"><img class="img" th:src="@{img/pup1.jpeg}">Icon 1</option>
                     <option value="icon2">Icon 2</option>
                     <option value="icon3">Icon 3</option>
                     <option value="icon4">Icon 4</option>
@@ -31,7 +31,8 @@
             </button>
             <input  class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />
         <span id="uploadMessage" class="mx-3"></span>
-        </form>
+<!--        </form>-->
+
         <br>
         <div class="form-group">
             <label for="title">Title</label>
@@ -63,13 +64,19 @@
             e.stopPropagation();
             var button = $(this).next("button");
             if(this.value === "6") {
-                button.prop("disabled", false);
+                // button.prop("disabled", false);
+                button.css("display", "block");
             }else{
-                button.prop("disabled", true)
+                // button.prop("disabled", true);
+                button.css("display", "none");
             }
+
             console.log(button.prop('disabled'));
         });
+
+
     </script>
+
 </div>
 
 <!-- Scripts -->
