@@ -63,7 +63,8 @@ public class WishItemController {
 
     @PostMapping("/wishitems/{id}/edit")
     public String submitWishItemToEdit(@ModelAttribute WishItem wishItemToEdit, @PathVariable long id) {
-        wishItemToEdit.setUser(usersDao.getById(1L));
+        wishItemToEdit.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        wishItemToEdit.setStatus(statusDao.getById(1L));
         wishitemsDao.save(wishItemToEdit);
         return "redirect:/wishitems";
     }
