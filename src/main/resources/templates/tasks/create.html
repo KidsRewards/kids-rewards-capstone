@@ -64,19 +64,21 @@
             e.stopPropagation();
             var button = $(this).next("button");
             if(this.value === "6") {
-                // button.prop("disabled", false);
                 button.css("display", "block");
+                button.prop("disabled", false);
+
             }else{
-                // button.prop("disabled", true);
                 button.css("display", "none");
+                 button.prop("disabled", true);
+
             }
 
-            console.log(button.prop('disabled'));
+            // console.log(button.prop('disabled'));
         });
 
 
     </script>
-
+    </form>
 </div>
 
 <!-- Scripts -->
