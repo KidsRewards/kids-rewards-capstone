@@ -34,7 +34,6 @@ public class TaskController {
     }
     @PostMapping("tasks/index")
     public String viewTasks(){
-
         return "redirect:/tasks/index";
     }
     //
