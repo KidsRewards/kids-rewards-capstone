@@ -2,7 +2,9 @@ package com.codeup.kidsrewardscapstone.controllers;
 
 import com.codeup.kidsrewardscapstone.models.Family;
 import com.codeup.kidsrewardscapstone.models.User;
+import com.codeup.kidsrewardscapstone.repositories.FamilyRepository;
 import com.codeup.kidsrewardscapstone.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,16 +16,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
     private UserRepository usersDao;
     private PasswordEncoder passwordEncoder;
-//    private FamilyReposity familiesDao;
+    private FamilyRepository familiesDao;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, FamilyRepository familiesDao) {
         this.usersDao = userDao;
         this.passwordEncoder = passwordEncoder;
+        this.familiesDao = familiesDao;
     }
 
     @GetMapping("/index")
     public String showUsers(Model model) {
-        model.addAttribute("allUsers", usersDao.findAll());
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
+        model.addAttribute("familyName", familiesDao.findFamilyByUsers(loggedInUser));
         return "users/index";
     }
 
