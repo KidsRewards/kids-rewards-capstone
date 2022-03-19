@@ -36,6 +36,7 @@ public class FamilyController {
         return "users/createfamily";
     }
 
+
     @PostMapping("/createfamily")
     public String saveFamilyName(@RequestParam(name="name") String familyName){
         User newParent = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

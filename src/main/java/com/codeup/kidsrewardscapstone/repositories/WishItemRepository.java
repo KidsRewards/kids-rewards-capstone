@@ -10,4 +10,5 @@ import java.util.List;
 public interface WishItemRepository extends JpaRepository<WishItem, Long> {
 //    Status getById(long id);
     List<WishItem> findByUser(User user);
+    List<WishItem> findByStatus(long status_id);
 }

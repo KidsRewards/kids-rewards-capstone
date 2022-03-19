@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> 's Rewards Page</title>
+    <title> 's Approval Page</title>
     <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
 <body>
 <header>
-    <h1 class="text-center" th:inline="text">[[${#httpServletRequest.remoteUser}]] Reward Store</h1>
+    <!--    <h1 style="text-align: center">Welcome PLACEHOLDER NAME!</h1>-->
 </header>
-<nav th:replace="partials/rewards :: navbar"></nav>
-<h2 style="text-align: center">Here are the items available for purchase:</h2>
+<nav th:replace="partials/wishitems :: navbar"></nav>
+<h2 style="text-align: center">Here are the approved items:</h2>
 
 <div class="container d-flex justify-content-around">
-    <div th:each="reward : ${allRewards}" class="d-flex card" style="width: 18rem; margin: 1em;">
+    <div th:each="WishItem : ${allWishitems}" class="d-flex card" style="width: 18rem; margin: 1em;">
         <img src="..." class="card-img-top" alt="icon place holder image">
         <div class="card-body">
-            <h5 th:text="${reward.title}" class="card-title"></h5>
-            <p th:text="${reward.body}" class="card-text"></p>
-            <p>Points: <span th:text="${reward.points}"></span></p>
-            <p>Reward ID: <span th:text="${reward.getId()}"></span></p>
-            <a href="#" class="btn btn-success">Purchase</a>
-            <form th:action="@{/rewards/{id}/delete (id = ${reward.getId()})}">
-                <button class="btn btn-danger">Delete</button>
+            <h5 th:text="${wishItem.title}" class="card-title"></h5>
+            <p th:text="${wishItem.body}" class="card-text"></p>
+            <!--            <p>Points: <span th:text="${reward.points}"></span></p>-->
+            <p>WishItem ID: <span th:text="${wishItem.getId()}"></span></p>
+            <!--            <a th:href="@{/wishitems/{id}/approved (id=${wishItem.id})}" class="btn btn-success">Approved</a>-->
+            <form th:action="@{/wishitems/{id}/approved (id = ${WishItem.getId()})}">
+                <button class="btn btn-danger">Approved</button>
             </form>
-<!--            <a href="@{/rewards/{id}/delete} (id = ${reward.getId()})" class="btn btn-danger">Delete</a>-->
+            <!--            <a href="@{/rewards/{id}/delete} (id = ${reward.getId()})" class="btn btn-danger">Delete</a>-->
         </div>
     </div>
 </div>

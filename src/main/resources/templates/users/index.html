@@ -9,14 +9,17 @@
 <body>
 <nav th:replace="partials :: navbar"></nav>
 
-<h1 class="text-center" th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h1>
-<div class="text-center">
-    <a href="/createfamily" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Create Family</a>
-    <a href="/createchild" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Add A Child</a>
-    <a href="/rewards/user-rewards-all" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Reward Store</a>
-    <a href="/tasks/create" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Add A Task</a>
-    <a href="/wishitems/create" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">View Wishitems</a>
-</div>
+    <h1 class="text-center" th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h1>
+        <div class="text-center">
+            <a href="/createfamily" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Create Family</a>
+            <a href="/createchild" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Add A Child</a>
+            <a href="/rewards/user-rewards-all" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Reward Store</a>
+            <a href="/tasks/create" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Add A Task</a>
+            <a href="/wishitems/create" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">View Wishitems</a>
+        </div>
+
+        <h3 class="text-center">Family: <span th:text="${familyName.getName()}"></span></h3>
+
 <footer th:replace="partials/bootstrap :: scripts"></footer>
 </body>
 </html>
