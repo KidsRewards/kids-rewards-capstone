@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <title>Sign up</title>
-<!--    <th:block th:include="partials/bootstrap :: styling"></th:block>-->
+    <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
 <body>
+<nav th:replace="partials/navbar:: navbar"></nav>
+
 <h1>Create an account</h1>
 <form th:action="@{/sign-up}" method="POST" th:object="${user}">
     <label for="username">Username</label>
@@ -22,6 +24,6 @@
 
     <input value="Register!" type="submit" />
 </form>
-<!--<th:block th:replace="partials/bootstrap :: scripts"></th:block>-->
+<th:block th:replace="partials/bootstrap :: scripts"></th:block>
 </body>
 </html>
