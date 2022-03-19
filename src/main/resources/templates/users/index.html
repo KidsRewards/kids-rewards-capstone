@@ -3,8 +3,12 @@
 <head th:replace="partials/bootstrap :: styling">
     <meta charset="UTF-8">
     <title>Welcome!</title>
+    <th:block th:include="partials/bootstrap :: styling"></th:block>
+
 </head>
 <body>
+<nav th:replace="partials :: navbar"></nav>
+
 <h1 class="text-center" th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h1>
 <div class="text-center">
     <a href="/createfamily" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Create Family</a>
