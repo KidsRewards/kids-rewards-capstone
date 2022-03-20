@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -41,21 +42,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .defaultSuccessUrl("/index") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
-                /* Logout configuration */
+               /* Logout configuration */
                 .and()
                 .logout()
                 .logoutSuccessUrl("/login?logout") // append a query string value
                 /* Pages that can be viewed without having to log in */
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/posts", "/books", "/genres/{id: [\\d+]}", "/posts/{id: [\\d+]}") // anyone can see the home and the posts pages
-                .permitAll()
+                // anyone can see the home and the posts pages
+                .antMatchers("/",  "/tasks", "/wishitem", "/rewards/{id: [\\d+]}", "/users/{id: [\\d+]}").permitAll()
                 /* Pages that require authentication */
                 .and()
                 .authorizeRequests()
                 .antMatchers(
                         "users/index", // only authenticated users can create posts
-                        "/posts/{id}/edit"// only authenticated users can edit posts
+                        "/task/{id}/edit"// only authenticated users can edit tasks
                 )
                 .authenticated()
         ;

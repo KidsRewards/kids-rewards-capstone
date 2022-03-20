@@ -12,18 +12,19 @@
 <body>
 
 <nav th:replace="partials/navbar:: navbar"></nav>
+
 <div class="container">
     <form th:action="@{/tasks/create}" th:method="POST" th:object="${newTask}">
         <p>Icon</p>
         <form class="update-icons">
                 <select id="icon" class="icons" th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icon
-                    <option href="#" value="icon1"><img class="img" th:src="@{img/pup1.jpeg}" alt="">Icon 1</option>
-                    <option style="background-image:url('../img/pup2.jpeg');" value="icon2">Icon 2</option>
+                    <option href="#" value="icon1"><img class="img" th:src="@{../images/pup1.jpeg}" alt="">Icon 1</option>
+                    <option style="background-image:url('../images/pup2.jpeg');" value="icon2">Icon 2</option>
 <!--                    list-style-image: url('../images/bullet.jpg');-->
 
-                    <option   value="icon3">Icon3</option>
+                    <option   value="icon3"><img class="img" th:src="@{../images/pup4.jpeg}" alt="">Icon3</option>
 
-                    <option value="icon4" class="icon4">Icon 4</option>
+                    <option value="icon4" class="icon4" ><img  width="372" src="https://media.istockphoto.com/photos/sunny-cat-picture-id508030340?k=20&m=508030340&s=612x612&w=0&h=i9ZrA9YosOFqfKtWv1ZLBZToVlucppDxrm_T1IdYbpI=" alt=""/>Icon 4</option>
 
                     <option value="icon5">Icon 5</option>
                     <option  value='6'>Custom</option>
@@ -35,13 +36,10 @@
             <input  class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />
         <span id="uploadMessage" class="mx-3"></span>
 
-<!--            <div class="hero">-->
-<!--                <nav>-->
-<!--                    <img th:src="@{templates/img/kitten4.jpeg}" class="kitten4" alt="cat" >-->
-<!--                    <img src="” alt="cat">-->
-<!--                    <img src=”img/kitten5.jpeg” alt=”Image” height=”50px” width=”50px”>-->
-<!--                </nav>-->
-<!--            </div>-->
+        <div class="images">
+            <img  class="img1" width="372" href="/images/pup6.jpeg" th:src="@{images/pup6.jpeg}" alt=""/>
+            <p> <img id="img" src="../images/python.png" width="200" height="200" class="lazy lazy-fade-in demo-lazy" alt=""/></p>
+        </div>
 
         <br>
         <div class="form-group">
@@ -85,10 +83,7 @@
 
             // console.log(button.prop('disabled'));
         });
-
-
     </script>
-
     </form>
 </div>
 
