@@ -27,8 +27,8 @@
             $('#submitAvatar').submit();
         }
 
-});
 
+});
     //stays hidden until picked
 //value of select
 //if value 6/ show
