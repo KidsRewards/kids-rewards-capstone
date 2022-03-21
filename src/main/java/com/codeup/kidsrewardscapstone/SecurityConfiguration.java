@@ -3,13 +3,14 @@ package com.codeup.kidsrewardscapstone;
 import com.codeup.kidsrewardscapstone.services.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.test.context.event.annotation.BeforeTestExecution;
+
 
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -25,6 +26,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+//    Added this for the images
+    @Override
+    public void configure(WebSecurity web)throws Exception {
+        web.ignoring().antMatchers("/static/images/**");
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth
@@ -33,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
 
-//Need to make changes to below method to enable proper file path configuration
+    //Need to make changes to below method to enable proper file path configuration
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -42,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .defaultSuccessUrl("/index") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
-               /* Logout configuration */
+                /* Logout configuration */
                 .and()
                 .logout()
                 .logoutSuccessUrl("/login?logout") // append a query string value
@@ -57,6 +64,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "users/index", // only authenticated users can create posts
                         "/task/{id}/edit"// only authenticated users can edit tasks
+
                 )
                 .authenticated()
         ;

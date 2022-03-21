@@ -28,10 +28,18 @@ public class UserController {
     public String showUsers(Model model) {
 //        model.addAttribute("allUsers", usersDao.findAll());
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
-        model.addAttribute("familyName", familiesDao.findFamilyByUsers(loggedInUser));
-        return "users/index";
+//        if(loggedInUser.getFamilies() == null){
+//            return "redirect:/createfamily";
+//        } else {
+            model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
+            model.addAttribute("familyName", familiesDao.findFamilyByUsers(loggedInUser));
+            return "users/index";
+//        }
     }
+
+//    if(loggedInUser.getFamilies() == null){
+//        return "redirect:/createfamily";
+//    }
 
     @GetMapping("/sign-up")
     public String showSignupForm(Model model){
@@ -39,12 +47,18 @@ public class UserController {
         return "users/sign-up";
     }
 
+    //Refactors Parent sign-up and sets isParent to true
     @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user){
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
+        user.setParent(true);
         usersDao.save(user);
-        return "redirect:/login";
+        if(user.getFamilies() == null){
+        return "redirect:/createfamily";
+        } else {
+            return "redirect:/login";
+        }
     }
 
 }
