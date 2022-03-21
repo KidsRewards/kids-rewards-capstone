@@ -11,7 +11,7 @@
     <title>Add a Task</title>
 <!--    <th:block th:include="templates/partials/bootstrap :: styling"></th:block>-->
 </head>
-<style th:replace="/partials/bootstrap :: styling"></style>
+<th:block th:include="partials/bootstrap :: styling"></th:block>
 
 <body>
 <nav th:replace="partials/navbar:: navbar"></nav>
@@ -22,17 +22,29 @@
         <form class="update-icons">
 <!--            <label for="icon" class="icons">Choose Icon</label>-->
             <select id="icon" class="icons"  th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icon
-                    <option href="#" value="icon1" >Icon 1</option>
-                    <option href="#" value="pup4.jpeg">Icon 2</option>
-                    <option  href="#" value="pup3.jpeg">Icon 3</option>
-                    <option href="#" value="pup4.jpeg"  >Icon 4</option>
-
-                    <option href="#" value="pup4.jpeg">Icon 5</option>
-                    <option  href="#" value='6'>Custom</option>
+                    <option  value="icon0" >Select an avatar</option>
+                    <option  value="icon1" >Icon 1</option>
+                    <option  value="icon2">Icon 2</option>
+                    <option  value="icon3">Icon 3</option>
+                    <option  value="icon4" >Icon 4</option>
+                    <option  value="icon5">Icon 5</option>
+                    <option  value='6'>Custom</option>
                 </select>
+                <div id="showOne" class="myDiv">
+                    <img src="/static/images/pup7.jpeg" alt="pup"/><span>Pup 6</span>
+                </div>
+<!--            <div id="showOne" class="myDiv">-->
+<!--                    <img src="/static/images/pup7.jpeg" alt="pup"/><span>Pup 6</span>-->
+<!--                </div>  -->
+<!--            <div id="showOne" class="myDiv">-->
+<!--                    <img src="/static/images/pup7.jpeg" alt="pup"/><span>Pup 6</span>-->
+<!--                </div>   -->
+<!--            <div id="showOne" class="myDiv">-->
+<!--                    <img src="/static/images/pup7.jpeg" alt="pup"/><span>Pup 6</span>-->
+<!--                </div>-->
 
             <button id="open" type="button" name="clicked" class="btn btn-outline-secondary mb-3 whiteFont" disabled>
-                Choose your 3D File
+                Click custom to choose an avatar.
             </button>
             <input  class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />
         <span id="uploadMessage" class="mx-3"></span>
@@ -60,16 +72,12 @@
     </form>
 
 <!--    BELOW is the snippet for "custom" icon to enable/disable filestack button-->
-<!--    used scripts here for function to work withing the </div> >-->
-<!--    <th:block th:include="/partials/bootstrap :: scripts"></th:block>-->
-<!--        <script th:src="@{/../static/js/main.js}"></script>-->
-<!--        <script th:src="@{/js/main.js}"></script>-->
         <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
         <script type="text/javascript" th:src="@{/js/main.js}"></script>
-<!--        <script src="/static/js/main.js"></script>-->
+        <th:block th:replace="partials/bootstrap :: scripts"></th:block>
 
         <script type="text/javascript">
         $(".icons").change(function(e){
@@ -89,36 +97,20 @@
             // console.log(button.prop('disabled'));
         });
     </script>
-<!--        <script>-->
-<!--            $(document).ready(function (){-->
-<!--            // $(function() {-->
-<!--                $(".icon").selectmenu({change: function(event, ui){alert('x');    }});-->
-<!--                $.widget("iconselectmenu", $.ui.selectmenu, {-->
-<!--                    _renderItem: function (ul, item) {-->
-<!--                        var li = $("<li>"),-->
-<!--                            wrapper = $("<div>", {text: item.label});-->
-<!--                        if (item.disabled) {-->
-<!--                            li.addClass("ui-state-disabled");-->
-<!--                        }-->
-<!--                        $("<span>", {-->
-<!--                            style: item.element.attr("data-style"),-->
-<!--                            "class": "ui-icon " + item.element.attr("data-class")-->
-<!--                        })-->
-<!--                            .appendTo(wrapper);-->
-<!--                        return li.append(wrapper).append(ul);-->
-<!--                    }-->
-<!--                });-->
-<!--                $(".icon")-->
-<!--                    .iconselectmenu()-->
-<!--                    .iconselectmenu("menuWidget")-->
-<!--                    .addClass("ui-menu-icons avatar")-->
-<!--            });-->
-<!--        </script>-->
+        <script>
+            $('#icon').on('change', function() {
+                var iconvalue = $(this).val();
+                $("div.myDiv").hide();
+                $("#show" + iconvalue).show();
+            });
+
+        </script>
+
     </form>
     <div class="images">
         <p><img id="img2" href="/images/pup6.jpeg" th:src="@{'https://media.istockphoto.com/photos/sunny-cat-picture-id508030340?k=20&m=508030340&s=612x612&w=0&h=i9ZrA9YosOFqfKtWv1ZLBZToVlucppDxrm_T1IdYbpI='}" width="200" height="200" class="lazy lazy-fade-in demo-lazy}" alt=""  src="/static/images/pup6.jpeg"/></p>
         <p><img id="img3" th:src="@{/images/pup6.jpeg}" width="200" height="200" class="lazy lazy-fade-in demo-lazy}" alt="" /></p>
-        <p> <img id="img1" src="../../static/images/pup6.jpeg" width="200" height="200" class="lazy lazy-fade-in demo-lazy" alt="images"/></p>
+<!--        <p> <img id="img1" src="static/images/pup6.jpeg" width="200" height="200" class="lazy lazy-fade-in demo-lazy" alt="images"/></p>-->
     </div>
 
 </div>
