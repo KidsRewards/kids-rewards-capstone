@@ -9,7 +9,7 @@
     <title>Edit a Wish Item for PLACEHOLDER</title>
 </head>
 <body>
-<nav th:replace="partials/wishitems :: navbar"></nav>
+<!--<nav th:replace="partials/wishitems :: navbar"></nav>-->
 <!--Thymeleaf action syntax-->
 <form th:action="@{/wishitems/{id}/approved (id = ${currentWishItem.getId()})}" th:method="POST" th:object="${currentWishItem}">
 

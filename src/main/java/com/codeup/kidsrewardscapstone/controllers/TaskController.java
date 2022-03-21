@@ -70,7 +70,7 @@ public class TaskController {
     @GetMapping("/tasks/create")
     public String showCreateForm(Model model) {
         model.addAttribute("newTask", new Task());
-        model.addAttribute("status", statusDao.findAll());
+//        model.addAttribute("status", statusDao.findAll());
         return "tasks/create";
     }
 
