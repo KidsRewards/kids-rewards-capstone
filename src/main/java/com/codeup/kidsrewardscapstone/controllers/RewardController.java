@@ -78,12 +78,13 @@ public class RewardController {
     @GetMapping("/rewards/user-rewards-all")
     public String viewRewards(Model model) {
         //Gets user id
-        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         //Gets users family by using familyDao and inputting the userId of current logged in user
 //        Family family = familiesDao.findFamilyByUsers(loggedInUser);
 //        System.out.println("Family ID: " + family.getId());
 //        family.getId();
-        model.addAttribute("allRewards", rewardsDao.getById(loggedInUser.getId()));
+//        model.addAttribute("allRewards", rewardsDao.getById(loggedInUser.getId()));
+        model.addAttribute("allRewards", rewardsDao.findAll());
         return "rewards/user-rewards-all";
     }
 
