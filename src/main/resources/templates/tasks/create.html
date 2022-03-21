@@ -22,11 +22,11 @@
         <form class="update-icons">
             <!--            <label for="icon" class="icons">Choose Icon</label>-->
             <select id="icon" class="icons"  th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icons
-                <option  value="Zero" >Select your task icon. </option>
-                <option  value="One" >Bedroom</option>
+                <option  value="Zero">Select your task icon. </option>
+                <option  value="One"><img class="img" th:href="@{../static/images/bedroom.webp}">Bedroom</option>
                 <option  value="Two">Kitchen</option>
                 <option  value="Three">Living Room</option>
-                <option  value="Four" >Bathroom</option>
+                <option  value="Four">Bathroom</option>
                 <option  value="Five">Lawn-care</option>
                 <option  value='6'>Custom</option>
             </select>
@@ -52,6 +52,7 @@
             </div>
             <!--the icon images or pics-->
             <div id="showOne" class="myDiv">
+<!--                <img th:src="@{/images/bedroom.webp}" width="300" height="300" alt="Icon 1"/><span>Bedroom</span>-->
                 <img th:src="@{/images/bedroom.webp}" width="300" height="300" alt="Icon 1"/><span>Bedroom</span>
             </div>
             <div id="showTwo" class="myDiv">
