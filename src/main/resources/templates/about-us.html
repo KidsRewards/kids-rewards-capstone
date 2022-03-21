@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ... -->
+  </head>
+
+  <meta charset="UTF-8">
+  <title>About Us</title>
+  <!--    Templating-->
+  <th:block th:include="partials/bootstrap :: styling"></th:block>
+  <th:block th:include="partials/header.html :: styling"></th:block>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<div class="d-flex justify-content-center" style="margin-top: 5px">
+  <div class="card bg-dark text-white" style="width: 40rem">
+    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img" alt="Hollywood Sign on The Hill"/>
+    <div class="card-img-overlay">
+      <h5 class="card-title" style="text-align: center">About KidsRewards</h5>
+      <p class="card-text">
+        KidsRewards is an application that can allow parents and teachers to assign tasks and provide associated rewards. The objective of the application is to establish a foundational sense of financial responsibility and goal achievement between parents and their children.
+      </p>
+<!--      <p class="card-text">-dev team</p>-->
+    </div>
+  </div>
+</div>
+<div style="text-align: center; margin-top: 50px">
+  <h1>Meet the Developers</h1>
+</div><br><br>
+
+<!--CARDS-->
+<div class="d-flex justify-content-center">
+  <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2 g-4">
+    <div class="col mb-4 d-flex CARD1">
+      <div class="card" style="width: 15rem; border-width: 10px">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+        <div class="card-body">
+          <h5 class="card-title">Mario Welch</h5>
+          <p class="card-text">
+            Full Stack Developer
+          </p>
+        </div>
+        <div class="card-body">
+          <a href="https://www.linkedin.com/in/mario-a-welch/" class="card-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/mario-a-welch" class="card-link"><i class="fab fa-github"></i></a>
+          <a href="mailto:mario.welch01@gmail.com?subject=Regarding KidsRewards" class="card-link"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4 d-flex CARD2">
+      <div class="card" style="width: 15rem; border-width: 10px">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
+        <div class="card-body">
+          <h5 class="card-title">Nick Diaz</h5>
+          <p class="card-text">
+            Full Stack Developer
+          </p>
+        </div>
+        <div class="card-body">
+          <a href="https://www.linkedin.com/in/nicholasdiazjr/" class="card-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/nicholasdiazjr509" class="card-link"><i class="fab fa-github"></i></a>
+          <a href="mailto:NicholasDiazJr509@gmail.com?subject=Regarding KidsRewards" class="card-link"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4 d-flex CARD3">
+      <div class="card" style="width: 15rem; border-width: 10px">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers"/>
+        <div class="card-body">
+          <h5 class="card-title">Reza Niyakan</h5>
+          <p class="card-text">Full Stack Developer</p>
+        </div>
+        <div class="card-body">
+          <a href="https://www.linkedin.com/in/reza-niyakan/" class="card-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/RezaNiyakan" class="card-link"><i class="fab fa-github"></i></a>
+          <a href="mailto:RezaNiyakan@gmail.com?subject=Regarding KidsRewards" class="card-link"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<th:block th:replace="partials/bootstrap :: scripts"></th:block>
+
+
+</body>
+</html>
