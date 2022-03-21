@@ -26,6 +26,7 @@ public class UserController {
 
     @GetMapping("/index")
     public String showUsers(Model model) {
+//        model.addAttribute("allUsers", usersDao.findAll());
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("familyName", familiesDao.findFamilyByUsers(loggedInUser));
