@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/bootstrap :: styling">
+<head>
     <meta charset="UTF-8">
     <title>Welcome</title>
+    <th:block th:include="partials/bootstrap :: styling"></th:block>
+
 </head>
 <body>
     <h1 class="text-center">KidsRewards</h1>
