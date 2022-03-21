@@ -3,11 +3,11 @@
 <head th:replace="partials/bootstrap :: styling">
     <meta charset="UTF-8">
     <title>Welcome!</title>
-    <th:block th:include="partials/bootstrap :: styling"></th:block>
+<!--    <th:block th:include="partials/bootstrap :: styling"></th:block>-->
     <link rel="stylesheet" href="/templates/css/style.css">
 </head>
 <body>
-<nav th:replace="partials :: navbar"></nav>
+<!--<nav th:replace="partials :: navbar"></nav>-->
 
     <h1 class="text-center" th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h1>
         <div class="text-center">
@@ -21,6 +21,6 @@
 
 <!--        <h3 class="text-center">Family: <span th:text="${familyName.getName()}"></span></h3>-->
 
-<footer th:replace="partials/bootstrap :: scripts"></footer>
+<!--<footer th:replace="partials/bootstrap :: scripts"></footer>-->
 </body>
 </html>

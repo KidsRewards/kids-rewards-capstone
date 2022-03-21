@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Create a Family</title>
-    <th:block th:include="partials/bootstrap :: styling"></th:block>
+<!--    <th:block th:include="partials/bootstrap :: styling"></th:block>-->
 
 </head>
 <body>
-<nav th:replace="partials :: navbar"></nav>
+<!--<nav th:replace="partials :: navbar"></nav>-->
     <h1>Create A Family</h1>
     <form th:action="@{/createfamily}" method="Post">
         <label for="name">Family Name</label>
         <input id="name" name="name" />
         <button type="submit">Submit</button>
     </form>
-    <th:block th:include="partials/bootstrap :: scripts"></th:block>
+<!--    <th:block th:include="partials/bootstrap :: scripts"></th:block>-->
 
 </body>
 </html>

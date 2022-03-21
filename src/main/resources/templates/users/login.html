@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8" />
     <title>Log In</title>
-        <th:block th:include="partials/bootstrap :: styling"></th:block>
+<!--        <th:block th:include="templates/partials/bootstrap :: styling"></th:block>-->
 </head>
 <body>
-<nav th:replace="partials :: navbar"></nav>
+<!--<nav th:replace="partials :: navbar"></nav>-->
 <h1>Kids Rewards Admin Log In</h1>
 <div th:if="${param.error}">
     Invalid Username and Password.
@@ -22,7 +22,7 @@
     <input id="password" name="password" type="password" />
     <input type="submit" value="Log In" />
 </form>
-<th:block th:include="partials/bootstrap :: scripts"></th:block>
+<!--<th:block th:include="partials/bootstrap :: scripts"></th:block>-->
 </body>
 </html>
 
