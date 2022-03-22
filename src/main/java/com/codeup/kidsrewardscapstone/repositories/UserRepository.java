@@ -1,8 +1,12 @@
 package com.codeup.kidsrewardscapstone.repositories;
 
+import com.codeup.kidsrewardscapstone.models.Family;
 import com.codeup.kidsrewardscapstone.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
+    List<User> findUsersByFamilies(Family family);
 }
