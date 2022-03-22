@@ -5,6 +5,9 @@
 .users-login, .users-createfamily, .users-index, .users-sign-up, .users-user, .family-createchild{
     background-color: yellowgreen;
 }
+.tasks-create, .tasks-edit, .tasks-index, .tasks-show{
+    background-color: navajowhite;
+}
 .myDiv{
     display: none;
     text-align: center;
