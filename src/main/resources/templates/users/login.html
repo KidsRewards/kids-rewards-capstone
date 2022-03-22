@@ -10,7 +10,7 @@
 </head>
 <body class="users-login">
 <nav th:replace="partials/navbar:: navbar"></nav>
-<h1>Kids Rewards Admin Log In</h1>
+<h1 class="text-center">Kids Rewards User Log In</h1>
 <div th:if="${param.error}">
     Invalid Username and Password.
 </div>
@@ -23,6 +23,7 @@
     <input id="username" name="username" type="text" />
     <label for="password">Password</label>
     <input id="password" name="password" type="password" />
+<!--    <a href="/createfamily" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Submit</a>-->
     <input type="submit" value="Log In" />
 </form>
 
