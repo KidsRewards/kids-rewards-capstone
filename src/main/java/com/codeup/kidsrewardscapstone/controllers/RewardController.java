@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.codeup.kidsrewardscapstone.repositories.RewardRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,16 +39,32 @@ public class RewardController {
         return "rewards/show";
     }
 
+//    Creates reward and assigns it to the particular user
     @GetMapping("/rewards/create")
     public String showCreateForm(Model model) {
         model.addAttribute("newReward", new Reward());
+
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Family currentFamily = familiesDao.findFamilyByUsers(loggedInUser);
+        List<User> wholeFamily = usersDao.findUsersByFamilies(currentFamily);
+        List<User> children = new ArrayList<>();
+
+        for(User user : wholeFamily){
+            if(!user.getParent()){
+                System.out.println(user.getId());
+                children.add(user);
+            }
+        }
+
+        model.addAttribute("children", children);
         return "rewards/create";
     }
 
     @PostMapping("/rewards/create")
-    public String createReward(@ModelAttribute Reward newReward){
+    public String createReward(@ModelAttribute Reward newReward, @RequestParam(name="childId") long childId){
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        newReward.setUser(loggedInUser);
+        newReward.setUser(usersDao.getById(childId));
         rewardsDao.save(newReward);
         return "redirect:/rewards/user-rewards-all";
     }
@@ -78,13 +95,14 @@ public class RewardController {
     @GetMapping("/rewards/user-rewards-all")
     public String viewRewards(Model model) {
         //Gets user id
-//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         //Gets users family by using familyDao and inputting the userId of current logged in user
 //        Family family = familiesDao.findFamilyByUsers(loggedInUser);
 //        System.out.println("Family ID: " + family.getId());
 //        family.getId();
 //        model.addAttribute("allRewards", rewardsDao.getById(loggedInUser.getId()));
         model.addAttribute("allRewards", rewardsDao.findAll());
+        model.addAttribute("user", usersDao.getById(loggedInUser.getId()));
         return "rewards/user-rewards-all";
     }
 

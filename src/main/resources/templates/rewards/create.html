@@ -42,6 +42,14 @@
                 <input type="text" class="form-control" id="points" name="points" th:field="*{points}">
             </div>
 
+            <div class="form-group">
+                <label for="childId">Select Child to Assign Reward</label>
+                <select th:each="child : ${children}" th:name="childId">Icon
+                    <option th:value="${child.id}" th:text="${child.username}" name="childId" id="childId"></option>
+                </select>
+            </div>
+
+
             <button type="submit">Submit</button>
         </form>
     </div>
