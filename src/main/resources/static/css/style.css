@@ -38,30 +38,15 @@
     padding: 10px;
 }
 
-/*select#icon4{*/
-/*    min-width: 0;*/
-/*    height: 100%;*/
-/*    background-image: url("../images/pup2.jpeg") ;*/
-/*    border-radius: 8px 0 0 5px;*/
-/*    overflow: hidden;*/
-/*}*/
-/*.icon4{*/
-/*    background-image: url("https://media.istockphoto.com/photos/sunny-cat-picture-id508030340?k=20&m=508030340&s=612x612&w=0&h=i9ZrA9YosOFqfKtWv1ZLBZToVlucppDxrm_T1IdYbpI=");*/
-/*    background-repeat: no-repeat;*/
-/*    background-position: center;*/
-/*    padding-bottom: 1px;*/
-/*    margin-bottom: 20px;*/
-
-/*}*/
-/*.navbar{*/
-/*    font-family: "Arial Rounded MT Bold", sans-serif !important;*/
-/*    width: 85%;*/
-/*    margin: auto;*/
-/*    padding-top: 25px;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: space-between;*/
-/*}*/
+.navbar{
+    font-family: "Arial Rounded MT Bold", sans-serif !important;
+    /*width: 85%;*/
+    margin: auto;
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 /*.img1{*/
 /*    width: 150px;*/
 /*    height: 150px;*/
