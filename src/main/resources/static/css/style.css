@@ -2,7 +2,7 @@
 .homepage, .rewards-create, .rewards-edit, .rewards-index, .rewards-show, .rewards-user-rewards-all{
     background-color: lightblue;
 }
-.users-login, .users-createfamily, .users-index, .users-sign-up, .users-user{
+.users-login, .users-createfamily, .users-index, .users-sign-up, .users-user, .family-createchild{
     background-color: yellowgreen;
 }
 .myDiv{
