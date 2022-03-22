@@ -8,8 +8,8 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
 </head>
-<body>
-<!--<nav th:replace="partials/navbar:: navbar"></nav>-->
+<body class="users-sign-up">
+<nav th:replace="partials/navbar:: navbar"></nav>
 
 <h1>Create A Parent</h1>
 <form th:action="@{/sign-up}" method="POST" th:object="${user}">

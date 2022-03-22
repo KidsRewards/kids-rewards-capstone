@@ -9,7 +9,7 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>Edit a STATUS</title>
 </head>
-<body>
+<body class=statuses-edit">
 <nav th:replace="partials/navbar:: navbar"></nav>
 <!--Thymeleaf action syntax-->
 <form th:action="@{/status/{id}?edit =(id == ${statusToEdit.getId()})}" th:method="POST" th:object="${statusToEdit}">

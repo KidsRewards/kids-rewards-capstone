@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/static/css/style.css"> <link rel="stylesheet" href="/static/css/style.css">
     <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
-<body>
+<body class="user-index" >
 <nav th:replace="partials/navbar :: navbar"></nav>
 
     <h1 class="text-center" th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h1>
