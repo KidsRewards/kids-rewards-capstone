@@ -37,31 +37,11 @@ public class FamilyController {
         return "users/createfamily";
     }
 
-    @PostMapping("/createfamily")
-    public String saveFamilyName(@ModelAttribute Family family){
-        User newParent = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        newParent = usersDao.getById(newParent.getId());
-//        Family family = new Family(familyName);
-        List<Family> newFamily = new ArrayList<>();
-        if(newParent.getFamilies() != null){
-            newFamily = newParent.getFamilies();
-        }
-        List<User> users = new ArrayList<>();
-        users.add(newParent);
-        family.setUsers(users);
-        newFamily.add(family);
-        newParent.setFamilies(newFamily);
-        usersDao.save(newParent);
-        return "redirect:/index";
-    }
-
-
 //    @PostMapping("/createfamily")
-//    public String saveFamilyName(@RequestParam(name="name") String familyName){
-//
+//    public String saveFamilyName(@ModelAttribute Family family){
 //        User newParent = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        newParent = usersDao.getById(newParent.getId());
-//        Family family = new Family(familyName);
+////        Family family = new Family(familyName);
 //        List<Family> newFamily = new ArrayList<>();
 //        if(newParent.getFamilies() != null){
 //            newFamily = newParent.getFamilies();
@@ -74,6 +54,26 @@ public class FamilyController {
 //        usersDao.save(newParent);
 //        return "redirect:/index";
 //    }
+
+
+    @PostMapping("/createfamily")
+    public String saveFamilyName(@RequestParam(name="name") String familyName){
+
+        User newParent = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        newParent = usersDao.getById(newParent.getId());
+        Family family = new Family(familyName);
+        List<Family> newFamily = new ArrayList<>();
+        if(newParent.getFamilies() != null){
+            newFamily = newParent.getFamilies();
+        }
+        List<User> users = new ArrayList<>();
+        users.add(newParent);
+        family.setUsers(users);
+        newFamily.add(family);
+        newParent.setFamilies(newFamily);
+        usersDao.save(newParent);
+        return "redirect:/index";
+    }
 
 //    Used to show child form
     @GetMapping("/createchild")

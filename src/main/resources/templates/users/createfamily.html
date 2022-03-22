@@ -10,11 +10,13 @@
 
 </head>
 <body>
-<!--<nav th:replace="partials :: navbar"></nav>-->
-    <h1>Create A Family</h1>
-    <form th:action="@{/createfamily}" method="Post" th:object="${family}">
+<nav th:replace="partials/navbar :: navbar"></nav>
+    <h1 class="text-center">Create A Family</h1>
+<!--    <form th:action="@{/createfamily}" method="Post" th:object="${family}">-->
+    <form th:action="@{/createfamily}" method="Post">
         <label for="name">Family Name</label>
-        <input id="name" name="name" th:field="*{name}"/>
+        <input id="name" name="name">
+<!--        <input id="name" name="name" th:field="*{name}"/>-->
         <button type="submit">Submit</button>
     </form>
 <!--    <th:block th:include="partials/bootstrap :: scripts"></th:block>-->

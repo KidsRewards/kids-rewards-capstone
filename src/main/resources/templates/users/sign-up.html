@@ -9,9 +9,9 @@
 
 </head>
 <body>
-<!--<nav th:replace="partials/navbar:: navbar"></nav>-->
+<nav th:replace="partials/navbar:: navbar"></nav>
 
-<h1>Create A Parent</h1>
+<h1 class="text-center">Create A Parent</h1>
 <form th:action="@{/sign-up}" method="POST" th:object="${user}">
     <label for="username">Username</label>
     <input id="username" th:field="*{username}" />
