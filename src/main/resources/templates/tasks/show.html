@@ -12,7 +12,9 @@
     <!-- <link rel="stylesheet" href="css/main.css">-->
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
-<body>
+<body class="tasks-show">
+<nav th:replace="partials/navbar:: navbar"></nav>
+
 <div class="card" style="width: 18rem;">
     <div class="card-body" th:if="${singleTask}">
         <h5 class="card-title" th:text="${singleTask.getTitle()}">Card title</h5>

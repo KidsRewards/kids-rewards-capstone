@@ -8,7 +8,8 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
 </head>
-<body>
+<body class="users-sign-up">
+
 <nav th:replace="partials/navbar:: navbar"></nav>
 
 <h1 class="text-center">Create A Parent</h1>
@@ -27,7 +28,7 @@
 
     <input value="Register!" type="submit" />
 </form>
-<!--<th:block th:replace="partials/bootstrap :: scripts"></th:block>-->
+<th:block th:replace="partials/bootstrap :: scripts"></th:block>
 <script src="/static/js/main.js"></script>
 </body>
 </html>

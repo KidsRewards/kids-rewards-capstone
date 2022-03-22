@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
+
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
     <h1 class="text-center">Create A Family</h1>
 <!--    <form th:action="@{/createfamily}" method="Post" th:object="${family}">-->
     <form th:action="@{/createfamily}" method="Post">
+
         <label for="name">Family Name</label>
         <input id="name" name="name">
 <!--        <input id="name" name="name" th:field="*{name}"/>-->

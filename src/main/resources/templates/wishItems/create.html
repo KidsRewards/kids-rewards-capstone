@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>Add a Wish Item</title>
 </head>
-<body>
+<body class="wishitems-create">
 <!--<nav th:replace="partials/wishitems :: navbar"></nav>-->
 <div class="container">
     <h1 style="text-align: center">Add a Wish Item</h1>
@@ -24,7 +24,7 @@
 
         <div class="form-group">
             <label for="body">Body</label>
-            <input type="text" class="form-control" id="body" name="body" th:field="*{body}">
+            <textarea type="text" class="form-control" id="body" name="body" rows="5" th:field="*{body}"></textarea>
         </div>
 
         <button type="submit">Submit</button>
