@@ -22,20 +22,60 @@
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="../images/bedroom.webp" alt="bedroom">
+<div class="carousel-inner" >
+    <div class="item active" >
+         <div class="card" style="width: 265px;">
+                <img src="../images/bedroom.webp" width="260" alt="...">
+             <div class="card-body" >
+                <h5 class="card-title">Tidy the Bedroom</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
         </div>
-
+    </div>
         <div class="item">
-            <img src="../images/kitchen.webp" alt="kitchen">
+            <div class="card" style="width: 265px;">
+                <img src="../images/kitchen.webp" width="260" alt="kitchen">
+                <div class="card-body">
+                    <h5 class="card-title">Kitchen Clean Up</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
         </div>
-
         <div class="item">
-            <img src="../images/garage.png" alt="garage">
+            <div class="card" style="width: 265px;">
+                <img src="../images/garage.png" width="260" alt="garage">
+             <div class="card-body">
+                <h5 class="card-title">Garage Clean Up </h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="card" style="width: 265px;">
+            <img src="../images/livingroom.png" width="260" alt="kitchen">
+            <div class="card-body">
+                <h5 class="card-title">Living Room Cleanup</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="card" style="width: 265px ;" >
+            <img src="../images/lawncare.png" width="260 " alt="kitchen" >
+            <div class="card-body">
+                <h5 class="card-title">Lawncare </h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
         </div>
     </div>
 
@@ -49,8 +89,9 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
+</div>
 <footer th:replace="partials/bootstrap :: scripts"></footer>
 <th:block th:replace="partials/footer :: styling"></th:block>
+
 </body>
 </html>

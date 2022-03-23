@@ -24,7 +24,7 @@
             <select id="icon" class="icons"  th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icons
                 <option id="0" value="Zero">Select your task icon. </option>
 
-<!--                <option id="1" th:value="${'/images/bedroom.webp'}" >Bedroom</option>-->
+                <!--                <option id="1" th:value="${'/images/bedroom.webp'}" >Bedroom</option>-->
                 <option id="1" value="One" >Bedroom</option>
                 <option id="2" value="Two">Kitchen</option>
                 <option id="3" value="Three">Living Room</option>
@@ -37,7 +37,7 @@
             <button id="open" type="button" name="clicked" class="btn btn-outline-secondary mb-3 whiteFont" disabled>
                 Click custom to create your own task image.
             </button>
-<!--            <input  class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />-->
+            <!--            <input  class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />-->
             <span id="uploadMessage" class="mx-3"></span>
 
             <br>
@@ -55,10 +55,10 @@
             </div>
             <!--the icon images or pics-->
             <div id="showOne" class="myDiv">
-                <img   th:src="@{/images/bedroom.webp}" width=100" alt="Bedroom"/><span>Bedroom</span>
+                <img th:src="@{/images/bedroom.webp}" width="100" alt="bedroom" /><span>Bedroom</span>
             </div>
             <div id="showTwo" class="myDiv">
-                <img   th:src="@{/images/kitchen.webp}" width=100" alt="Icon 2"/><span>Kitchen</span>
+                <img th:src="@{/images/kitchen.webp}" width="100" height="100" alt="pup"/><span>Kitchen</span>
             </div>
             <div id="showThree" class="myDiv">
                 <img   th:src="@{/images/livingroom.png}" width="100" alt="Icon 3"/><span>Living Room</span>
@@ -72,11 +72,6 @@
             <div id="showSix" class="myDiv">
                 <img src="" width="100" height="100" alt="Custom"/><span>Custom</span>
             </div>
-
-            <!--                  <span th:each="status : ${status}"></span>-->
-            <!--            <input type="checkbox" th:field="*{status}" th:id="genre + ${status.id}" th:value="${status.id}">-->
-            <!--            <label th:for="status + ${status.id}" th:text="${status.statusDesc}"></label>-->
-            <!--        </span>-->
             <button type="submit">Submit</button>
         </form>
 
@@ -106,25 +101,26 @@
         </script>
         <!--      script for icon function-->
 
-<!--            var myImage= [[@{/image/images.png}]];-->
-<script >
+        <!--            var myImage= [[@{/image/images.png}]];-->
+        <script >
             // $(document).ready(function() {
             $('#icon').on('change', function () {
                 var iconvalue = $(this).val();
-                console.log(iconvalue);
+                // console.log(iconvalue);
                 $("div.myDiv").hide();
                 $('#show' + iconvalue).show();
 
             });
 
             // });
-                </script>
+        </script>
 
     </form>
 </div>
 <!-- Scripts -->
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 
 <!--<script th:src="@{/../static/js/main.js}"></script>-->
 <!--<script src="/static/js/main.js"></script>-->
