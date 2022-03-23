@@ -1,3 +1,23 @@
+/*********** Media Responsiveness *************/
+/* Small devices (phones and pocket devices, 576 and up) */
+@media screen and (min-width:576px) { /* ... */ }
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) { /* ... */ }
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width:992px) { /* ... */ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) { /* ... */ }
+
+
+
+
+
+
+
+
 /******* Homepage.html ************/
 
 .card{
@@ -12,18 +32,22 @@
 
 
 /********** CSS  html pages **********/
+
 .homepage, .rewards-create, .rewards-edit,
 .rewards-index, .rewards-show, .rewards-user-rewards-all{
     background-color: lightblue;
 }
+
 .users-login, .users-createfamily, .users-index,
 .users-sign-up, .users-user, .family-createchild{
     background-color: lightblue;
 }
+
 .tasks-create, .tasks-edit, .tasks-index, .tasks-show,
 .admins-index, .admins-login, .admins-register{
     background-color: lightblue;
 }
+
 .statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index
 .wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit{
     background-color: lightblue;
