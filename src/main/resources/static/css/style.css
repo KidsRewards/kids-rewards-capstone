@@ -1,13 +1,29 @@
-/********** Template CSS **********/
-.homepage, .rewards-create, .rewards-edit, .rewards-index, .rewards-show, .rewards-user-rewards-all{
+/******* Calendar CSS ************/
+
+
+
+
+
+
+/********** CSS  html pages **********/
+.homepage, .rewards-create, .rewards-edit,
+.rewards-index, .rewards-show, .rewards-user-rewards-all{
     background-color: lightblue;
 }
-.users-login, .users-createfamily, .users-index, .users-sign-up, .users-user, .family-createchild{
-    background-color: yellowgreen;
+.users-login, .users-createfamily, .users-index,
+.users-sign-up, .users-user, .family-createchild{
+    background-color: lightblue;
 }
-.tasks-create, .tasks-edit, .tasks-index, .tasks-show{
-    background-color: navajowhite;
+.tasks-create, .tasks-edit, .tasks-index, .tasks-show,
+.admins-index, .admins-login, .admins-register{
+    background-color: lightblue;
 }
+.statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index
+.wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit{
+    background-color: lightblue;
+}
+
+/********** CSS tasks/create.html **********/
 .myDiv{
     display: none;
     text-align: center;
@@ -24,12 +40,13 @@
     border: 1px solid #d47c7c;
     margin: 8px auto;
 }
-#showOne{
+#show1{
+
     color:red;
     border: 1px solid red;
     padding: 10px;
 }
-#showTwo{
+#show2{
     color:green;
     border: 1px solid green;
     padding: 10px
@@ -50,6 +67,14 @@
     align-items: center;
     justify-content: space-between;
 }
+
+
+
+
+
+
+
+/*******TEMPLATE CSS FOR DASHMIN TEMPLATE*********/
 /*.img1{*/
 /*    width: 150px;*/
 /*    height: 150px;*/

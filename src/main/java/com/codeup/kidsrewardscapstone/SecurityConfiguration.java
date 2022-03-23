@@ -57,7 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 // anyone can see the home and the posts pages
-                .antMatchers("/",  "/tasks", "/wishitem", "/rewards/{id: [\\d+]}", "/users/{id: [\\d+]}").permitAll()
+                .antMatchers("/",  "/scss", "/tasks", "/wishitem", "/rewards/{id: [\\d+]}", "/users/{id: [\\d+]}").permitAll()
                 /* Pages that require authentication */
                 .and()
                 .authorizeRequests()

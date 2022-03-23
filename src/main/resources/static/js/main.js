@@ -21,12 +21,20 @@
             console.log(fileData);
             console.log(fileData.url);
             console.log(fileData.mimeType);
+
             $('#pickedFile').val(fileData.url);
+            $('#1').val(fileData.url);
+
             $('#open').text(fileData.filename);
             $('#uploadMessage').text('Upload Succeed!');
             $('#submitAvatar').submit();
         }
-
+            $('#showSix').attr("src", function () {
+                return $('#pickedFile').val();
+            })
+            // $('#icon').attr("src", function () {
+            //     return $('#1').val();
+            // })
 
 });
     //stays hidden until picked
