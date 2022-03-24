@@ -12,19 +12,33 @@
 <body class="users-index" >
 <nav th:replace="partials/navbar :: navbar"></nav>
 
+<!--Sidebar-->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/createfamily">Create Family</a>
+    <a href="/createchild">Add a child</a>
+    <a href="/rewards/user-rewards-all">Reward Store</a>
+    <a href="/tasks/create">Add a Task</a>
+    <a href="/wishitemse">View Wishitems</a>
+</div>
+
+<h2>Animated Sidenav Example</h2>
+<p>Click on the element below to open the side navigation menu.</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Open</span>
+
+
+
     <h1 class="text-center" th:inline="text">Welcome </h1>
-        <div class="text-center">
-            <a href="/createfamily" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Create Family</a>
-            <a href="/createchild" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Add A Child</a>
-            <a href="/rewards/user-rewards-all" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Reward Store</a>
-            <a href="/tasks/create" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Add A Task</a>
-            <a href="/wishitems" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">View Wishitems</a>
-            <a href="/tasks/index" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">View Tasks</a>
 
-        </div>
+<!--        <div class="text-center">-->
+<!--            <a href="/createfamily" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Create Family</a>-->
+<!--            <a href="/createchild" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Add A Child</a>-->
+<!--            <a href="/rewards/user-rewards-all" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Reward Store</a>-->
+<!--            <a href="/tasks/create" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">Add A Task</a>-->
+<!--            <a href="/wishitems" class="btn btn-primary btn-lg active column-left" role="button" aria-pressed="true">View Wishitems</a>-->
+<!--        </div>-->
 
 
- 
 <!--     <h3 class="text-center">Family: <span th:text="${familyName.getName()}"></span></h3>-->
  
 
