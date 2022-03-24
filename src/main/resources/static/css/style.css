@@ -77,8 +77,6 @@ body {
 }
 
 
-
-
 /********** CSS  html pages **********/
 
 .homepage, .rewards-create, .rewards-edit,
@@ -96,8 +94,12 @@ body {
     background-color: lightblue;
 }
 
-.statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index
+.statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index,
 .wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit{
+    background-color: lightblue;
+}
+
+.about-us{
     background-color: lightblue;
 }
 
