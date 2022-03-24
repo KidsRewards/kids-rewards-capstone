@@ -39,7 +39,7 @@ public class RewardController {
         return "rewards/show";
     }
 
-//    Creates reward and assigns it to the particular user
+//    Shows reward form and allows the ability to select from a list of children to assign the reward to
     @GetMapping("/rewards/create")
     public String showCreateForm(Model model) {
         model.addAttribute("newReward", new Reward());
