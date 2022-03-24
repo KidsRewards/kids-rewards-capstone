@@ -22,7 +22,7 @@
 /*    margin: 200px 40%;*/
 /*}*/
 
-form {
+.search {
     background-color: #7395AE;
     width: 300px;
     height: 44px;
@@ -33,7 +33,7 @@ form {
 
 }
 
-input {
+.searchInput {
     all: unset;
     font: 16px system-ui;
     height: 100%;
@@ -54,7 +54,7 @@ svg {
     padding: 2px;
 }
 
-button {
+.searchBtn {
     all: unset;
     cursor: pointer;
     width: 44px;
