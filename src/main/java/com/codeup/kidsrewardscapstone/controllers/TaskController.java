@@ -1,9 +1,7 @@
 package com.codeup.kidsrewardscapstone.controllers;
 
-import com.codeup.kidsrewardscapstone.models.Reward;
-import com.codeup.kidsrewardscapstone.models.Status;
-import com.codeup.kidsrewardscapstone.models.Task;
-import com.codeup.kidsrewardscapstone.models.User;
+import com.codeup.kidsrewardscapstone.models.*;
+import com.codeup.kidsrewardscapstone.repositories.FamilyRepository;
 import com.codeup.kidsrewardscapstone.repositories.StatusRepository;
 import com.codeup.kidsrewardscapstone.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,24 +12,35 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.codeup.kidsrewardscapstone.repositories.TaskRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class TaskController {
     //added status repo and constructor
     private StatusRepository statusDao;
     private TaskRepository taskDao;
     private UserRepository usersDao;
+    private FamilyRepository familiesDao;
 
-    public TaskController(StatusRepository statusDao, TaskRepository taskDao, UserRepository usersDao) {
+    public TaskController(StatusRepository statusDao, TaskRepository taskDao, UserRepository usersDao, FamilyRepository familiesDao) {
         this.statusDao = statusDao;
         this.taskDao = taskDao;
         this.usersDao = usersDao;
+        this.familiesDao = familiesDao;
     }
 
+//    Displays tasks assigned to the child
     @GetMapping("tasks/index")
     public String viewTasks(Model model) {
-        model.addAttribute("allTasks", taskDao.findAll());
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long id = loggedInUser.getId();
+        System.out.println(id);
+
+        model.addAttribute("allTasks", taskDao.findAllByUserId(id));
         return "tasks/index";
     }
+
     @PostMapping("tasks/index")
     public String viewTasks(){
         return "redirect:/tasks/index";
@@ -67,18 +76,32 @@ public class TaskController {
             return "tasks/show";
         }
 
+//        Shows the task create form and allows the ability to select from a list of children to assign the task to
     @GetMapping("/tasks/create")
     public String showCreateForm(Model model) {
         model.addAttribute("newTask", new Task());
-//        model.addAttribute("status", statusDao.findAll());
+
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Family currentFamily = familiesDao.findFamilyByUsers(loggedInUser);
+        List<User> wholeFamily = usersDao.findUsersByFamilies(currentFamily);
+        List<User> children = new ArrayList<>();
+
+        for(User user : wholeFamily){
+            if(!user.getParent()){
+                System.out.println(user.getId());
+                children.add(user);
+            }
+        }
+
+        model.addAttribute("children", children);
         return "tasks/create";
     }
 
     @PostMapping("/tasks/create")
-    public String submitCreateForm(@ModelAttribute Task newTask) {
+    public String submitCreateForm(@ModelAttribute Task newTask, @RequestParam(name="childId") long childId) {
         User taskUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        newTask.setUser(taskUser);
-//        Adds a status of 1 to the task
+        newTask.setUser(usersDao.getById(childId));
         newTask.setStatus(statusDao.getById(1L));
         taskDao.save(newTask);
         return "redirect:/tasks/index";
