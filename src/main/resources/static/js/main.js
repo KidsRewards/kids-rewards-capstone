@@ -33,6 +33,16 @@
             })
 
 });
+
+//SIDEBAR //////
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+    function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+    /////////
+
     //stays hidden until picked
 //value of select
 //if value 6/ show
