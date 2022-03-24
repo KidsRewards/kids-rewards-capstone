@@ -1,25 +1,23 @@
 
 <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-primary"
-         xmlns:sec="http://www.w3.org/1999/xhtml">
+     xmlns:sec="http://www.w3.org/1999/xhtml">
     <a class="navbar-brand" href="http://localhost:8080">KidsRewards</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
+    <div class="container-fluid"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="http://localhost:8080">Home <span class="sr-only">(current)</span></a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost:8080/rewards">Rewards</a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost:8080/wishitems">Wish Items</a>
             </li>
-
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown
@@ -33,7 +31,7 @@
             </li>
             <li class="nav-item" sec:authorize="isAuthenticated()">
                 <form th:action="@{/logout}" th:method="post">
-                    <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                    <button class="btn-link btn" style="margin-top: 8px; color: black">Logout</button>
                 </form>
             </li>
             <li class="nav-item" sec:authorize="!isAuthenticated()">
@@ -48,7 +46,7 @@
             <input class="searchInput" type="search" id="query" name="q"
                    placeholder="Search..."
                    aria-label="Search through site content">
-            <button class="searchBtn"><svg viewBox="0 0 1054 1054"><path class="path1"
+            <button><svg viewBox="0 0 1034 1034"><path class="path1"
            d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg></button>
         </form>
 
