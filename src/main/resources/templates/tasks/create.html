@@ -99,7 +99,6 @@
         </script>
         <!--      script for icon function-->
 
-        <!--            var myImage= [[@{/image/images.png}]];-->
         <script >
             // $(document).ready(function() {
             $('#icon').on('change', function () {
@@ -108,19 +107,19 @@
                 $("div.myDiv").hide();
                 $('#show' + iconvalue).show();
 
+                // $('#icon').change(function(){ //if the select value gets changed
+                //     var imageSource = $(this).val(); //get the selected value
+                //     if(imageSource && imageSource !== ""){ //if it has data
+                //         $('#show' + iconvalue).html('<img src="'+imageSource+'">'); // insert image in div image-location
+                //     } else {
+                //         $('#show' + iconvalue).html(''); //remove content from div image-location, thus removing the image
+                //     }
+                // })
+                // $(iconvalue).attr("src", function () {
+                //     return $('div.myDiv').val();
+                //
+                // })
 
-                $('#icon').change(function(){ //if the select value gets changed
-                    var imageSource = $(this).val(); //get the selected value
-                    if(imageSource && imageSource !== ""){ //if it has data
-                        $('#show' + iconvalue).html('<img src="'+imageSource+'">'); // insert image in div image-location
-                    } else {
-                        $('#show' + iconvalue).html(''); //remove content from div image-location, thus removing the image
-                    }
-                })
-            //     var iconvalue = $(' ')
-            // $('#show'.iconvalue).attr("src", function () {
-            //     return $('#show' + iconvalue).val();
-            // })
             });
 
             // });
