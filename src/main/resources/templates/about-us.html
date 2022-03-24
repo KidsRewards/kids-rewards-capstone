@@ -2,24 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>About Us</title>
     <!-- ... -->
   </head>
 
-  <meta charset="UTF-8">
-  <title>About Us</title>
+
   <!--    Templating-->
   <th:block th:include="partials/bootstrap :: styling"></th:block>
 
-  <th:block th:include="partials/header.html :: styling"></th:block>
 </head>
-<body>
+<body class="about-us" onload="onload()">
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="d-flex justify-content-center" style="margin-top: 5px">
   <div class="card bg-dark text-white" style="width: 40rem">
     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img" alt="Hollywood Sign on The Hill"/>
     <div class="card-img-overlay">
+<!--      <div style="background-color: black; max-width: fit-content; opacity: 70%; border-radius: 10px">-->
       <h5 class="card-title" style="text-align: center">About KidsRewards</h5>
       <p class="card-text">
         KidsRewards is an application that can allow parents and teachers to assign tasks and provide associated rewards. The objective of the application is to establish a foundational sense of financial responsibility and goal achievement between parents and their children.
@@ -36,8 +37,10 @@
 <div class="d-flex justify-content-center">
   <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2 g-4">
     <div class="col mb-4 d-flex CARD1">
-      <div class="card" style="width: 15rem; border-width: 10px">
-        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+      <div class="card" style="width: 15rem; border-width: 10px; border-color: #000000">
+        <img th:src="@{/userImages/mario-headshot.jpg}" class="card-img-top" alt="Mario Head Shot"/>
+<!--                <img src="/userImages/mario-headshot.jpg" class="card-img-top" alt="Los Angeles Skyscrapers"/>-->
+<!--        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>-->
         <div class="card-body">
           <h5 class="card-title">Mario Welch</h5>
           <p class="card-text">
@@ -52,8 +55,10 @@
       </div>
     </div>
     <div class="col mb-4 d-flex CARD2">
-      <div class="card" style="width: 15rem; border-width: 10px">
-        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
+      <div class="card" style="width: 15rem; border-width: 10px; border-color: #000000">
+        <img th:src="@{/userImages/nick-headshot.jpg}" class="card-img-top" alt="Nick Head Shot"/>
+<!--                <img src="/userImages/nick-headshot.jpg" class="card-img-top" alt="Los Angeles Skyscrapers"/>-->
+<!--        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>-->
         <div class="card-body">
           <h5 class="card-title">Nick Diaz</h5>
           <p class="card-text">
@@ -68,8 +73,9 @@
       </div>
     </div>
     <div class="col mb-4 d-flex CARD3">
-      <div class="card" style="width: 15rem; border-width: 10px">
-        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers"/>
+      <div class="card" style="width: 15rem; border-width: 10px; border-color: black">
+<!--        <img src="/userImages/reza-headshot.png" class="card-img-top" alt="Los Angeles Skyscrapers"/>-->
+        <img th:src="@{/userImages/reza-github.png}" class="card-img-top" alt="Reza Head Shot"/>
         <div class="card-body">
           <h5 class="card-title">Reza Niyakan</h5>
           <p class="card-text">Full Stack Developer</p>
@@ -86,6 +92,7 @@
 </div>
 
 <th:block th:replace="partials/bootstrap :: scripts"></th:block>
+<!--<th:block th:replace="partials/footer :: styling"></th:block>-->
 
 
 </body>
