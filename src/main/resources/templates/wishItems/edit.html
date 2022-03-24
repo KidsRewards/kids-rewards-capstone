@@ -9,7 +9,8 @@
     <title>Edit a Wish Item for PLACEHOLDER</title>
 </head>
 <body class="wishitems-edit">
-<!--<nav th:replace="partials/wishitems :: navbar"></nav>-->
+<nav th:replace="partials/wishitems :: navbar"></nav>
+<!--<h1 style="text-align: center">Edit a Item for PLACEHOLDER</h1>-->
 <!--Thymeleaf action syntax-->
 <form th:action="@{/wishitems/{id}/edit (id = ${wishItemToEdit.getId()})}" th:method="POST" th:object="${wishItemToEdit}">
 
@@ -24,10 +25,10 @@
     <div class="form-group">
         <label for="body">Body</label>
         <!--Textarea elements do not have a value attribute, so we will represent the body using the th:text-->
-        <textarea class="form-control" id="body" rows="3" name="body" th:text="${wishItemToEdit.getBody()}" th:field="*{body}"></textarea>
+        <textarea class="form-control" id="body" rows="5" name="body" th:text="${wishItemToEdit.getBody()}" th:field="*{body}"></textarea>
     </div>
 
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

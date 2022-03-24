@@ -1,10 +1,67 @@
-/********** Template CSS **********/
-.homepage, .rewards-create, .rewards-edit, .rewards-index, .rewards-show, .rewards-user-rewards-all{
+/*********** Media Responsiveness *************/
+/* Small devices (phones and pocket devices, 576 and up) */
+@media screen and (min-width:576px) { /* ... */ }
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) { /* ... */ }
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width:992px) {
+    /*.card{*/
+    /*    !*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*!*/
+    /*    transition: 0.3s;*/
+    /*    !*width: 15%;*!*/
+    /*    float: left;*/
+    /*    margin-left: 530px;*/
+    /*}*/
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) { /* ... */ }
+
+
+
+
+
+
+
+
+/******* Homepage.html ************/
+
+.card{
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+    transition: 0.3s;
+    /*width: 15%;*/
+    float: left;
+    margin-left: 50px;
+}
+
+
+
+
+/********** CSS  html pages **********/
+
+.homepage, .rewards-create, .rewards-edit,
+.rewards-index, .rewards-show, .rewards-user-rewards-all{
     background-color: lightblue;
 }
-.users-login, .users-createfamily, .users-index, .users-sign-up, .users-user, .family-createchild{
-    background-color: yellowgreen;
+
+.users-login, .users-createfamily, .users-index,
+.users-sign-up, .users-user, .family-createchild{
+    background-color: lightblue;
 }
+
+.tasks-create, .tasks-edit, .tasks-index, .tasks-show,
+.admins-index, .admins-login, .admins-register{
+    background-color: lightblue;
+}
+
+.statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index
+.wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit{
+    background-color: lightblue;
+}
+
+/********** CSS tasks/create.html **********/
 .myDiv{
     display: none;
     text-align: center;
@@ -21,7 +78,9 @@
     border: 1px solid #d47c7c;
     margin: 8px auto;
 }
-#showOne{
+#One{
+/*background-image: url("../images/bedroom.webp");*/
+/*    background-repeat: no-repeat;*/
     color:red;
     border: 1px solid red;
     padding: 10px;
@@ -47,6 +106,14 @@
     align-items: center;
     justify-content: space-between;
 }
+
+
+
+
+
+
+
+/*******TEMPLATE CSS FOR DASHMIN TEMPLATE*********/
 /*.img1{*/
 /*    width: 150px;*/
 /*    height: 150px;*/

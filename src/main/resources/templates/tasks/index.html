@@ -19,7 +19,7 @@
 </li>
 <div class="container d-sm-table-row justify-content-center">
     <div th:each="task : ${allTasks}" class="d-flex card" style="width: 18rem; margin: 1em;">
-        <img th:src="${task.getIcon()}" class="card-img-top" alt="icon place holder image">
+        <img th:src="${task.getIcon()}"  class="card-img-top" alt="icon place holder image">
         <div class="card-body">
             <h5 th:text="${task.title}" class="card-title"></h5>
             <p th:text="${task.description}" class="card-text"></p>
