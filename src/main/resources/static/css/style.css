@@ -120,8 +120,6 @@ body {
 }
 
 
-
-
 /********** CSS  html pages **********/
 
 .homepage, .rewards-create, .rewards-edit,
@@ -142,10 +140,14 @@ body {
     font-family: "Arial Hebrew", serif;
 }
 
-.statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index
+.statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index,
 .wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit{
     background-color: lightblue;
     font-family: "Arial Hebrew", serif;
+}
+
+.about-us{
+    background-color: lightblue;
 }
 
 /********** CSS tasks/create.html **********/
