@@ -79,6 +79,7 @@ public class TaskController {
         User taskUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         newTask.setUser(taskUser);
 //        Adds a status of 1 to the task
+        System.out.println(newTask.getIcon());
         newTask.setStatus(statusDao.getById(1L));
         taskDao.save(newTask);
         return "redirect:/tasks/index";
@@ -105,8 +106,6 @@ public class TaskController {
             taskDao.save(task);
         return "redirect:/tasks/index";
     }
-
-
 
     @GetMapping("/tasks/{id}/delete")
     public String delete(@PathVariable long id) {

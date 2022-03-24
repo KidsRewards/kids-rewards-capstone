@@ -1,13 +1,7 @@
 package com.codeup.kidsrewardscapstone.controllers;
 
-import com.codeup.kidsrewardscapstone.models.Reward;
-import com.codeup.kidsrewardscapstone.models.Task;
-import com.codeup.kidsrewardscapstone.models.User;
-import com.codeup.kidsrewardscapstone.models.WishItem;
-import com.codeup.kidsrewardscapstone.repositories.RewardRepository;
-import com.codeup.kidsrewardscapstone.repositories.StatusRepository;
-import com.codeup.kidsrewardscapstone.repositories.UserRepository;
-import com.codeup.kidsrewardscapstone.repositories.WishItemRepository;
+import com.codeup.kidsrewardscapstone.models.*;
+import com.codeup.kidsrewardscapstone.repositories.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +15,15 @@ public class WishItemController {
     private UserRepository usersDao;
     private StatusRepository statusDao;
     private RewardRepository rewardsDao;
+    private FamilyRepository familyDao;
 
 
-    public WishItemController(WishItemRepository wishitemsDao, UserRepository usersDao, StatusRepository statusDao, RewardRepository rewardsDao) {
+    public WishItemController(WishItemRepository wishitemsDao, UserRepository usersDao, StatusRepository statusDao, RewardRepository rewardsDao, FamilyRepository familyDao) {
         this.wishitemsDao = wishitemsDao;
         this.usersDao = usersDao;
         this.statusDao = statusDao;
         this.rewardsDao = rewardsDao;
+        this.familyDao = familyDao;
     }
 
     @GetMapping("/wishitems")
@@ -35,9 +31,20 @@ public class WishItemController {
 //        Logged in user can only see there WishItems list.
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        User currentUser = (User) usersDao.findById(loggedInUser.getId());
-        List<WishItem> currentUserWishItems = wishitemsDao.findByUser(loggedInUser);
+//        List<WishItem> currentUserWishItems = wishitemsDao.findByUser(loggedInUser);
+        Family currentFamily = familyDao.findFamilyByUsers(loggedInUser);
+        List<WishItem> allWishItems = wishitemsDao.findByUser_Families(currentFamily);
+//        for (User user: currentFamily.getUsers()) {
+//            System.out.println(user.getId());
+//        }
+        if (!loggedInUser.getParent()) {
+            List<WishItem> singleKidWishItem = wishitemsDao.findByUser(loggedInUser);
+            model.addAttribute("allWishitems", singleKidWishItem);
+        } else {
+            model.addAttribute("allWishitems", allWishItems);
+        }
         model.addAttribute("user", loggedInUser.getParent());
-        model.addAttribute("allWishitems", currentUserWishItems);
+//        model.addAttribute("allWishitems", allWishItems);
         return "wishitems/index";
     }
 
@@ -96,6 +103,7 @@ public class WishItemController {
         long newPoints = Long.parseLong(points);
         newReward.setPoints(newPoints);
         newReward.setIcon("placeholder");
+        wishitemsDao.delete(wishItemApproved);
         rewardsDao.save(newReward);
         return "redirect:/rewards/user-rewards-all";
     }

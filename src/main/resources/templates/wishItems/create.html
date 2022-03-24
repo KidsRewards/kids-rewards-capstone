@@ -9,7 +9,7 @@
     <title>Add a Wish Item</title>
 </head>
 <body class="wishitems-create">
-<!--<nav th:replace="partials/wishitems :: navbar"></nav>-->
+<nav th:replace="partials/wishitems :: navbar"></nav>
 <div class="container">
     <h1 style="text-align: center">Add a Wish Item</h1>
 
@@ -27,7 +27,7 @@
             <textarea type="text" class="form-control" id="body" name="body" rows="5" th:field="*{body}"></textarea>
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 <!-- Scripts -->
