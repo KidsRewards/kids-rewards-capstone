@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="css/main.css">-->
     <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -22,19 +22,20 @@
         <form class="update-icons">
             <!--            <label for="icon" class="icons">Choose Icon</label>-->
             <select id="icon" class="icons"  th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icons
-                <option  value="Zero">Select your task icon. </option>
-                <option  value="One"><img class="img" th:href="@{../static/images/bedroom.webp}">Bedroom</option>
-                <option  value="Two">Kitchen</option>
-                <option  value="Three">Living Room</option>
-                <option  value="Four">Bathroom</option>
-                <option  value="Five">Lawn-care</option>
-                <option  value='6'>Custom</option>
+                <option id="0" value="Zero">Select your task icon. </option>
+                <option id="1" value="One" >Bedroom</option>
+                <option id="2" value="Two">Kitchen</option>
+                <option id="3" value="Three">Living Room</option>
+                <option id="4" value="Four">Bathroom</option>
+                <option id="5" value="Five">Lawn-care</option>
+
+                <option  id="pickedFile" value='Six'>Custom</option>
             </select>
 
             <button id="open" type="button" name="clicked" class="btn btn-outline-secondary mb-3 whiteFont" disabled>
                 Click custom to create your own task image.
             </button>
-            <input  class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />
+            <!--            <input  class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />-->
             <span id="uploadMessage" class="mx-3"></span>
 
             <br>
@@ -52,27 +53,23 @@
             </div>
             <!--the icon images or pics-->
             <div id="showOne" class="myDiv">
-<!--                <img th:src="@{/images/bedroom.webp}" width="300" height="300" alt="Icon 1"/><span>Bedroom</span>-->
-                <img th:src="@{/images/bedroom.webp}" width="300" height="300" alt="Icon 1"/><span>Bedroom</span>
+                <img  th:src="@{/images/bedroom.webp}" width="100" alt="bedroom" /><span>Bedroom</span>
             </div>
             <div id="showTwo" class="myDiv">
-                <img th:src="@{/images/kitchen.webp}" width="300" height="300" alt="pup"/><span>Kitchen</span>
+                <img th:src="@{/images/kitchen.webp}" width="100" height="100" alt="pup"/><span>Kitchen</span>
             </div>
             <div id="showThree" class="myDiv">
-                <img th:src="@{/images/livingroom.png}" width="300" height="300" alt="pup"/><span>Living Room</span>
+                <img   th:src="@{/images/livingroom.png}" width="100" alt="Icon 3"/><span>Living Room</span>
             </div>
             <div id="showFour" class="myDiv">
-                <img th:src="@{/images/bathroom.png}" width="300" height="300" alt="pup"/><span>Bathroom</span>
+                <img   th:src="@{/images/bathroom.png}" width="100"  alt="Icon 4"/><span>Bathroom</span>
             </div>
             <div id="showFive" class="myDiv">
-                <img th:src="@{/images/lawncare.png}" width="300" height="300" alt="pup"/><span>Lawn-care</span>
+                <img   th:src="@{/images/lawncare.png}" width="100" alt="Icon 5"/><span>Lawn-care</span>
             </div>
-
-
-            <!--                  <span th:each="status : ${status}"></span>-->
-            <!--            <input type="checkbox" th:field="*{status}" th:id="genre + ${status.id}" th:value="${status.id}">-->
-            <!--            <label th:for="status + ${status.id}" th:text="${status.statusDesc}"></label>-->
-            <!--        </span>-->
+            <div id="showSix" class="myDiv">
+                <img src="" width="100" height="100" alt="Custom"/><span>Custom</span>
+            </div>
             <button type="submit">Submit</button>
         </form>
 
@@ -89,7 +86,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 var button = $(this).next("button");
-                if(this.value === "6") {
+                if(this.value === "Six") {
                     button.css("display", "block");
                     button.prop("disabled", false);
 
@@ -100,21 +97,41 @@
                 // console.log(button.prop('disabled'));
             });
         </script>
-
         <!--      script for icon function-->
-        <script>
+
+        <!--            var myImage= [[@{/image/images.png}]];-->
+        <script >
             // $(document).ready(function() {
             $('#icon').on('change', function () {
                 var iconvalue = $(this).val();
+                // console.log(iconvalue);
                 $("div.myDiv").hide();
-                $("#show" + iconvalue).show();
+                $('#show' + iconvalue).show();
+
+
+                $('#icon').change(function(){ //if the select value gets changed
+                    var imageSource = $(this).val(); //get the selected value
+                    if(imageSource && imageSource !== ""){ //if it has data
+                        $('#show' + iconvalue).html('<img src="'+imageSource+'">'); // insert image in div image-location
+                    } else {
+                        $('#show' + iconvalue).html(''); //remove content from div image-location, thus removing the image
+                    }
+                })
+            //     var iconvalue = $(' ')
+            // $('#show'.iconvalue).attr("src", function () {
+            //     return $('#show' + iconvalue).val();
+            // })
             });
+
             // });
         </script>
+
     </form>
 </div>
 <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 
 <!--<script th:src="@{/../static/js/main.js}"></script>-->
 <!--<script src="/static/js/main.js"></script>-->
