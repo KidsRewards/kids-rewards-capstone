@@ -31,9 +31,9 @@ body {
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 0;
+    top: 78px;
     left: 0;
-    background-color: skyblue;
+    background-color: #379683;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -49,6 +49,9 @@ body {
 }
 
 .sidenav a:hover {
+    color: #f1f1f1;
+}
+.open:hover {
     color: #f1f1f1;
 }
 
@@ -83,22 +86,26 @@ body {
 
 .homepage, .rewards-create, .rewards-edit,
 .rewards-index, .rewards-show, .rewards-user-rewards-all{
-    background-color: lightblue;
+    background-color: #7395AE;
+    font-family: "Arial Hebrew", serif;
 }
 
 .users-login, .users-createfamily, .users-index,
 .users-sign-up, .users-user, .family-createchild{
-    background-color: lightblue;
+    background-color: #7395AE;
+    font-family: "Arial Hebrew", serif;
 }
 
 .tasks-create, .tasks-edit, .tasks-index, .tasks-show,
 .admins-index, .admins-login, .admins-register{
-    background-color: lightblue;
+    background-color: #7395AE;
+    font-family: "Arial Hebrew", serif;
 }
 
 .statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index
 .wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit{
     background-color: lightblue;
+    font-family: "Arial Hebrew", serif;
 }
 
 /********** CSS tasks/create.html **********/
