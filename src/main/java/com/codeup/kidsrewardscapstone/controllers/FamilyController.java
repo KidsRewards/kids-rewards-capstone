@@ -99,7 +99,7 @@ public class FamilyController {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         user.setFamilies(addFamilyName);
-
+        user.setParent(false);
         usersDao.save(user);
         return "redirect:/index";
     }
