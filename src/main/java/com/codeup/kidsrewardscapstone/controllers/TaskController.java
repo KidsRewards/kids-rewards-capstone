@@ -30,7 +30,7 @@ public class TaskController {
         this.familiesDao = familiesDao;
     }
 
-//    Displays tasks assigned to the child
+//    Display tasks assigned to the child
     @GetMapping("tasks/index")
     public String viewTasks(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
