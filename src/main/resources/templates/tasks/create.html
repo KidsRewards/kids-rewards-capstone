@@ -39,10 +39,10 @@
             <span id="uploadMessage" class="mx-3"></span>
 
             <br>
-            <div class="form-group">
-                <label for="icon">Icon </label>
-                <input type="hidden" class="form-control" name="imgFile" th:field="*{icon}">
-            </div>
+<!--            <div class="form-group">-->
+<!--                <label for="icon">Icon </label>-->
+<!--                <input type="hidden" class="form-control" name="imgFile" th:field="*{icon}">-->
+<!--            </div>-->
 
             <div class="form-group">
                 <label for="title">Title</label>
@@ -118,16 +118,13 @@
             // $(document).ready(function() {
             $('#icon').on('change', function () {
                 var iconvalue = $(this).val();
-                 //console.log(iconvalue);
+                //console.log(iconvalue);
+
                 $("div.myDiv").hide();
                 $('#show' + iconvalue).show();
 
-                var iconvalues =$(this).find('option:selected').attr('data-image')
-                $('div.myDiv').attr('iconvalues', iconvalues);
-
-
-
             });
+
 
             // });
         </script>

@@ -2,11 +2,11 @@
     "use strict";
 
 //FILESTACK
-//     const client = filestack.init("AiikjNxWRRM2I3SUfhK3yz");
+//     const client = filestack.init(FILESTACK_KEY);
 //     client.picker().open();
 
     window.addEventListener('DOMContentLoaded', function () {
-        const client = filestack.init("AiikjNxWRRM2I3SUfhK3yz");
+        const client = filestack.init(FILESTACK_KEY);
         const options = {
             maxFiles: 1,
             uploadInBackground: false,
@@ -27,7 +27,7 @@
             $('#uploadMessage').text('Upload Succeed!');
             $('#submitAvatar').submit();
         }
-            $('#showSix').attr("src", function () {
+            $('div.myDiv').attr("src", function () {
                 return $('#pickedFile').val();
 
             })
