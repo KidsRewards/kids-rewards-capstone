@@ -36,4 +36,4 @@ src/main/resources/application.properties
 src/test.txt
 
 ### js KEY ignore ###
-js/keys.js
+key.js
