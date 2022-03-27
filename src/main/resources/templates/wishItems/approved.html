@@ -15,7 +15,7 @@
 
 <div class="container d-flex justify-content-around">
     <div th:each="WishItem : ${allWishitems}" class="d-flex card" style="width: 18rem; margin: 1em;">
-        <img src="..." class="card-img-top" alt="icon place holder image">
+        <img src="..." class="card-img-top" alt="">
         <div class="card-body">
             <h5 th:text="${wishItem.title}" class="card-title"></h5>
             <p th:text="${wishItem.body}" class="card-text"></p>

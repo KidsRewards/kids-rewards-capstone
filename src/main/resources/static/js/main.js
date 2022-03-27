@@ -1,12 +1,14 @@
 // (function ($) {
+
     "use strict";
+import {properties} from "../../../../../key";
 
 //FILESTACK
 //     const client = filestack.init(FILESTACK_KEY);
 //     client.picker().open();
 
     window.addEventListener('DOMContentLoaded', function () {
-        const client = filestack.init(FILESTACK_KEY);
+        const client = filestack.init(properties.key);
         const options = {
             maxFiles: 1,
             uploadInBackground: false,
