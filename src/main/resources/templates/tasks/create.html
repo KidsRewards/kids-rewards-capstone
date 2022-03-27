@@ -6,6 +6,7 @@
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="css/main.css">-->
+
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>Add a Task</title>
@@ -65,7 +66,7 @@
             </div>
 
             <!--the icon images or pics-->
-
+<div class="container">
             <div id="showOne" class="myDiv">
                 <img  th:src="@{/images/bedroom.webp}" width="100" alt="bedroom" /><span>Bedroom</span>
             </div>
@@ -84,7 +85,7 @@
             <div id="showSix" class="myDiv">
                 <img src="" width="100" height="100" alt="Custom"/><span>Custom</span>
             </div>
-
+</div>
             <button type="submit">Submit</button>
         </form>
 
@@ -135,7 +136,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-
+<script th:src="@{/key.js}"></script>
 <!--<script th:src="@{../static/js/main.js}"></script>-->
 <!--<script src="/static/js/main.js"></script>-->
 <th:block th:include="/partials/bootstrap :: scripts"></th:block>
