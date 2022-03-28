@@ -5,6 +5,7 @@ import com.codeup.kidsrewardscapstone.repositories.FamilyRepository;
 import com.codeup.kidsrewardscapstone.repositories.StatusRepository;
 import com.codeup.kidsrewardscapstone.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,10 @@ public class TaskController {
     private TaskRepository taskDao;
     private UserRepository usersDao;
     private FamilyRepository familiesDao;
+
+    @Value("${FILESTACK_API_KEY}")
+    private String fileStackApiKey;
+
 
     public TaskController(StatusRepository statusDao, TaskRepository taskDao, UserRepository usersDao, FamilyRepository familiesDao) {
         this.statusDao = statusDao;
@@ -80,6 +85,7 @@ public class TaskController {
     @GetMapping("/tasks/create")
     public String showCreateForm(Model model) {
         model.addAttribute("newTask", new Task());
+        model.addAttribute("fsKey", fileStackApiKey);
 
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -107,7 +113,6 @@ public class TaskController {
   //      newTask.setUser(taskUser);
 //        Adds a status of 1 to the task
    //     System.out.println(newTask.getIcon());
-
         newTask.setStatus(statusDao.getById(1L));
         taskDao.save(newTask);
         return "redirect:/tasks/index";
