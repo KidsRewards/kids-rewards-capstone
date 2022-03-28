@@ -1,14 +1,12 @@
 // (function ($) {
-
     "use strict";
-import {properties} from "../../../../../key";
 
 //FILESTACK
-//     const client = filestack.init(FILESTACK_KEY);
+//     const client = filestack.init("AiikjNxWRRM2I3SUfhK3yz");
 //     client.picker().open();
 
     window.addEventListener('DOMContentLoaded', function () {
-        const client = filestack.init(properties.key);
+        const client = filestack.init("AiikjNxWRRM2I3SUfhK3yz");
         const options = {
             maxFiles: 1,
             uploadInBackground: false,
@@ -31,7 +29,6 @@ import {properties} from "../../../../../key";
         }
             $('div.myDiv').attr("src", function () {
                 return $('#pickedFile').val();
-
             })
 
 });

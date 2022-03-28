@@ -34,7 +34,7 @@
             </select>
 
             <button id="open" type="button" name="clicked" class="btn btn-outline-secondary mb-3 whiteFont" disabled>
-                Click custom to create your own task image.
+                Click custom in menu to upload your own task image.
             </button>
             <!--            <input  class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />-->
             <span id="uploadMessage" class="mx-3"></span>
@@ -64,11 +64,7 @@
                     <option th:value="${child.id}" th:text="${child.username}" name="childId" id="childId"></option>
                 </select>
             </div>
-
-
-
             <!--the icon images or pics-->
-<div class="container">
             <div id="showOne" class="myDiv">
                 <img  th:src="@{/images/bedroom.webp}" width="100" alt="bedroom" /><span>Bedroom</span>
             </div>
@@ -87,7 +83,7 @@
             <div id="showSix" class="myDiv">
                 <img src="" width="100" height="100" alt="Custom"/><span>Custom</span>
             </div>
-</div>
+
             <button type="submit">Submit</button>
         </form>
 
@@ -96,7 +92,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-<!--        <script type="text/javascript" th:src="@{../static/js/main.js}"></script>-->
+        <script type="text/javascript" th:src="@{/js/main.js}"></script>
         <th:block th:replace="partials/bootstrap :: scripts"></th:block>
         <!--Script for filestack -->
         <script type="text/javascript">
@@ -119,7 +115,7 @@
 
         <script >
             // $(document).ready(function() {
-            $('#icon').on('change', function () {
+            $('#icons').on('change', function () {
                 var iconvalue = $(this).val();
                 //console.log(iconvalue);
 
@@ -138,7 +134,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script th:src="@{/key.js}"></script>
+
 <!--<script th:src="@{../static/js/main.js}"></script>-->
 <!--<script src="/static/js/main.js"></script>-->
 <th:block th:include="/partials/bootstrap :: scripts"></th:block>
