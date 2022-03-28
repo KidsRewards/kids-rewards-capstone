@@ -154,12 +154,12 @@ body {
 
 .statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index,
 .wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit{
-    background-color: lightblue;
+    background-color: #7395AE;
     font-family: 'Bubblegum Sans', cursive;
 }
 
 .about-us{
-    background-color: lightblue;
+    background-color: #7395AE;
     font-family: 'Bubblegum Sans', cursive;
 }
 
@@ -219,7 +219,9 @@ html *{
     font-family: 'Bubblegum Sans', cursive !important;
 }
 
-
+.about-us{
+    color: white;
+}
 
 
 
