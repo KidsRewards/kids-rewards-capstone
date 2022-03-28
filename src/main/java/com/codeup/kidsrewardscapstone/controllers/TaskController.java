@@ -42,27 +42,18 @@ public class TaskController {
         Long id = loggedInUser.getId();
         System.out.println(id);
 
-        model.addAttribute("allTasks", taskDao.findAllByUserId(id));
+            model.addAttribute("allTasks", taskDao.findAllByUserId(id));
+            model.addAttribute("user", loggedInUser);
+
         return "tasks/index";
     }
 
     @PostMapping("tasks/index")
     public String viewTasks(){
-        return "redirect:/tasks/index";
+            return "redirect:/tasks/index";
+
     }
-    //
-//    @GetMapping("/tasks/{id}")
-//    public String taskDetails(@PathVariable long id, Model model) {
-//        Task task = taskDao.getById(id);
-//        boolean isTaskOwner = false;
-//        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser"){
-//            User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//            isTaskOwner = loggedInUser.getId() == task.getUser().getId();
-//        }
-//        model.addAttribute("singleTask", taskDao.getById(id));
-//        model.addAttribute("isTaskOwner", isTaskOwner);
-//        return "tasks/show";
-//    }
+
 //    @GetMapping("/tasks/{id}")
 //    public String taskDetails(@PathVariable long id, Model model) {
 //        model.addAttribute("singleTask", taskDao.getById(id));
@@ -81,7 +72,7 @@ public class TaskController {
             return "tasks/show";
         }
 
-//        Shows the task create form and allows the ability to select from a list of children to assign the task to
+//Shows the task create form and allows the ability to select from a list of children to assign the task to
     @GetMapping("/tasks/create")
     public String showCreateForm(Model model) {
         model.addAttribute("newTask", new Task());
@@ -110,9 +101,6 @@ public class TaskController {
 
         newTask.setUser(usersDao.getById(childId));
 
-  //      newTask.setUser(taskUser);
-//        Adds a status of 1 to the task
-   //     System.out.println(newTask.getIcon());
         newTask.setStatus(statusDao.getById(1L));
         taskDao.save(newTask);
         return "redirect:/tasks/index";
@@ -146,6 +134,67 @@ public class TaskController {
         return "redirect:/tasks";
     }
 
+//    Once button is clicked, it changes the status as Review
+    @GetMapping("/tasks/{id}/review")
+    public String reviewChildTask(@PathVariable long id, Model model){
+        Task taskToReview = taskDao.getById(id);
+        taskToReview.setStatus(statusDao.getById(2L));
+        taskDao.save(taskToReview);
+        return "redirect:/tasks/index";
+    }
+
+//    Allows for a parent to view all tasks that need to be reviewed
+    @GetMapping("tasks/reviewform")
+    public String viewTasksToReview(Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Family currentFamily = familiesDao.findFamilyByUsers(loggedInUser);
+        List<User> wholeFamily = usersDao.findUsersByFamilies(currentFamily);
+        List<User> children = new ArrayList<>();
+
+        for(User user : wholeFamily){
+            if(!user.getParent()){
+                System.out.println(user.getId());
+                children.add(user);
+            }
+        }
+
+        List<Task> taskToReview = new ArrayList<>();
+
+        for(User child : children){
+            Long userId = child.getId();
+            List<Task> childTasks = taskDao.findAllByUserId(userId);
+            for(Task task : childTasks) {
+                if (task.getStatus().getId() == 2) {
+                    taskToReview.add(task);
+                }
+            }
+        }
+        model.addAttribute("allTasks", taskToReview);
+        return "tasks/reviewform";
+    }
+
+//    @GetMapping("tasks/{id}/approved")
+//    public String taskToApprove(@PathVariable long id, Model model){
+//        Task currentTask = taskDao.getById(id);
+//        model.addAttribute("")
+//        return "tasks/reviewform";
+//    }
+
+    @GetMapping("tasks/{id}/approved")
+    public String approveTask(@ModelAttribute Task taskApproved, @PathVariable long id){
+        Task taskToApprove = taskDao.getById(id);
+
+        User assignedUser = taskToApprove.getUser();
+        Long addPoints = taskToApprove.getPoints();
+
+        Long newPointTotal = assignedUser.getPointsTotal() + addPoints;
+
+        assignedUser.setPointsTotal(newPointTotal);
+        taskDao.delete(taskApproved);
+        usersDao.save(assignedUser);
+        return "redirect:/tasks/reviewform";
+    }
 }
 
 

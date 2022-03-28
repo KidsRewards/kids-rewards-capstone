@@ -13,8 +13,23 @@
 <nav th:replace="partials/wishitems :: navbar"></nav>
 
 </head>
-<body class="wishitems-index">
-<h2 style="text-align: center">Here are the items in your Wish List:</h2>
+  <body class="wishitems-index">
+  <h2 style="text-align: center">Here are the items in your Wish List:</h2>
+
+
+<!--   <div class="container d-flex justify-content-around">
+    <div th:each="wishItem : ${allWishitems}" class="d-flex card" style="width: 18rem; margin: 1em;">
+      <img src="..." class="card-img-top" alt="icon place holder image">
+      <div class="card-body">
+        <h5 th:text="${wishItem.title}" class="card-title"></h5>
+        <p th:text="${wishItem.body}" class="card-text"></p>
+        <p>Username: <span th:text="${wishItem.getUser().getUsername()}"></span></p>
+        <p>WishItem ID: <span th:text="${wishItem.getId()}"></span></p>
+        <a th:href="@{/wishitems/{id}/edit (id=${wishItem.id})}" class="btn btn-primary">Edit</a>
+        <a th:href="@{/wishitems/{id}/delete (id=${wishItem.id})}" class="btn btn-danger">Delete</a>
+        <div th:if="${user}"> <a th:href="@{/wishitems/{id}/approved (id=${wishItem.id})}" class="btn btn-success">Approve</a>
+        </div>
+    </div> -->
 
 <div class="container d-flex justify-content-around">
   <div th:each="wishItem : ${allWishitems}" class="d-flex card" style="width: 18rem; margin: 1em;">
@@ -28,9 +43,9 @@
       <a th:href="@{/wishitems/{id}/delete (id=${wishItem.id})}" class="btn btn-danger">Delete</a>
       <div th:if="${user}"> <a th:href="@{/wishitems/{id}/approved (id=${wishItem.id})}" class="btn btn-success">Approve</a>
       </div>
+
   </div>
-</div>
-</div>
-<th:block th:replace="partials/bootstrap :: scripts"></th:block>
-</body>
+  </div>
+  <th:block th:replace="partials/bootstrap :: scripts"></th:block>
+  </body>
 </html>
