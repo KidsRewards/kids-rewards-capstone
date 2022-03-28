@@ -78,7 +78,7 @@ svg {
 /************************SIDEBAR ***********************/
 
 body {
-    font-family: "Lato", sans-serif;
+    font-family: bubblegum, sans-serif;
 }
 
 .sidenav {
@@ -140,25 +140,25 @@ body {
 .homepage, .rewards-create, .rewards-edit,
 .rewards-index, .rewards-show, .rewards-user-rewards-all{
     background-color: #7395AE;
-    font-family: "Arial Hebrew", serif;
+    font-family: bubblegum, serif;
 }
 
 .users-login, .users-createfamily, .users-index,
 .users-sign-up, .users-user, .family-createchild{
     background-color: #7395AE;
-    font-family: "Arial Hebrew", serif;
+    font-family: bubblegum, serif;
 }
 
 .tasks-create, .tasks-edit, .tasks-index, .tasks-show,
 .admins-index, .admins-login, .admins-register{
     background-color: #7395AE;
-    font-family: "Arial Hebrew", serif;
+    font-family: bubblegum, serif;
 }
 
 .statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index,
 .wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit{
     background-color: lightblue;
-    font-family: "Arial Hebrew", serif;
+    font-family: bubblegum, serif;
 }
 
 .about-us{
@@ -182,13 +182,7 @@ body {
     border: 1px solid #d47c7c;
     margin: 8px auto;
 }
-#One{
-/*background-image: url("../images/bedroom.webp");*/
-/*    background-repeat: no-repeat;*/
-    color:red;
-    border: 1px solid red;
-    padding: 10px;
-}
+
 #showTwo{
     color:green;
     border: 1px solid green;
@@ -202,7 +196,7 @@ body {
 }
 
 .navbar{
-    font-family: "Arial Rounded MT Bold", sans-serif !important;
+    font-family: bubblegum, sans-serif !important;
     /*width: 85%;*/
     margin: auto;
     padding-top: 25px;
@@ -213,7 +207,20 @@ body {
 
 /**********************************************************************************************/
 
-
+    @font-face {
+        font-family: bubblegum ;
+        src: url("font/BubblegumSans-Regular.otf") format("truetype");
+    }
+html *, .navbar-brand{
+    font-size: 1.1em !important;
+    color: #000 !important;
+    font-family: bubblegum, sans-serif !important;
+}
+.navbar-brand{
+    font-size: 1.6em !important;
+    color: #000 !important;
+    font-family: bubblegum, sans-serif !important;
+}
 
 
 
