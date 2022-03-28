@@ -5,34 +5,33 @@
 //     const client = filestack.init("AiikjNxWRRM2I3SUfhK3yz");
 //     client.picker().open();
 
-    window.addEventListener('DOMContentLoaded', function () {
-        const client = filestack.init("AiikjNxWRRM2I3SUfhK3yz");
-        const options = {
-            maxFiles: 1,
-            uploadInBackground: false,
-// accept: [".jpeg"],
-            onUploadDone: uploadFile
-        };
-        const picker = client.picker(options);
-        const openBtn = document.getElementById('open');
-        openBtn.addEventListener('click', () => picker.open());
-        function uploadFile(result) {
-            const fileData = result.filesUploaded[0];
-            console.log(fileData);
-            console.log(fileData.url);
-            console.log(fileData.mimeType);
-
-            $('#pickedFile').val(fileData.url);
-            $('#open').text(fileData.filename);
-            $('#uploadMessage').text('Upload Succeed!');
-            $('#submitAvatar').submit();
-        }
-            $('#showSix').attr("src", function () {
-                return $('#pickedFile').val();
-
-            })
-
-});
+//     window.addEventListener('DOMContentLoaded', function () {
+//         const client = filestack.init("");
+//         const options = {
+//             maxFiles: 1,
+//             uploadInBackground: false,
+// // accept: [".jpeg"],
+//             onUploadDone: uploadFile
+//         };
+//         const picker = client.picker(options);
+//         const openBtn = document.getElementById('open');
+//         openBtn.addEventListener('click', () => picker.open());
+//         function uploadFile(result) {
+//             const fileData = result.filesUploaded[0];
+//             console.log(fileData);
+//             console.log(fileData.url);
+//             console.log(fileData.mimeType);
+//
+//             $('#pickedFile').val(fileData.url);
+//             $('#open').text(fileData.filename);
+//             $('#uploadMessage').text('Upload Succeed!');
+//             $('#submitAvatar').submit();
+//         }
+//             $('div.myDiv').attr("src", function () {
+//                 return $('#pickedFile').val();
+//             })
+//
+// });
 
 //SIDEBAR //////
     function openNav() {

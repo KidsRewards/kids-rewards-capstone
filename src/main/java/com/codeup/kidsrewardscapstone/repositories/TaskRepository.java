@@ -4,6 +4,7 @@ import com.codeup.kidsrewardscapstone.models.Task;
 import com.codeup.kidsrewardscapstone.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import javax.swing.*;
 import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
@@ -11,6 +12,10 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findAllByUserId(long id);
     Task getAllByUserId(long id);
     List<Task> getAllByUser(User user);
+
     List<Task> findAllByStatus(long id);
 //    List<Task> findTasksByUser(List<User> user);
+
+   Task getByIcon (Icon icon);
+
 }

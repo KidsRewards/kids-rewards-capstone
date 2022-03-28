@@ -6,6 +6,7 @@
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="css/main.css">-->
+
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>Add a Task</title>
@@ -23,8 +24,8 @@
         <form class="update-icons">
             <!--            <label for="icon" class="icons">Choose Icon</label>-->
             <select id="icon" class="icons"  th:field="*{icon}" name="icon" th:value="${newTask.getIcon()}">Icons
-                <option id="0" value="Zero">Select your task icon. </option>
-                <option id="1" value="One" >Bedroom</option>
+                <option id="0" value="Zero"  >Select your task icon. </option>
+                <option id="1" value="One">Bedroom</option>
                 <option id="2" value="Two">Kitchen</option>
                 <option id="3" value="Three">Living Room</option>
                 <option id="4" value="Four">Bathroom</option>
@@ -34,12 +35,17 @@
             </select>
 
             <button id="open" type="button" name="clicked" class="btn btn-outline-secondary mb-3 whiteFont" disabled>
-                Click custom to create your own task image.
+                Click custom in menu to upload your own task image.
             </button>
             <!--            <input  class="form-control form-control-lg" id="pickedFile" type="hidden" name="imgurl" />-->
             <span id="uploadMessage" class="mx-3"></span>
 
             <br>
+<!--            <div class="form-group">-->
+<!--                <label for="icon">Icon </label>-->
+<!--                <input type="hidden" class="form-control" name="imgFile" th:field="*{icon}">-->
+<!--            </div>-->
+
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" th:field="*{title}">
@@ -59,7 +65,6 @@
                     <option th:value="${child.id}" th:text="${child.username}" name="childId" id="childId"></option>
                 </select>
             </div>
-
             <!--the icon images or pics-->
             <div id="showOne" class="myDiv">
                 <img  th:src="@{/images/bedroom.webp}" width="100" alt="bedroom" /><span>Bedroom</span>
@@ -79,6 +84,7 @@
             <div id="showSix" class="myDiv">
                 <img src="" width="100" height="100" alt="Custom"/><span>Custom</span>
             </div>
+
             <button type="submit">Submit</button>
         </form>
 
@@ -86,7 +92,40 @@
         <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script th:inline="javascript">
 
+            /*<![CDATA[*/
+            const file = /*[[${fsKey}]]*/ 'default';
+            // const client = filestack.init(file);
+            const client = filestack.init(file);
+        // window.addEventListener('DOMContentLoaded', function () {
+
+        const options = {
+        maxFiles: 1,
+        uploadInBackground: false,
+        // accept: [".jpeg"],
+        onUploadDone: uploadFile
+        };
+        const picker = client.picker(options);
+        const openBtn = document.getElementById('open');
+        openBtn.addEventListener('click', () => picker.open());
+        function uploadFile(result) {
+        const fileData = result.filesUploaded[0];
+        console.log(fileData);
+        console.log(fileData.url);
+        console.log(fileData.mimeType);
+
+        $('#pickedFile').val(fileData.url);
+        $('#open').text(fileData.filename);
+        $('#uploadMessage').text('Upload Succeed!');
+        $('#submitAvatar').submit();
+        }
+        $('div.myDiv').attr("src", function () {
+        return $('#pickedFile').val();
+        })
+
+        // });
+        </script>
         <script type="text/javascript" th:src="@{/js/main.js}"></script>
         <th:block th:replace="partials/bootstrap :: scripts"></th:block>
         <!--Script for filestack -->
@@ -110,26 +149,15 @@
 
         <script >
             // $(document).ready(function() {
-            $('#icon').on('change', function () {
+            $('#icons').on('change', function () {
                 var iconvalue = $(this).val();
-                // console.log(iconvalue);
+                //console.log(iconvalue);
+
                 $("div.myDiv").hide();
                 $('#show' + iconvalue).show();
 
-                // $('#icon').change(function(){ //if the select value gets changed
-                //     var imageSource = $(this).val(); //get the selected value
-                //     if(imageSource && imageSource !== ""){ //if it has data
-                //         $('#show' + iconvalue).html('<img src="'+imageSource+'">'); // insert image in div image-location
-                //     } else {
-                //         $('#show' + iconvalue).html(''); //remove content from div image-location, thus removing the image
-                //     }
-                // })
-                // $(iconvalue).attr("src", function () {
-                //     return $('div.myDiv').val();
-                //
-                // })
-
             });
+
 
             // });
         </script>
@@ -141,9 +169,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 
-<!--<script th:src="@{/../static/js/main.js}"></script>-->
+<!--<script th:src="@{../static/js/main.js}"></script>-->
 <!--<script src="/static/js/main.js"></script>-->
-<!--<th:block th:include="/partials/bootstrap :: scripts"></th:block>-->
+<th:block th:include="/partials/bootstrap :: scripts"></th:block>
 
 </body>
 </html>

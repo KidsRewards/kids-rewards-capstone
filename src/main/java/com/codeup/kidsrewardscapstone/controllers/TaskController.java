@@ -5,6 +5,7 @@ import com.codeup.kidsrewardscapstone.repositories.FamilyRepository;
 import com.codeup.kidsrewardscapstone.repositories.StatusRepository;
 import com.codeup.kidsrewardscapstone.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,10 @@ public class TaskController {
     private UserRepository usersDao;
     private FamilyRepository familiesDao;
 
+    @Value("${FILESTACK_API_KEY}")
+    private String fileStackApiKey;
+
+
     public TaskController(StatusRepository statusDao, TaskRepository taskDao, UserRepository usersDao, FamilyRepository familiesDao) {
         this.statusDao = statusDao;
         this.taskDao = taskDao;
@@ -30,7 +35,7 @@ public class TaskController {
         this.familiesDao = familiesDao;
     }
 
-//    Displays tasks assigned to the child
+//    Display tasks assigned to the child
     @GetMapping("tasks/index")
     public String viewTasks(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -71,6 +76,7 @@ public class TaskController {
     @GetMapping("/tasks/create")
     public String showCreateForm(Model model) {
         model.addAttribute("newTask", new Task());
+        model.addAttribute("fsKey", fileStackApiKey);
 
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
