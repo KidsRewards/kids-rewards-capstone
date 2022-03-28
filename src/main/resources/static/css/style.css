@@ -78,7 +78,8 @@ svg {
 /************************SIDEBAR ***********************/
 
 body {
-    font-family: 'Bubblegum Sans', cursive;}
+    font-family: sans-serif, sa;
+}
 .row justify-content-center{
     padding-top: 5px;
     padding-right: 5px;
@@ -143,28 +144,30 @@ body {
 .homepage, .rewards-create, .rewards-edit,
 .rewards-index, .rewards-show, .rewards-user-rewards-all{
     background-color: #7395AE;
-    font-family: 'Bubblegum Sans', cursive;}
+    font-family: sans-serif, sa;
+}
 
 .users-login, .users-createfamily, .users-index,
 .users-sign-up, .users-user, .family-createchild{
     background-color: #7395AE;
-    font-family: 'Bubblegum Sans', cursive;
+    font-family: sans-serif, sa;
 }
 
 .tasks-create, .tasks-edit, .tasks-index, .tasks-show,
 .admins-index, .admins-login, .admins-register{
     background-color: #7395AE;
-    font-family: 'Bubblegum Sans', cursive;}
+    font-family: sans-serif, sa;
+}
 
 .statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index,
 .wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit, .wishitems{
     background-color: #7395AE;
-    font-family: 'Bubblegum Sans', cursive;
+    font-family: sans-serif, sa;
 }
 
 .about-us{
     background-color: #7395AE;
-    font-family: 'Bubblegum Sans', cursive;
+    font-family: sans-serif, sa;
 }
 
 /********** CSS tasks/create.html **********/
@@ -215,7 +218,7 @@ body {
 
 
 .navbar{
-    font-family: 'Bubblegum Sans', cursive !important;
+    font-family: sans-serif, sa !important;
     /*width: 85%;*/
     margin: auto;
     padding-top: 25px;
@@ -226,25 +229,25 @@ body {
 
 /**********************************************************************************************/
 
-    @font-face {
-        font-family: 'Bubblegum Sans', cursive;
-    }
+/*    @font-face {*/
+/*        font-family: 'Bubblegum Sans', cursive;*/
+/*    }*/
 html *{
     font-size: 1.1em !important;
     color: #000 !important;
-    font-family: 'Bubblegum Sans', cursive;
+    font-family: sans-serif, sa;
 }
 .a,.navbar-brand{
     padding-bottom:20px ;
     font-size: 1.3em !important;
     color: #000 !important;
-    font-family: 'Bubblegum Sans', cursive !important;
+    font-family: sans-serif, sa !important;
 }
  .text-center{
     padding-bottom:20px ;
     font-size: 1.8em !important;
     color: #000 !important;
-    font-family: 'Bubblegum Sans', cursive !important;
+     font-family: sans-serif, sa !important;
 
 }
 
