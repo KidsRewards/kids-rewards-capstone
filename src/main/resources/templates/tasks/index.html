@@ -20,9 +20,7 @@
         <nav th:replace="partials/navbar:: navbar"></nav>
 
    <h1 style="text-align: center">Tasks To Complete</h1>
-<li class="nav-item active">
-    <a class="nav-link" href="http://localhost:8080/tasks"> <span class="sr-only">(current)</span></a>
-</li>
+
             <div class="container d-sm-table-row justify-content-center">
                 <div th:each="task : ${allTasks}" class="d-flex card" style="width: 18rem; margin: 1em;">
                     <img th:src="${task.getIcon()}"  class="card-img-top" alt="icon place holder image">

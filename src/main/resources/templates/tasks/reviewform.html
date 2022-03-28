@@ -26,10 +26,6 @@
         <p>Assigned To: <span th:text="${task.getUser().getUsername()}"></span> </p>
 <!--      <div th:if="${user}"> <a th:href="@{/tasks/{id}/review (id=${task.id})}" class="btn btn-success">Task Completed</a></div>-->
         <a th:href="@{/tasks/{id}/approved (id=${task.id})}" class="btn btn-success">Approved</a>
-
-      <!--            <p>Status: <span th:text="${status.getId()}"></span></p>-->
-      <!--            <a href="#" class="btn btn-success">Purchase</a>-->
-      <!--            <button onclick='remove()' class="btn btn-danger" >Delete</button>-->
     </div>
   </div>
 </div>
