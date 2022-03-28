@@ -12,13 +12,13 @@
             <li class="nav-item active">
                 <a class="nav-link" href="http://localhost:8080/index">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link" href="http://localhost:8080/rewards">Rewards</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item " >
                 <a class="nav-link" href="http://localhost:8080/wishitems">Wish Items</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown
                 </a>
@@ -72,6 +72,15 @@
             }
 
             f.addEventListener('submit', submitted);
+        </script>
+        <script>
+            $(".navbar a").click(function(event) {
+                // check if window is small enough so dropdown is created
+                var toggle = $(".navbar-toggler").is(":visible");
+                if (toggle) {
+                    $(".navbar-collapse").collapse('hide');
+                }
+            });
         </script>
     </div>
 
