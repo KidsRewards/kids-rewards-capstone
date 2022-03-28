@@ -30,6 +30,7 @@ public class UserController {
 //        if(loggedInUser.getFamilies() == null){
 //            return "redirect:/createfamily";
 //        } else {
+
             model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
             model.addAttribute("familyName", familiesDao.findFamilyByUsers(loggedInUser));
             return "users/index";

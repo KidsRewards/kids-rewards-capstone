@@ -144,7 +144,7 @@ public class TaskController {
     }
 
 //    Allows for a parent to view all tasks that need to be reviewed
-    @GetMapping("tasks/reviewform")
+    @GetMapping("/tasks/reviewform")
     public String viewTasksToReview(Model model){
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -181,7 +181,7 @@ public class TaskController {
 //        return "tasks/reviewform";
 //    }
 
-    @GetMapping("tasks/{id}/approved")
+    @GetMapping("/tasks/{id}/approved")
     public String approveTask(@ModelAttribute Task taskApproved, @PathVariable long id){
         Task taskToApprove = taskDao.getById(id);
 

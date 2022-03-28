@@ -16,14 +16,14 @@
 <div id="mySidenav" class="sidenav"  style="width:170px; " >
 <!--      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  -->
 
-    <a href="/createfamily">Create Family</a>
-    <a href="/createchild">Add a child</a>
+    <div th:if="${loggedInUser.getParent()} == true"><a href="/createfamily">Create Family</a></div>
+    <div th:if="${loggedInUser.getParent()} == true"><a href="/createchild">Add a child</a></div>
     <a href="/rewards/user-rewards-all">Reward Store</a>
-    <a href="/tasks/create">Add a Task</a>
+    <div th:if="${loggedInUser.getParent()} == true"><a href="/tasks/create">Add a Task</a></div>
     <a href="/wishitems">View Wishitems</a>
 
-    <a href="/tasks/index">View Tasks</a>
-    <a href="/tasks/reviewform">Review Tasks</a>
+    <div th:if="${loggedInUser.getParent()} == false"><a href="/tasks/index">View Tasks</a></div>
+    <div th:if="${loggedInUser.getParent()} == true"><a href="/tasks/reviewform">Review Tasks</a></div>
 
 </div>
 
