@@ -157,7 +157,7 @@ body {
     font-family: 'Bubblegum Sans', cursive;}
 
 .statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index,
-.wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit{
+.wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit, .wishitems{
     background-color: #7395AE;
     font-family: 'Bubblegum Sans', cursive;
 }
@@ -248,9 +248,6 @@ html *{
 
 }
 
-.about-us{
-    color: white;
-}
 
 
 
