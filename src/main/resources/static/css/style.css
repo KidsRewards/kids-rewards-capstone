@@ -79,7 +79,10 @@ svg {
 
 body {
     font-family: 'Bubblegum Sans', cursive;}
-
+.row justify-content-center{
+    padding-top: 5px;
+    padding-right: 5px;
+}
 .sidenav {
     height: 100%;
     width: 0;
