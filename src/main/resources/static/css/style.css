@@ -78,8 +78,7 @@ svg {
 /************************SIDEBAR ***********************/
 
 body {
-    font-family: bubblegum, sans-serif;
-}
+    font-family: 'Bubblegum Sans', cursive;}
 
 .sidenav {
     height: 100%;
@@ -140,29 +139,28 @@ body {
 .homepage, .rewards-create, .rewards-edit,
 .rewards-index, .rewards-show, .rewards-user-rewards-all{
     background-color: #7395AE;
-    font-family: bubblegum, serif;
-}
+    font-family: 'Bubblegum Sans', cursive;}
 
 .users-login, .users-createfamily, .users-index,
 .users-sign-up, .users-user, .family-createchild{
     background-color: #7395AE;
-    font-family: bubblegum, serif;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
 .tasks-create, .tasks-edit, .tasks-index, .tasks-show,
 .admins-index, .admins-login, .admins-register{
     background-color: #7395AE;
-    font-family: bubblegum, serif;
-}
+    font-family: 'Bubblegum Sans', cursive;}
 
 .statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index,
 .wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit{
     background-color: lightblue;
-    font-family: bubblegum, serif;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
 .about-us{
     background-color: lightblue;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
 /********** CSS tasks/create.html **********/
@@ -196,7 +194,7 @@ body {
 }
 
 .navbar{
-    font-family: bubblegum, sans-serif !important;
+    font-family: 'Bubblegum Sans', cursive !important;
     /*width: 85%;*/
     margin: auto;
     padding-top: 25px;
@@ -208,18 +206,17 @@ body {
 /**********************************************************************************************/
 
     @font-face {
-        font-family: bubblegum ;
-        src: url("font/BubblegumSans-Regular.otf") format("truetype");
+        font-family: 'Bubblegum Sans', cursive;
     }
-html *, .navbar-brand{
+html *{
     font-size: 1.1em !important;
     color: #000 !important;
-    font-family: bubblegum, sans-serif !important;
+    font-family: 'Bubblegum Sans', cursive;
 }
-.navbar-brand{
+.a,.navbar-brand{
     font-size: 1.6em !important;
     color: #000 !important;
-    font-family: bubblegum, sans-serif !important;
+    font-family: 'Bubblegum Sans', cursive !important;
 }
 
 
