@@ -231,7 +231,7 @@ html *{
     color: #000 !important;
     font-family: 'Bubblegum Sans', cursive;
 }
-.a,.navbar-brand{
+.a,.navbar-brand, .h1{
     padding-bottom:20px ;
     font-size: 1.3em !important;
     color: #000 !important;
