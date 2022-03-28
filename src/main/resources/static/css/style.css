@@ -231,11 +231,18 @@ html *{
     color: #000 !important;
     font-family: 'Bubblegum Sans', cursive;
 }
-.a,.navbar-brand, .h1{
+.a,.navbar-brand{
     padding-bottom:20px ;
     font-size: 1.3em !important;
     color: #000 !important;
     font-family: 'Bubblegum Sans', cursive !important;
+}
+ .text-center{
+    padding-bottom:20px ;
+    font-size: 1.8em !important;
+    color: #000 !important;
+    font-family: 'Bubblegum Sans', cursive !important;
+
 }
 
 
