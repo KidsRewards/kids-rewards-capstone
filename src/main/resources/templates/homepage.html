@@ -3,95 +3,118 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Welcome hompage</title>
+
+    <title>Welcome homepage</title>
     <link rel="stylesheet" th:href="@{../static/css/style.css}">
+
 
     <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
 <body class="homepage" style=" background-color: #9dc5bb;" >
 
 <!--<h1 class="text-center">KidsRewards</h1>-->
-    <nav th:replace="partials/navbar2 :: navbar2"></nav>
+<nav th:replace="partials/navbar2 :: navbar2"></nav>
 
-    <div class="row justify-content-center"  >
-        <a type= "button" href="/sign-up" class="btn btn-#5E807F btn-lg active column-left " role="button" aria-pressed="true">Register</a>
 
-        <a type="button" href="/login" class="btn btn-#5E807F btn-lg active column-right" role="button" aria-pressed="true">Login</a>
-    </div>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-        <li data-target="#myCarousel" data-slide-to="4"></li>
-    </ol>
+<!--    <div class="row justify-content-center"  >-->
+<!--        <a href="/sign-up" class="btn btn-primary btn-lg active column-left; text-light" role="button" aria-pressed="true">Register</a>-->
+<!--        <a href="/login" class="btn btn-primary btn-lg active column-right; text-light" role="button" aria-pressed="true">Login</a>-->
+<!--    </div>-->
+<!--<div id="myCarousel" class="carousel slide" data-ride="carousel">-->
+<!--    &lt;!&ndash; Indicators &ndash;&gt;-->
+<!--    <ol class="carousel-indicators">-->
+<!--        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+<!--        <li data-target="#myCarousel" data-slide-to="1"></li>-->
+<!--        <li data-target="#myCarousel" data-slide-to="2"></li>-->
+<!--        <li data-target="#myCarousel" data-slide-to="3"></li>-->
+<!--        <li data-target="#myCarousel" data-slide-to="4"></li>-->
+<!--    </ol>-->
 
-    <!-- Wrapper for slides -->
-<div class="carousel-inner" >
-    <div class="item active" >
-         <div class="card" style="width: 265px;">
-                <img src="../images/bedroom.webp" width="260" alt="...">
-             <div class="card-body" >
-                <h5 class="card-title">The Bedroom</h5>
-                <p class="card-text">It's important to make your bed, put up your toys and clothes away.</p>
-<!--                <a href="#" class="btn btn-primary">Home</a>-->
-            </div>
-        </div>
-    </div>
-        <div class="item">
-            <div class="card" style="width: 265px;">
-                <img src="../images/kitchen.webp" width="260" alt="kitchen">
-                <div class="card-body">
-                    <h5 class="card-title">Kitchen Clean Up</h5>
-                    <p class="card-text">Helping in the kitchen is always and keeping it clean is easiest thing you can do. </p>
-<!--                    <a href="#" class="btn btn-primary">Go somewhere</a>-->
+<!--    &lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+<!--    <div class="carousel-inner" >-->
+<!--        <div class="item active" >-->
+<!--            <div class="card" style="width: 265px;">-->
+<!--                <img src="../images/bedroom.webp" width="260" alt="bedroom">-->
+<!--                <div class="card-body" >-->
+<!--                    <h5 class="card-title">The Bedroom</h5>-->
+<!--                    <p class="card-text">It's important to make your bed, put up your toys and clothes away.</p>-->
+<!--                    &lt;!&ndash;                <a href="#" class="btn btn-primary">Home</a>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--            <div class="card" style="width: 265px;">-->
+<!--                <img src="../images/kitchen.webp" width="260" alt="kitchen">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Kitchen Clean Up</h5>-->
+<!--                    <p class="card-text">Helping in the kitchen is always and keeping it clean is easiest thing you can do. </p>-->
+<!--                    &lt;!&ndash;                    <a href="#" class="btn btn-primary">Go somewhere</a>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--            <div class="card" style="width: 265px;">-->
+<!--                <img src="../images/garage.png" width="260" alt="garage">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Garage Clean Up </h5>-->
+<!--                    <p class="card-text">Keeping the garage is important too. Keeping it tidy also helps it safer.</p>-->
+<!--                    &lt;!&ndash;                <a href="#" class="btn btn-primary">Go somewhere</a>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--            <div class="card" style="width: 265px;">-->
+<!--                <img src="../images/livingroom.png" width="260" alt="living room">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Living Room Cleanup</h5>-->
+<!--                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                    &lt;!&ndash;                <a href="#" class="btn btn-primary">Go somewhere</a>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--            <div class="card" style="width: 265px ;" >-->
+<!--                <img src="../images/lawncare.png" width="260 " alt="lawncare" >-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Lawncare </h5>-->
+<!--                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                    &lt;!&ndash;                <a href="#" class="btn btn-primary">Go somewhere</a>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Left and right controls &ndash;&gt;-->
+<!--        <a class="left carousel-control" href="#myCarousel" data-slide="prev">-->
+<!--            <span class="glyphicon glyphicon-chevron-left"></span>-->
+<!--            <span class="sr-only">Previous</span>-->
+<!--        </a>-->
+<!--        <a class="right carousel-control" href="#myCarousel" data-slide="next">-->
+<!--            <span class="glyphicon glyphicon-chevron-right"></span>-->
+<!--            <span class="sr-only">Next</span>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</div>-->
+<br>
+<br>
+
+<div class="container">
+    <div class="d-flex justify-content-center" style="margin-top: 5px">
+        <div class="card bg-dark text-white" style="width: 40rem">
+            <img th:src="@{/images/colorful-pic1.jpg}" class="card-img-top" alt="Colorful-Pic"/>
+            <div class="card-img-overlay">
+                <div style="background-color: white; max-width: fit-content; opacity: 75%; border-radius: 10px">
+                    <h5 class="card-title" style="text-align: center">About KidsRewards</h5>
+                    <p class="card-text" style="text-align: center">
+                        KidsRewards is an application that can allow parents and teachers to assign tasks and provide associated rewards. The objective of the application is to establish a foundational sense of financial responsibility and goal achievement between parents and their children.
+                    </p>
+                    <!--      <p class="card-text">-dev team</p>-->
                 </div>
             </div>
         </div>
-        <div class="item">
-            <div class="card" style="width: 265px;">
-                <img src="../images/garage.png" width="260" alt="garage">
-             <div class="card-body">
-                <h5 class="card-title">Garage Clean Up </h5>
-                <p class="card-text">Keeping the garage is imporatant too. Keeping it tidy also helps it safer.</p>
-<!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="card" style="width: 265px;">
-            <img src="../images/livingroom.png" width="260" alt="living room">
-            <div class="card-body">
-                <h5 class="card-title">Living Room Cleanup</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="card" style="width: 265px ;" >
-            <img src="../images/lawncare.png" width="260 " alt="lawncare" >
-            <div class="card-body">
-                <h5 class="card-title">Lawncare </h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-            </div>
-        </div>
     </div>
 
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
-</div>
+
 <footer th:replace="partials/bootstrap :: scripts"></footer>
 <th:block th:replace="partials/footer :: styling"></th:block>
 
