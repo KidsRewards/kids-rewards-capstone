@@ -1,34 +1,70 @@
-
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-primary"
+<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-light bg-light" style="background-color: #5e807f"
      xmlns:sec="http://www.w3.org/1999/xhtml">
-    <a class="navbar-brand" href="/">KidsRewards</a>
-    <div class="container-fluid"></div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <th:block th:include="partials/bootstrap :: styling"></th:block>
+
+    <div class="container-fluid" >
+        <a class="navbar-brand" href="/">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="/rewards">Rewards</a>
-            </li>
-            <li class="nav-item " >
-                <a class="nav-link" href="/wishitems">Wish Items</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/tasks/index">Tasks ToDo</a>
-                    <a class="dropdown-item" href="tasks/create">Create a task to do.</a>
-                    <div class="dropdown-divider"></div>
-<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
-                </div>
-            </li>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a href="#" class="nav-link dropdown-toggle"  id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Rewards Store</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/rewards/user-rewards-all">View rewards</a>
+                            <div ><a class="dropdown-item" href="/rewards/create">Create a reward</a></div>
+                            <div class="dropdown-divider"></div>
+                            <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+                        </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tasks
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/tasks/index">Tasks To Do</a>
+<!--                        <div th:if="${loggedInUser.getParent()} == true">-->
+                            <a class="dropdown-item"  href="/tasks/create">Add a Task</a>
+<!--                        </div>-->
+
+                        <div class="dropdown-divider"></div>
+                        <div ><a class="dropdown-item" href="/tasks/reviewform">Review Tasks</a></div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Wishitems
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/wishitems/index">View a wishitem</a>
+<!--                        <div th:if="${loggedInUser.getParent()} == true">-->
+                            <a class="dropdown-item" href="/wishitems/create">Create a wishitem</a>
+<!--                        </div>-->
+                        <div class="dropdown-divider"></div>
+                        <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Family
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<!--                            <div th:if="${loggedInUser.getParent()} == true">-->
+                        <a class="dropdown-item" href="/createfamily">Create Family</a>
+<!--                        </div>-->
+
+<!--                        <div th:if="${loggedInUser.getParent()} == true">-->
+                            <a class="dropdown-item" href="/createchild">Add a child</a>
+<!--                        </div>-->
+                    </div>
+                </li>
+
             <li class="nav-item" sec:authorize="isAuthenticated()">
                 <form th:action="@{/logout}" th:method="post">
                     <button class="btn-link btn" style="margin-top: 8px; color: black">Logout</button>
@@ -37,187 +73,48 @@
             <li class="nav-item" sec:authorize="!isAuthenticated()">
                 <a class="nav-link" href="/login">Login</a>
             </li>
-            <li class="nav-item nav-link" sec:authorize="isAuthenticated()">
-                Hi, <span th:text="${#authentication.principal.username}"></span>
+            <li class="nav-item" sec:authorize="isAuthenticated()" style="margin-top: 13px; margin-right: 8px">
+               <a>Hi, </a> <span th:text="${#authentication.principal.username}"></span>
             </li>
         </ul>
+            <!--        <li class="nav-item">-->
+            <!--          <a class="nav-link disabled">Disabled</a>-->
+            <!--        </li>-->
+<!--            </ul>-->
+            <!--      <form class="d-flex">-->
+            <!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+            <!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+            <!--      </form>-->
+            <form class="d-inline-flex" role="search" id="form" style="margin-top: 6px">
+                <input class="form-control me-2" type="search" id="query" name="q"
+                       placeholder="Search..."
+                       aria-label="Search through site content">
+                <button><svg viewBox="0 0 1034 1034"><path class="path1"
+                                                           d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg></button>
+            </form>
 
-<!--        <form class="search" role="search" id="form">-->
-<!--            <input class="searchInput" type="search" id="query" name="q"-->
-<!--                   placeholder="Search..."-->
-<!--                   aria-label="Search through site content">-->
-<!--            <button><svg viewBox="0 0 1034 1034"><path class="path1"-->
-<!--           d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg></button>-->
-<!--        </form>-->
+      </div>
+        </div>
+ <th:block th:include="/partials/bootstrap :: scripts"></th:block>
 
-<!--        <form id="form" role="search" class="form-inline my-2 my-lg-0">-->
-<!--            <input  name="q" class="form-control mr-sm-2" type="search" id="query"   placeholder="Search..."-->
-<!--                    aria-label="Search through site content">-->
-<!--            <button>-->
-<!--                <svg viewBox="0 0 8 8"><path class="path1"-->
-<!--                    d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg>-->
-<!--            </button>-->
-<!--        </form>-->
-        <script>
-            const f = document.getElementById('form');
-            const q = document.getElementById('query');
-            const google = 'https://www.google.com/search?q=site%3A+';
-            const site = 'kidsrewards.xyz';
+    <style>
+        .nav-item{
+            font-size: 1rem  !important;
+        }
+    </style>
+    <script>
+        const f = document.getElementById('form');
+        const q = document.getElementById('query');
+        const google = 'https://www.google.com/search?q=site%3A+';
+        const site = 'kidsrewards.xyz';
 
-            function submitted(event) {
-                event.preventDefault();
-                const url = google + site + '+' + q.value;
-                const win = window.open(url, '_blank');
-                win.focus();
-            }
+        function submitted(event) {
+            event.preventDefault();
+            const url = google + site + '+' + q.value;
+            const win = window.open(url, '_blank');
+            win.focus();
+        }
 
-            f.addEventListener('submit', submitted);
-        </script>
-        <script>
-            $(".navbar a").click(function(event) {
-                // check if window is small enough so dropdown is created
-                var toggle = $(".navbar-toggler").is(":visible");
-                if (toggle) {
-                    $(".navbar-collapse").collapse('hide');
-                }
-            });
-        </script>
-    </div>
-
+        f.addEventListener('submit', submitted);
+    </script>
 </nav>
-<!--        &lt;!&ndash; Content Start &ndash;&gt;-->
-<!--        <div class="content">-->
-<!--            &lt;!&ndash; Navbar Start &ndash;&gt;-->
-<!--            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">-->
-<!--                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">-->
-<!--                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>-->
-<!--                </a>-->
-<!--                <a href="#" class="sidebar-toggler flex-shrink-0">-->
-<!--                    <i class="fa fa-bars"></i>-->
-<!--                </a>-->
-<!--                <form class="d-none d-md-flex ms-4">-->
-<!--                    <input class="form-control border-0" type="search" placeholder="Search">-->
-<!--                </form>-->
-<!--                <div class="navbar-nav align-items-center ms-auto">-->
-<!--                    <div class="nav-item dropdown">-->
-<!--                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">-->
-<!--                            <i class="fa fa-envelope me-lg-2"></i>-->
-<!--                            <span class="d-none d-lg-inline-flex">Message</span>-->
-<!--                        </a>-->
-<!--                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">-->
-<!--                            <a href="#" class="dropdown-item">-->
-<!--                                <div class="d-flex align-items-center">-->
-<!--                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
-<!--                                    <div class="ms-2">-->
-<!--                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>-->
-<!--                                        <small>15 minutes ago</small>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                            <hr class="dropdown-divider">-->
-<!--                            <a href="#" class="dropdown-item">-->
-<!--                                <div class="d-flex align-items-center">-->
-<!--                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
-<!--                                    <div class="ms-2">-->
-<!--                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>-->
-<!--                                        <small>15 minutes ago</small>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                            <hr class="dropdown-divider">-->
-<!--                            <a href="#" class="dropdown-item">-->
-<!--                                <div class="d-flex align-items-center">-->
-<!--                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
-<!--                                    <div class="ms-2">-->
-<!--                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>-->
-<!--                                        <small>15 minutes ago</small>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                            <hr class="dropdown-divider">-->
-<!--                            <a href="#" class="dropdown-item text-center">See all message</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="nav-item dropdown">-->
-<!--                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">-->
-<!--                            <i class="fa fa-bell me-lg-2"></i>-->
-<!--                            <span class="d-none d-lg-inline-flex">Notificatin</span>-->
-<!--                        </a>-->
-<!--                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">-->
-<!--                            <a href="#" class="dropdown-item">-->
-<!--                                <h6 class="fw-normal mb-0">Profile updated</h6>-->
-<!--                                <small>15 minutes ago</small>-->
-<!--                            </a>-->
-<!--                            <hr class="dropdown-divider">-->
-<!--                            <a href="#" class="dropdown-item">-->
-<!--                                <h6 class="fw-normal mb-0">New user added</h6>-->
-<!--                                <small>15 minutes ago</small>-->
-<!--                            </a>-->
-<!--                            <hr class="dropdown-divider">-->
-<!--                            <a href="#" class="dropdown-item">-->
-<!--                                <h6 class="fw-normal mb-0">Password changed</h6>-->
-<!--                                <small>15 minutes ago</small>-->
-<!--                            </a>-->
-<!--                            <hr class="dropdown-divider">-->
-<!--                            <a href="#" class="dropdown-item text-center">See all notifications</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="nav-item dropdown">-->
-<!--                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">-->
-<!--                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
-<!--                            <span class="d-none d-lg-inline-flex">John Doe</span>-->
-<!--                        </a>-->
-<!--                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">-->
-<!--                            <a href="#" class="dropdown-item">My Profile</a>-->
-<!--                            <a href="#" class="dropdown-item">Settings</a>-->
-<!--                            <a href="#" class="dropdown-item">Log Out</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </nav>-->
-<!--            &lt;!&ndash; Navbar End &ndash;&gt;-->
-
-
-<!--            &lt;!&ndash; Sale & Revenue Start &ndash;&gt;-->
-<!--            <div class="container-fluid pt-4 px-4">-->
-<!--                <div class="row g-4">-->
-<!--                    <div class="col-sm-6 col-xl-3">-->
-<!--                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">-->
-<!--                            <i class="fa fa-chart-line fa-3x text-primary"></i>-->
-<!--                            <div class="ms-3">-->
-<!--                                <p class="mb-2">Today Sale</p>-->
-<!--                                <h6 class="mb-0">$1234</h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-sm-6 col-xl-3">-->
-<!--                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">-->
-<!--                            <i class="fa fa-chart-bar fa-3x text-primary"></i>-->
-<!--                            <div class="ms-3">-->
-<!--                                <p class="mb-2">Total Sale</p>-->
-<!--                                <h6 class="mb-0">$1234</h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-sm-6 col-xl-3">-->
-<!--                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">-->
-<!--                            <i class="fa fa-chart-area fa-3x text-primary"></i>-->
-<!--                            <div class="ms-3">-->
-<!--                                <p class="mb-2">Today Revenue</p>-->
-<!--                                <h6 class="mb-0">$1234</h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-sm-6 col-xl-3">-->
-<!--                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">-->
-<!--                            <i class="fa fa-chart-pie fa-3x text-primary"></i>-->
-<!--                            <div class="ms-3">-->
-<!--                                <p class="mb-2">Total Revenue</p>-->
-<!--                                <h6 class="mb-0">$1234</h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; Sale & Revenue End &ndash;&gt;-->
-<!--        </div>-->

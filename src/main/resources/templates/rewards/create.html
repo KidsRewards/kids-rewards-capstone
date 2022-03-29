@@ -9,11 +9,12 @@
       <th:block th:include="partials/bootstrap :: styling"></th:block>
 
       <title>Add a Reward </title>
+      <link rel="stylesheet" th:href="@{../static/css/style.css}">
   </head>
   <body class="rewards-create">
     <nav th:replace="partials/rewards :: navbar"></nav>
     <div class="container">
-        <h1 style="text-align: center">Add a reward for <span>PLACEHOLDER</span></h1>
+        <h1 style="text-align: center">Add a reward for <span></span></h1>
 
         <form th:action="@{/rewards/create}" th:method="POST" th:object="${newReward}">
             <p>Icon</p>

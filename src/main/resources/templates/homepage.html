@@ -3,14 +3,18 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+
     <title>Welcome homepage</title>
+    <link rel="stylesheet" th:href="@{../static/css/style.css}">
+
 
     <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
-<body class="homepage" >
+<body class="homepage" style=" background-color: #9dc5bb;" >
 
 <!--<h1 class="text-center">KidsRewards</h1>-->
 <nav th:replace="partials/navbar2 :: navbar2"></nav>
+
 
 <!--    <div class="row justify-content-center"  >-->
 <!--        <a href="/sign-up" class="btn btn-primary btn-lg active column-left; text-light" role="button" aria-pressed="true">Register</a>-->
@@ -95,9 +99,9 @@
 
 <div class="container">
     <div class="d-flex justify-content-center" style="margin-top: 5px">
-        <div class="card bg-dark text-white" style="width: 40rem">
+        <div class="card bg-dark text-black" style="width: 43rem; height">
             <img th:src="@{/images/colorful-pic1.jpg}" class="card-img-top" alt="Colorful-Pic"/>
-            <div class="card-img-overlay">
+            <div class="card-img-overlay" style="width: 43rem">
                 <div style="background-color: white; max-width: fit-content; opacity: 75%; border-radius: 10px">
                     <h5 class="card-title" style="text-align: center">About KidsRewards</h5>
                     <p class="card-text" style="text-align: center">
