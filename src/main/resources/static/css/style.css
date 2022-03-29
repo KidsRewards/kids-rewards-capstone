@@ -39,7 +39,10 @@ img{
 /*}*/
 
 
-/*navbar */
+/*navbar **************/
+.navbar{
+    background-color: #0dcaf0;
+}
 .d-flex {
     background-color: #7395AE;
     width: 300px;
