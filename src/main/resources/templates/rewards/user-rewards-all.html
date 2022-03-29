@@ -6,11 +6,12 @@
     <title> 's Rewards Page</title>
     <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
-<body class="rewards-user-rewards-all">
-<header>
-    <h1 class="text-center" th:inline="text">[[${#httpServletRequest.remoteUser}]] Reward Store</h1>
-</header>
+<body class="rewards-user-rewards-all" style="background-color: #9dc5bb">
+<!--<header>-->
+<!--    <h1 class="text-center" th:inline="text">[[${#httpServletRequest.remoteUser}]] Reward Store</h1>-->
+<!--</header>-->
 <nav th:replace="partials/rewards :: navbar"></nav>
+<h1 class="text-center" th:inline="text">[[${#httpServletRequest.remoteUser}]] Reward Store</h1>
 <h5 class="text-center">Points to Spend: <span th:text="${user.getPointsTotal()}"></span></h5>
 <h2 style="text-align: center">Here are the items available for purchase:</h2>
 
