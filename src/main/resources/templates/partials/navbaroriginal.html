@@ -1,0 +1,86 @@
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-primary"
+     xmlns:sec="http://www.w3.org/1999/xhtml">
+  <a class="navbar-brand" href="http://localhost:8080">KidsRewards</a>
+  <div class="container-fluid"></div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://localhost:8080/index">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="http://localhost:8080/rewards">Rewards</a>
+      </li>
+      <li class="nav-item " >
+        <a class="nav-link" href="http://localhost:8080/wishitems">Wish Items</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://localhost:8080/tasks/index">Tasks ToDo</a>
+          <a class="dropdown-item" href="http://localhost:8080/tasks/create">Create a task to do.</a>
+          <div class="dropdown-divider"></div>
+          <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+        </div>
+      </li>
+      <li class="nav-item" sec:authorize="isAuthenticated()">
+        <form th:action="@{/logout}" th:method="post">
+          <button class="btn-link btn" style="margin-top: 8px; color: black">Logout</button>
+        </form>
+      </li>
+      <li class="nav-item" sec:authorize="!isAuthenticated()">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item nav-link" sec:authorize="isAuthenticated()">
+        Hi, <span th:text="${#authentication.principal.username}"></span>
+      </li>
+    </ul>
+
+    <form class="search" role="search" id="form">
+      <input class="searchInput" type="search" id="query" name="q"
+             placeholder="Search..."
+             aria-label="Search through site content">
+      <button><svg viewBox="0 0 1034 1034"><path class="path1"
+                                                 d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg></button>
+    </form>
+
+    <!--        <form id="form" role="search" class="form-inline my-2 my-lg-0">-->
+    <!--            <input  name="q" class="form-control mr-sm-2" type="search" id="query"   placeholder="Search..."-->
+    <!--                    aria-label="Search through site content">-->
+    <!--            <button>-->
+    <!--                <svg viewBox="0 0 8 8"><path class="path1"-->
+    <!--                    d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg>-->
+    <!--            </button>-->
+    <!--        </form>-->
+    <script>
+      const f = document.getElementById('form');
+      const q = document.getElementById('query');
+      const google = 'https://www.google.com/search?q=site%3A+';
+      const site = 'kidsrewards.xyz';
+
+      function submitted(event) {
+        event.preventDefault();
+        const url = google + site + '+' + q.value;
+        const win = window.open(url, '_blank');
+        win.focus();
+      }
+
+      f.addEventListener('submit', submitted);
+    </script>
+    <script>
+      $(".navbar a").click(function(event) {
+        // check if window is small enough so dropdown is created
+        var toggle = $(".navbar-toggler").is(":visible");
+        if (toggle) {
+          $(".navbar-collapse").collapse('hide');
+        }
+      });
+    </script>
+  </div>
+
+</nav>

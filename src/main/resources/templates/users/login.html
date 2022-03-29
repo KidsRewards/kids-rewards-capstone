@@ -4,14 +4,20 @@
 <head>
     <meta charset="UTF-8" />
     <title>Log In</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no" >
     <th:block th:include="/partials/bootstrap :: styling"></th:block>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+
 </head>
 
 <body class="users-login">
-<nav th:replace="partials/navbar3:: navbar3"></nav>
-<h1 class="text-center">Kids Rewards User Log In</h1>
+
+<nav th:replace="partials/navbar2 :: navbar2"></nav>
+
+<!--<h1 class="text-center">Kids Rewards User Log In</h1>-->
+
+
 <div th:if="${param.error}">
     Invalid Username and Password.
 </div>
@@ -19,7 +25,7 @@
     You have been logged out.
 </div>
 
-<form th:action="@{/login}" method="post">
+<form th:action="@{/login}" method="post" class="text-center">
     <label for="username">Username</label>
     <input id="username" name="username" type="text" />
     <label for="password">Password</label>

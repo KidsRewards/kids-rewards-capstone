@@ -3,14 +3,18 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+
     <title>Welcome homepage</title>
+    <link rel="stylesheet" th:href="@{../static/css/style.css}">
+
 
     <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
-<body class="homepage" >
+<body class="homepage" style=" background-color: #9dc5bb;" >
 
 <!--<h1 class="text-center">KidsRewards</h1>-->
 <nav th:replace="partials/navbar2 :: navbar2"></nav>
+
 
 <!--    <div class="row justify-content-center"  >-->
 <!--        <a href="/sign-up" class="btn btn-primary btn-lg active column-left; text-light" role="button" aria-pressed="true">Register</a>-->
