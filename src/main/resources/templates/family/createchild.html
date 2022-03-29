@@ -6,7 +6,7 @@
     <title>Sign up</title>
         <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
-<body class="family-createchild">
+<body class="family-createchild" style="background-color: #9dc5bb">
 <nav th:replace="partials/navbar :: navbar"></nav>
 <h1>Create a Child</h1>
 <form th:action="@{/createchild}" method="POST" th:object="${user}">
