@@ -1,3 +1,6 @@
+
+
+
 /*********** Media Responsiveness *************/
 /* Small devices (phones and pocket devices, 576 and up) */
 @media screen and (min-width:576px) { /* ... */ }
@@ -35,7 +38,9 @@ img{
 /*    margin: 200px 40%;*/
 /*}*/
 
-.search {
+
+/*navbar */
+.d-flex {
     background-color: #7395AE;
     width: 300px;
     height: 44px;
@@ -77,55 +82,55 @@ svg {
 
 /************************SIDEBAR ***********************/
 
-body {
-    font-family: sans-serif, sa;
-}
-.row justify-content-center{
-    padding-top: 5px;
-    padding-right: 5px;
-}
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 78px;
-    left: 0;
-    background-color: #379683;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
+/*body {*/
+/*    font-family: sans-serif, sa;*/
+/*}*/
+/*.row justify-content-center{*/
+/*    padding-top: 5px;*/
+/*    padding-right: 5px;*/
+/*}*/
+/*.sidenav {*/
+/*    height: 100%;*/
+/*    width: 0;*/
+/*    position: fixed;*/
+/*    z-index: 1;*/
+/*    top: 78px;*/
+/*    left: 0;*/
+/*    background-color: #379683;*/
+/*    overflow-x: hidden;*/
+/*    transition: 0.5s;*/
+/*    padding-top: 60px;*/
+/*}*/
 
-.sidenav a {
-    flex-wrap: nowrap;
-    padding: 8px 8px 8px 42px;
-    text-decoration: none;
-    font-size: 20px;
-    color: black;
-    display: block;
-    transition: 0.3s;
-}
+/*.sidenav a {*/
+/*    flex-wrap: nowrap;*/
+/*    padding: 8px 8px 8px 42px;*/
+/*    text-decoration: none;*/
+/*    font-size: 20px;*/
+/*    color: black;*/
+/*    display: block;*/
+/*    transition: 0.3s;*/
+/*}*/
 
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-.open:hover {
-    color: #f1f1f1;
-}
+/*.sidenav a:hover {*/
+/*    color: #f1f1f1;*/
+/*}*/
+/*.open:hover {*/
+/*    color: #f1f1f1;*/
+/*}*/
 
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
+/*.sidenav .closebtn {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    right: 25px;*/
+/*    font-size: 36px;*/
+/*    margin-left: 50px;*/
+/*}*/
 
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
+/*@media screen and (max-height: 450px) {*/
+/*    .sidenav {padding-top: 15px;}*/
+/*    .sidenav a {font-size: 18px;}*/
+/*}*/
 
 
 /******* Homepage.html ************/
@@ -237,19 +242,19 @@ html *{
     color: #000 !important;
     font-family: sans-serif, sa;
 }
-.a,.navbar-brand{
-    padding-bottom:20px ;
-    font-size: 1.3em !important;
-    color: #000 !important;
-    font-family: sans-serif, sa !important;
-}
- .text-center{
-    padding-bottom:20px ;
-    font-size: 1.8em !important;
-    color: #000 !important;
-     font-family: sans-serif, sa !important;
+/*.a,.navbar-brand{*/
+/*    padding-bottom:20px ;*/
+/*    font-size: 1.3em !important;*/
+/*    color: #000 !important;*/
+/*    font-family: sans-serif, sa !important;*/
+/*}*/
+/* .text-center{*/
+/*    padding-bottom:20px ;*/
+/*    font-size: 1.8em !important;*/
+/*    color: #000 !important;*/
+/*     font-family: sans-serif, sa !important;*/
 
-}
+/*}*/
 
 
 
