@@ -59,7 +59,7 @@
                 <input type="text" class="form-control" id="points" name="points" th:field="*{points}">
             </div>
 
-            <label for="childId">Select Child to Assign Reward</label>
+            <label for="childId">Select Child to Assign Task To</label>
             <div class="form-group">
                     <select th:name="childId">Icon
                     <option th:each="child : ${children}" th:value="${child.id}" th:text="${child.username}" name="childId" id="childId"></option>
