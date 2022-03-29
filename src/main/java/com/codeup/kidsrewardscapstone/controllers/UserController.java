@@ -33,7 +33,8 @@ public class UserController {
 
             model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
             model.addAttribute("familyName", familiesDao.findFamilyByUsers(loggedInUser));
-            return "partials/navbar";
+//            return "partials/navbar";
+            return "users/index";
 //        }
     }
 

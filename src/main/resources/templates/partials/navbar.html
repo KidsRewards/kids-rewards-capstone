@@ -1,27 +1,25 @@
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light  "
+<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-light bg-light" style="background-color: #5e807f"
      xmlns:sec="http://www.w3.org/1999/xhtml">
     <th:block th:include="partials/bootstrap :: styling"></th:block>
 
-    <div class="container-fluid">
-        <a class="navbar-brand" href="http://localhost:8080">Dashboard</a>
+    <div class="container-fluid" >
+        <a class="navbar-brand" href="/">Dashboard</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
                 <li class="nav-item">
                     <a href="#" class="nav-link dropdown-toggle"  id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Rewards Store
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/rewards/user-rewards-all">View rewards</a>
-                        <div ><a class="dropdown-item" href="/rewards/create">Create a reward</a></div>
-                        <div class="dropdown-divider"></div>
-                        <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
-                    </div>
+                        Rewards Store</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/rewards/user-rewards-all">View rewards</a>
+                            <div ><a class="dropdown-item" href="/rewards/create">Create a reward</a></div>
+                            <div class="dropdown-divider"></div>
+                            <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+                        </div>
                 </li>
 
 
@@ -31,7 +29,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/tasks/index">Tasks To Do</a>
-                    <div ><a class="dropdown-item" href="/tasks/create">Create a task to do.</a></div>
+<!--                        <div th:if="${loggedInUser.getParent()} == true">-->
+                            <a class="dropdown-item"  href="/tasks/create">Add a Task</a>
+<!--                        </div>-->
+
                         <div class="dropdown-divider"></div>
                         <div ><a class="dropdown-item" href="/tasks/reviewform">Review Tasks</a></div>
                     </div>
@@ -41,8 +42,10 @@
                         Wishitems
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/wishitems">View a wishitem</a>
-                        <div th:if="${loggedInUser.getParent()} == true"><a class="dropdown-item" href="/wishitems/create">Create a wishitem</a></div>
+                        <a class="dropdown-item" href="/wishitems/index">View a wishitem</a>
+<!--                        <div th:if="${loggedInUser.getParent()} == true">-->
+                            <a class="dropdown-item" href="/wishitems/create">Create a wishitem</a>
+<!--                        </div>-->
                         <div class="dropdown-divider"></div>
                         <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
                     </div>
@@ -52,11 +55,13 @@
                         Family
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <div ><a class="dropdown-item" href="/createfamily">Create Family</a></div>
-<!--                        have to fix these-->
-                        <div ><a href="/createchild">Add a child</a></div>
-<!--                        <div class="dropdown-divider"></div>-->
-                        <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                            <div th:if="${loggedInUser.getParent()} == true">-->
+                        <a class="dropdown-item" href="/createfamily">Create Family</a>
+<!--                        </div>-->
+
+<!--                        <div th:if="${loggedInUser.getParent()} == true">-->
+                            <a class="dropdown-item" href="/createchild">Add a child</a>
+<!--                        </div>-->
                     </div>
                 </li>
 
@@ -68,8 +73,8 @@
             <li class="nav-item" sec:authorize="!isAuthenticated()">
                 <a class="nav-link" href="/login">Login</a>
             </li>
-            <li class="nav-item nav-link" sec:authorize="isAuthenticated()">
-                Hi, <span th:text="${#authentication.principal.username}"></span>
+            <li class="nav-item" sec:authorize="isAuthenticated()" style="margin-top: 13px; margin-right: 8px">
+               <a>Hi, </a> <span th:text="${#authentication.principal.username}"></span>
             </li>
         </ul>
             <!--        <li class="nav-item">-->
@@ -80,8 +85,8 @@
             <!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
             <!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
             <!--      </form>-->
-            <form class="d-flex" role="search" id="form">
-                <input class="searchInput" type="search" id="query" name="q"
+            <form class="d-inline-flex" role="search" id="form" style="margin-top: 6px">
+                <input class="form-control me-2" type="search" id="query" name="q"
                        placeholder="Search..."
                        aria-label="Search through site content">
                 <button><svg viewBox="0 0 1034 1034"><path class="path1"
@@ -94,7 +99,7 @@
 
     <style>
         .nav-item{
-            font-size: .7em  !important;
+            font-size: 1rem  !important;
         }
     </style>
     <script>
