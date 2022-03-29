@@ -13,19 +13,19 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <!--Sidebar-->
-<div id="mySidenav" class="sidenav"  style="width:170px; " >
-<!--      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  -->
+<!--<div id="mySidenav" class="sidenav"  style="width:170px; " >-->
+<!--&lt;!&ndash;      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  &ndash;&gt;-->
 
-    <div th:if="${loggedInUser.getParent()} == true"><a href="/createfamily">Create Family</a></div>
-    <div th:if="${loggedInUser.getParent()} == true"><a href="/createchild">Add a child</a></div>
-    <a href="/rewards/user-rewards-all">Reward Store</a>
-    <div th:if="${loggedInUser.getParent()} == true"><a href="/tasks/create">Add a Task</a></div>
-    <a href="/wishitems">View Wishitems</a>
+<!--    <div th:if="${loggedInUser.getParent()} == true"><a href="/createfamily">Create Family</a></div>-->
+<!--    <div th:if="${loggedInUser.getParent()} == true"><a href="/createchild">Add a child</a></div>-->
+<!--    <a href="/rewards/user-rewards-all">Reward Store</a>-->
+<!--    <div th:if="${loggedInUser.getParent()} == true"><a href="/tasks/create">Add a Task</a></div>-->
+<!--    <a href="/wishitems">View Wishitems</a>-->
 
-    <div th:if="${loggedInUser.getParent()} == false"><a href="/tasks/index">View Tasks</a></div>
-    <div th:if="${loggedInUser.getParent()} == true"><a href="/tasks/reviewform">Review Tasks</a></div>
+<!--    <div th:if="${loggedInUser.getParent()} == false"><a href="/tasks/index">View Tasks</a></div>-->
+<!--    <div th:if="${loggedInUser.getParent()} == true"><a href="/tasks/reviewform">Review Tasks</a></div>-->
 
-</div>
+<!--</div>-->
 
 <!--<h2>Animated Sidenav Example</h2>-->
 <!--<p>Click on the element below to open the side navigation menu.</p>-->

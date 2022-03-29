@@ -1,5 +1,6 @@
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light "
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light  "
      xmlns:sec="http://www.w3.org/1999/xhtml">
+    <th:block th:include="partials/bootstrap :: styling"></th:block>
 
     <div class="container-fluid">
         <a class="navbar-brand" href="http://localhost:8080">Dashboard</a>
@@ -12,12 +13,12 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Rewards
+                    <a href="#" class="nav-link dropdown-toggle"  id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Rewards Store
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="http://localhost:8080/rewards/index">View rewards</a>
-                        <a class="dropdown-item" href="http://localhost:8080/rewards/create">Create a reward</a>
+                        <a class="dropdown-item" href="/rewards/user-rewards-all">View rewards</a>
+                        <div ><a class="dropdown-item" href="/rewards/create">Create a reward</a></div>
                         <div class="dropdown-divider"></div>
                         <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
                     </div>
@@ -29,19 +30,19 @@
                         Tasks
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="http://localhost:8080/tasks/index">Tasks ToDo</a>
-                        <a class="dropdown-item" href="http://localhost:8080/tasks/create">Create a task to do.</a>
+                        <a class="dropdown-item" href="/tasks/index">Tasks To Do</a>
+                    <div ><a class="dropdown-item" href="/tasks/create">Create a task to do.</a></div>
                         <div class="dropdown-divider"></div>
-                        <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+                        <div ><a class="dropdown-item" href="/tasks/reviewform">Review Tasks</a></div>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tasks
+                        Wishitems
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="http://localhost:8080/wishitems/index">View a wishitem</a>
-                        <a class="dropdown-item" href="http://localhost:8080/wishitems/create">Create a wishitem</a>
+                        <a class="dropdown-item" href="/wishitems">View a wishitem</a>
+                        <div th:if="${loggedInUser.getParent()} == true"><a class="dropdown-item" href="/wishitems/create">Create a wishitem</a></div>
                         <div class="dropdown-divider"></div>
                         <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
                     </div>
@@ -51,18 +52,10 @@
                         Family
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <div th:if="${loggedInUser.getParent()} == true"><a class="dropdown-item" href="/createfamily">Create Family</a></div>
+                        <div ><a class="dropdown-item" href="/createfamily">Create Family</a></div>
 <!--                        have to fix these-->
-                        <div th:if="${loggedInUser.getParent()} == true"><a href="/createchild">Add a child</a></div>
-                        <a href="/rewards/user-rewards-all">Reward Store</a>
-                        <div th:if="${loggedInUser.getParent()} == true"><a href="/tasks/create">Add a Task</a></div>
-                        <a href="/wishitems">View Wishitems</a>
-
-                        <div th:if="${loggedInUser.getParent()} == false"><a href="/tasks/index">View Tasks</a></div>
-                        <div th:if="${loggedInUser.getParent()} == true"><a href="/tasks/reviewform">Review Tasks</a></div>
-
-                        <a class="dropdown-item" href="http://localhost:8080/wishitems/create">Create a wishitem</a>
-                        <div class="dropdown-divider"></div>
+                        <div ><a href="/createchild">Add a child</a></div>
+<!--                        <div class="dropdown-divider"></div>-->
                         <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
                     </div>
                 </li>
@@ -97,6 +90,8 @@
 
         </div>
     </div>
+    <th:block th:include="/partials/bootstrap :: scripts"></th:block>
+
     <style>
         .nav-item{
             font-size: .7em  !important;

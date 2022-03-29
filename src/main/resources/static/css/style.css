@@ -151,31 +151,31 @@ svg {
 
 .homepage, .rewards-create, .rewards-edit,
 .rewards-index, .rewards-show, .rewards-user-rewards-all{
-    background-color: #7395AE;
+    background-color: #DEE5E5;
     font-family: sans-serif, sa;
 
 }
 
 .users-login, .users-createfamily, .users-index,
 .users-sign-up, .users-user, .family-createchild{
-    background-color: #7395AE;
+    background-color: #DEE5E5;
     font-family: sans-serif, sa;
 }
 
 .tasks-create, .tasks-edit, .tasks-index, .tasks-show,
 .admins-index, .admins-login, .admins-register{
-    background-color: #7395AE;
+    background-color: #DEE5E5;
     font-family: sans-serif, sa;
 }
 
 .statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index,
 .wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit, .wishitems{
-    background-color: #7395AE;
+    background-color: #DEE5E5;
     font-family: sans-serif, sa;
 }
 
 .about-us{
-    background-color: #7395AE;
+    background-color: #DEE5E5;
     font-family: sans-serif, sa;
 }
 
@@ -230,8 +230,9 @@ svg {
 
 .nav a, .nav li{
     font-size: 1.8em  !important;
+
 }
-.navbar{
+.navbar, .navbar2{
     font-family: sans-serif, sa !important;
     /*width: 85%;*/
     margin: auto;
@@ -239,9 +240,22 @@ svg {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: #17B890;
+    background-color: #17B890;
 
 }
+.btn{
+    background-color: #5E807F;
+    transition-duration: 0.4s;
+}
 
+button {
+    transition-duration: 0.4s;
+}
+.btn:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
 /**********************************************************************************************/
 
 /*    @font-face {*/
