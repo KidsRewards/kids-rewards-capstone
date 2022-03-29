@@ -153,6 +153,7 @@ svg {
 .rewards-index, .rewards-show, .rewards-user-rewards-all{
     background-color: #7395AE;
     font-family: sans-serif, sa;
+
 }
 
 .users-login, .users-createfamily, .users-index,
@@ -223,8 +224,13 @@ svg {
     border: 1px purple;
     padding: 10px;
 }
+.container-fluid{
+    font-size: 10px;
+}
 
-
+.nav a, .nav li{
+    font-size: 1.8em  !important;
+}
 .navbar{
     font-family: sans-serif, sa !important;
     /*width: 85%;*/
@@ -233,6 +239,7 @@ svg {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
 
 /**********************************************************************************************/

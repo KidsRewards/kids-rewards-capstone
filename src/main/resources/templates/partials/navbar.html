@@ -1,5 +1,6 @@
 <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light "
      xmlns:sec="http://www.w3.org/1999/xhtml">
+
     <div class="container-fluid">
         <a class="navbar-brand" href="http://localhost:8080">Dashboard</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -45,6 +46,26 @@
                         <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Family
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div th:if="${loggedInUser.getParent()} == true"><a class="dropdown-item" href="/createfamily">Create Family</a></div>
+<!--                        have to fix these-->
+                        <div th:if="${loggedInUser.getParent()} == true"><a href="/createchild">Add a child</a></div>
+                        <a href="/rewards/user-rewards-all">Reward Store</a>
+                        <div th:if="${loggedInUser.getParent()} == true"><a href="/tasks/create">Add a Task</a></div>
+                        <a href="/wishitems">View Wishitems</a>
+
+                        <div th:if="${loggedInUser.getParent()} == false"><a href="/tasks/index">View Tasks</a></div>
+                        <div th:if="${loggedInUser.getParent()} == true"><a href="/tasks/reviewform">Review Tasks</a></div>
+
+                        <a class="dropdown-item" href="http://localhost:8080/wishitems/create">Create a wishitem</a>
+                        <div class="dropdown-divider"></div>
+                        <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+                    </div>
+                </li>
 
             <li class="nav-item" sec:authorize="isAuthenticated()">
                 <form th:action="@{/logout}" th:method="post">
@@ -76,6 +97,11 @@
 
         </div>
     </div>
+    <style>
+        .nav-item{
+            font-size: .7em  !important;
+        }
+    </style>
     <script>
         const f = document.getElementById('form');
         const q = document.getElementById('query');
