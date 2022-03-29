@@ -261,6 +261,7 @@ button {
 /**********************************************************************************************/
 
 
+
 html *, .h1, .li{
     font-size: 1rem !important;
     color: #000 !important;
@@ -271,6 +272,7 @@ html *, .h1, .li{
 /*    font-size: 1.3em !important;*/
 /*    color: #000 !important;*/
 /*    font-family: sans-serif, sa !important;*/
+
 /*}*/
 /* .text-center{*/
 /*    padding-bottom:20px ;*/
