@@ -12,19 +12,21 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#"   id="navbarDropdown1" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Family
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                        <!--                            <div th:if="${loggedInUser.getParent()} == true">-->
+                        <a class="dropdown-item" href="/createfamily">Create Family</a>
+                        <!--                        </div>-->
 
-                        Rewards Store</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <a class="dropdown-item" href="/rewards/user-rewards-all">View rewards</a>
-                            <div ><a class="dropdown-item" href="/rewards/create">Create a reward</a></div>
-<!--                            <div class="dropdown-divider"></div>-->
-                            <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
-                        </div>
+                        <!--                        <div th:if="${loggedInUser.getParent()} == true">-->
+                        <a class="dropdown-item" href="/createchild">Add a child</a>
+                        <!--                        </div>-->
+                    </div>
                 </li>
-
                 <li class="nav-item dropdown" >
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Tasks
@@ -55,17 +57,15 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Family
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
-<!--                            <div th:if="${loggedInUser.getParent()} == true">-->
-                        <a class="dropdown-item" href="/createfamily">Create Family</a>
-<!--                        </div>-->
+                    <a class="nav-link dropdown-toggle" href="#"   id="navbarDropdown1" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-<!--                        <div th:if="${loggedInUser.getParent()} == true">-->
-                            <a class="dropdown-item" href="/createchild">Add a child</a>
-<!--                        </div>-->
+                        Rewards Store</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <a class="dropdown-item" href="/rewards/user-rewards-all">View rewards</a>
+                        <div ><a class="dropdown-item" href="/rewards/create">Create a reward</a></div>
+                        <!--                            <div class="dropdown-divider"></div>-->
+                        <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
                     </div>
                 </li>
 
