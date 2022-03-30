@@ -153,31 +153,31 @@ svg {
 
 .homepage, .rewards-create, .rewards-edit,
 .rewards-index, .rewards-show, .rewards-user-rewards-all{
-    background-color: #9dc5bb;
+    background-color: #17b890;
     font-family: 'Roboto', sans-serif;
 
 }
 
 .users-login, .users-createfamily, .users-index,
 .users-sign-up, .users-user, .family-createchild{
-    background-color: #DEE5E5;
+    background-color: #17b890;
     font-family: 'Roboto', sans-serif;
 }
 
 .tasks-create, .tasks-edit, .tasks-index, .tasks-show,
 .admins-index, .admins-login, .admins-register{
-    background-color: #DEE5E5;
+    background-color: #17b890;
     font-family: 'Roboto', sans-serif;
 }
 
 .statuses-edit, .statuses-status, .wishitems-approved, .wishitems-index,
 .wishitems-approvedform, .wishitems-create, .wishitems-show, .wishitems-edit, .wishitems{
-    background-color: #DEE5E5;
+    background-color: #17b890;
     font-family: 'Roboto', sans-serif;
 }
 
 .about-us{
-    background-color: #DEE5E5;
+    background-color: #5e807f;
     font-family: 'Roboto', sans-serif;
 }
 

@@ -11,7 +11,7 @@
     <link rel="stylesheet" th:href="@{../static/css/style.css}">
 
 </head>
-<body class="statuses-edit" style="background-color: #9dc5bb">
+<body class="statuses-edit" style="background-color: #5e807f">
 <nav th:replace="partials/navbar:: navbar"></nav>
 <!--Thymeleaf action syntax-->
 <form th:action="@{/status/{id}?edit =(id == ${statusToEdit.getId()})}" th:method="POST" th:object="${statusToEdit}">
