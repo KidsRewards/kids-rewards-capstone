@@ -27,15 +27,20 @@ public class UserController {
     @GetMapping("/index")
     public String showUsers(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        if(loggedInUser.getFamilies() == null){
-//            return "redirect:/createfamily";
-//        } else {
 
-            model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
-            model.addAttribute("familyName", familiesDao.findFamilyByUsers(loggedInUser));
+//            if(loggedInUser.getFamilies() != null && !loggedInUser.getParent()){
+            if(familiesDao.findFamilyByUsers(loggedInUser) != null && !loggedInUser.getParent()){
+                return "redirect:/tasks/index";
+//            } else if(loggedInUser.getFamilies() != null && loggedInUser.getParent()){
+            } else if(familiesDao.findFamilyByUsers(loggedInUser) != null && loggedInUser.getParent()){
+                System.out.println(familiesDao.findFamilyByUsers(loggedInUser));
+                return "redirect:/tasks/reviewform";
+            } else{
+//            model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
+//            model.addAttribute("familyName", familiesDao.findFamilyByUsers(loggedInUser));
 //            return "partials/navbar";
             return "users/index";
-//        }
+        }
     }
 
 

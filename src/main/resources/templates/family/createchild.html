@@ -8,8 +8,8 @@
 </head>
 <body class="family-createchild" style="background-color: #17b890">
 <nav th:replace="partials/navbar :: navbar"></nav>
-<h1>Create a Child</h1>
-<form th:action="@{/createchild}" method="POST" th:object="${user}">
+<h1 class="text-center">Create a Child</h1>
+<form th:action="@{/createchild}" method="POST" th:object="${user}" class="text-center">
     <label for="username">Username</label>
     <input id="username" th:field="*{username}" />
 

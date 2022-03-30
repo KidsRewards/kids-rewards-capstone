@@ -72,7 +72,8 @@ public class FamilyController {
         newFamily.add(family);
         newParent.setFamilies(newFamily);
         usersDao.save(newParent);
-        return "redirect:/index";
+        return "redirect:/createchild";
+//        return "redirect:/index";
     }
 
 //    Used to show child form
