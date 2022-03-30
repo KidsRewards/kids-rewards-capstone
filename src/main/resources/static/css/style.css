@@ -282,6 +282,7 @@ html *, .h1, .li{
 
 /*}*/
 
+
 /*sign up page instruction card*/
 .center{
     -webkit-box-align: center;
@@ -291,4 +292,5 @@ html *, .h1, .li{
     -ms-flex-pack: center;
     justify-content: center;
 }
+
 
