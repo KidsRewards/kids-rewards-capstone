@@ -21,14 +21,16 @@
     <div th:each="reward : ${allRewards}" class="d-flex card" style="width: 18rem; margin: 1em;">
         <img src="..." class="card-img-top" alt="">
         <div class="card-body">
-            <h5 th:text="${reward.title}" class="card-title"></h5>
+            <h4 th:text="${reward.title}" class="card-title text-center"></h4>
             <p th:text="${reward.body}" class="card-text"></p>
             <p>Points: <span th:text="${reward.points}"></span></p>
-            <p>Reward ID: <span th:text="${reward.getId()}"></span></p>
-            <a th:href="@{/rewards/{id}/purchase (id= ${reward.getId()})}" class="btn btn-success">Purchase</a>
-            <form th:action="@{/rewards/{id}/delete (id = ${reward.getId()})}">
-                <button class="btn btn-danger">Delete</button>
+<!--            <p>Reward ID: <span th:text="${reward.getId()}"></span></p>-->
+            <div class="btn-group text-center">
+            <a th:href="@{/rewards/{id}/purchase (id= ${reward.getId()})}" class="btn btn-success text-left">Purchase</a>
+            <form th:action="@{/rewards/{id}/delete (id = ${reward.getId()})}" class="btn-group text-center">
+                <button class="btn btn-danger text-right">Delete</button>
             </form>
+            </div>
 <!--            <a href="@{/rewards/{id}/delete} (id = ${reward.getId()})" class="btn btn-danger">Delete</a>-->
         </div>
     </div>
