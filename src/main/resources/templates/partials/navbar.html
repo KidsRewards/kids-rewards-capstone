@@ -1,7 +1,6 @@
-<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-light" style="background-color: #17b890"
+<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-light" style="background-color: #17b890; font-family: Roboto, sans-serif"
      xmlns:sec="http://www.w3.org/1999/xhtml">
-
-    <th:block th:include="partials/bootstrap :: styling"></th:block>
+    <link rel="stylesheet" th:href="@{../static/css/style.css}">
 
     <div class="container-fluid" >
         <a class="navbar-brand" href="/" style="font-family: Roboto,serif">KidsRewards</a>
@@ -33,6 +32,7 @@
                         Tasks
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+
                         <div th:if="${loggedInUser.getParent()} == false">
                         <a class="dropdown-item" href="/tasks/index">Tasks To Complete</a>
                         </div>
@@ -64,7 +64,6 @@
                 <li class="nav-item dropdown" style="font-family: Roboto,serif" sec:authorize="isAuthenticated()">
                     <a class="nav-link dropdown-toggle" href="#"   id="navbarDropdown1" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
                         Rewards Store</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                         <div th:if="${loggedInUser.getParent()} == false">
