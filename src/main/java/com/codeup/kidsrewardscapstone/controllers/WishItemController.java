@@ -30,13 +30,10 @@ public class WishItemController {
     public String showWishItems(Model model) {
 //        Logged in user can only see there WishItems list.
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User currentUser = (User) usersDao.findById(loggedInUser.getId());
-//        List<WishItem> currentUserWishItems = wishitemsDao.findByUser(loggedInUser);
+
         Family currentFamily = familyDao.findFamilyByUsers(loggedInUser);
         List<WishItem> allWishItems = wishitemsDao.findByUser_Families(currentFamily);
-//        for (User user: currentFamily.getUsers()) {
-//            System.out.println(user.getId());
-//        }
+
         if (!loggedInUser.getParent()) {
             List<WishItem> singleKidWishItem = wishitemsDao.findByUser(loggedInUser);
             model.addAttribute("allWishitems", singleKidWishItem);
@@ -44,18 +41,22 @@ public class WishItemController {
             model.addAttribute("allWishitems", allWishItems);
         }
         model.addAttribute("user", loggedInUser.getParent());
-//        model.addAttribute("allWishitems", allWishItems);
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         return "wishitems/index";
     }
 
     @GetMapping("/wishitems/{id}")
     public String showWishItems(@PathVariable long id, Model model) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("singleWishitem", wishitemsDao.getById(id));
         return "wishitems/show";
     }
 
     @GetMapping("/wishitems/create")
     public String showCreateForm(Model model) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("newWishitem", new WishItem());
         return "wishitems/create";
     }
@@ -70,6 +71,8 @@ public class WishItemController {
 
     @GetMapping("/wishitems/{id}/edit")
     public String showEditWishItems(@PathVariable long id, Model model) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("wishItemToEdit", wishitemsDao.getById(id));
         return "wishitems/edit";
     }
@@ -83,13 +86,17 @@ public class WishItemController {
     }
 
     @GetMapping("/wishitems/{id}/delete")
-    public String delete(@PathVariable long id) {
+    public String delete(@PathVariable long id, Model model) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         wishitemsDao.deleteById(id);
         return "redirect:/wishitems";
     }
 
     @GetMapping("/wishitems/approved")
     public String showWishItemApproved(@PathVariable long id, Model model) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("showWishItemApproved", wishitemsDao.findByStatus(2L));
         return "wishItems/approved";
     }
@@ -110,7 +117,8 @@ public class WishItemController {
 
     @GetMapping("/wishitems/{id}/approved")
     public String showWishItemAddForm(@PathVariable long id, Model model) {
-//        model.addAttribute("showWishItemApproved", wishitemsDao.findByStatus(2L));
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         WishItem currentWishItem = wishitemsDao.getById(id);
                 model.addAttribute("currentWishItem", currentWishItem);
         return "wishItems/approvedform";

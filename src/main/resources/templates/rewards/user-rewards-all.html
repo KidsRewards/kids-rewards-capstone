@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> 's Rewards Page</title>
+    <title>Rewards Page</title>
     <th:block th:include="partials/bootstrap :: styling"></th:block>
     <link rel="stylesheet" th:href="@{../static/css/style.css}">
 
@@ -26,7 +26,9 @@
             <p>Points: <span th:text="${reward.points}"></span></p>
 <!--            <p>Reward ID: <span th:text="${reward.getId()}"></span></p>-->
             <div class="btn-group text-center">
-            <a th:href="@{/rewards/{id}/purchase (id= ${reward.getId()})}" class="btn btn-success text-left">Purchase</a>
+                <form th:action="@{/rewards/{id}/purchase (id= ${reward.getId()})}" METHOD="post">
+            <button type="submit"  class="btn btn-success text-left">Purchase</button>
+                </form>
             <form th:action="@{/rewards/{id}/delete (id = ${reward.getId()})}" class="btn-group text-center">
                 <button class="btn btn-danger text-right">Delete</button>
             </form>

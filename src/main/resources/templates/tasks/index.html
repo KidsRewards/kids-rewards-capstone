@@ -16,7 +16,7 @@
 <!--        });-->
 <!--    </script>-->
 </head>
-    <body class="tasks-index" style="background-color: #5e807f">
+    <body class="tasks-index" style="background-color: #5e807f; font-family: Roboto, sans-serif">
         <nav th:replace="partials/navbar:: navbar"></nav>
 
    <h1 style="text-align: center">Tasks To Complete</h1>
@@ -30,8 +30,10 @@
                         <p th:text="${task.description}" class="card-text"></p>
                         <p>Points: <span th:text="${task.points}"></span></p>
 <!--                        <p>Task ID: <span th:text="${task.getId()}"></span></p>-->
+
                         <div th:if="${user}"> <a th:href="@{/tasks/{id}/review (id=${task.id})}" class="btn btn-warning">Task Completed</a></div>
                         <div th:if="${task.getStatus().getId()} == 2"><p class="text-danger">**Under Review**</p></div>
+
 
                     </div>
                 </div>
