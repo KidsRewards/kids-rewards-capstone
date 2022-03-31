@@ -27,7 +27,7 @@
 <!--      <p>Task ID: <span th:text="${task.getId()}"></span></p>-->
         <p>Assigned To: <span th:text="${task.getUser().getUsername()}"></span> </p>
 <!--      <div th:if="${user}"> <a th:href="@{/tasks/{id}/review (id=${task.id})}" class="btn btn-success">Task Completed</a></div>-->
-        <a th:href="@{/tasks/{id}/approved (id=${task.id})}" class="btn btn-success">Approved</a>
+        <a th:href="@{/tasks/{id}/approved (id=${task.id})}" class="btn btn-warning">Approve</a>
     </div>
   </div>
 </div>

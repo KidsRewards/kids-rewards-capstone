@@ -9,65 +9,74 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-family: Roboto,serif">
 
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" sec:authorize="isAuthenticated()"  th:if="${loggedInUser.getParent()} == true">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Family
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                        <!--                            <div th:if="${loggedInUser.getParent()} == true">-->
-                        <a class="dropdown-item" href="/createfamily">Create Family</a>
-                        <!--                        </div>-->
-
-                        <!--                        <div th:if="${loggedInUser.getParent()} == true">-->
-                        <a class="dropdown-item" href="/createchild">Add a child</a>
-                        <!--                        </div>-->
+                        <div th:if="${loggedInUser.getParent()} == true">
+                            <a class="dropdown-item" href="/createfamily">Create Family</a>
+                        </div>
+<!--                        <div class="dropdown-divider"></div>-->
+                        <div th:if="${loggedInUser.getParent()} == true">
+                            <a class="dropdown-item" href="/createchild">Add a Child</a>
+                        </div>
                     </div>
                 </li>
-                <li class="nav-item dropdown" style="font-family: Roboto,serif">
+
+                <li class="nav-item dropdown" style="font-family: Roboto,serif" sec:authorize="isAuthenticated()">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Tasks
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                        <a class="dropdown-item" href="/tasks/index">Tasks To Do</a>
-<!--                        <div th:if="${loggedInUser.getParent()} == true">-->
-                        <a class="dropdown-item"  href="/tasks/create">Add a Task</a>
-<!--                        </div>-->
 
-                        <div class="dropdown-divider"></div>
-                        <div ><a class="dropdown-item" href="/tasks/reviewform">Review Tasks</a></div>
+                        <div th:if="${loggedInUser.getParent()} == false">
+                        <a class="dropdown-item" href="/tasks/index">Tasks To Complete</a>
+                        </div>
+<!--                        <div class="dropdown-divider"></div>-->
+                        <div th:if="${loggedInUser.getParent()} == true">
+                            <a class="dropdown-item"  href="/tasks/create">Add a Task</a>
+                        </div>
+<!--                        <div class="dropdown-divider"></div>-->
+                        <div th:if="${loggedInUser.getParent()} == true">
+                            <a class="dropdown-item" href="/tasks/reviewform">Review Tasks</a>
+                        </div>
                     </div>
                 </li>
-                <li class="nav-item dropdown" style="font-family: Roboto,serif">
+
+                <li class="nav-item dropdown" style="font-family: Roboto,serif" sec:authorize="isAuthenticated()">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Wishitems
+                        Wish Items
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
 
-                        <a class="dropdown-item" href="/wishitems">View a wishitem</a>
-<!--                        <div th:if="${loggedInUser.getParent()} == true">-->
-                            <a class="dropdown-item" href="/wishitems/create">Create a wishitem</a>
-<!--                        </div>-->
-                        <div class="dropdown-divider"></div>
-                        <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+                        <a class="dropdown-item" href="/wishitems">View a Wish Item</a>
+                        <div th:if="${loggedInUser.getParent()} == false">
+                            <a class="dropdown-item" href="/wishitems/create">Create a Wish Item</a>
+                        </div>
                     </div>
                 </li>
-                <li class="nav-item dropdown" style="font-family: Roboto,serif">
+
+                <li class="nav-item dropdown" style="font-family: Roboto,serif" sec:authorize="isAuthenticated()">
                     <a class="nav-link dropdown-toggle" href="#"   id="navbarDropdown1" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Rewards Store</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                        <a class="dropdown-item" href="/rewards/user-rewards-all">View rewards</a>
-                        <div ><a class="dropdown-item" href="/rewards/create">Create a reward</a></div>
-                        <!--                            <div class="dropdown-divider"></div>-->
-                        <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+                        <div th:if="${loggedInUser.getParent()} == false">
+                        <a class="dropdown-item" href="/rewards/user-rewards-all">View Rewards</a>
+                        </div>
+                        <div th:if="${loggedInUser.getParent()} == true">
+                            <a class="dropdown-item" href="/rewards/create">Create a Reward</a>
+                        </div>
                     </div>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="/about-us">About</a>
+
+                <li class="nav-item active" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" href="/sign-up">Register</a>
                 </li>
             <li class="nav-item" sec:authorize="isAuthenticated()">
                 <form th:action="@{/logout}" th:method="post">
@@ -80,26 +89,12 @@
             <li class="nav-item" sec:authorize="isAuthenticated()" style="margin-top: 13px; margin-right: 8px">
                <a>Hi, </a> <span th:text="${#authentication.principal.username}"></span>
             </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/sign-up">Register</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about-us">About Us</a>
                 </li>
         </ul>
-            <!--        <li class="nav-item">-->
-            <!--          <a class="nav-link disabled">Disabled</a>-->
-            <!--        </li>-->
-<!--            </ul>-->
-            <!--      <form class="d-flex">-->
-            <!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-            <!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
-            <!--      </form>-->
-<!--            <form class="d-inline-flex" role="search" id="form" style="margin-top: 6px">-->
-<!--                <input class="form-control me-2" type="search" id="query" name="q"-->
-<!--                       placeholder="Search..."-->
-<!--                       aria-label="Search through site content">-->
-<!--                <button><svg viewBox="0 0 1034 1034"><path class="path1"-->
-<!--                                                           d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg></button>-->
-<!--            </form>-->
-            <th:block th:include="/partials/bootstrap :: scripts"></th:block>
+
+<!--            <th:block th:include="/partials/bootstrap :: scripts"></th:block>-->
 <!--            <script>-->
 <!--                const f = document.getElementById('form');-->
 <!--                const q = document.getElementById('query');-->

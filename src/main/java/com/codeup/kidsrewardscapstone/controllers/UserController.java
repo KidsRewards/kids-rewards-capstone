@@ -27,7 +27,7 @@ public class UserController {
     @GetMapping("/index")
     public String showUsers(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
 //            if(loggedInUser.getFamilies() != null && !loggedInUser.getParent()){
             if(familiesDao.findFamilyByUsers(loggedInUser) != null && !loggedInUser.getParent()){
                 return "redirect:/tasks/index";

@@ -12,7 +12,7 @@
 </head>
 <body class="users-sign-up" style="background-color: #5e807f; font-family: Roboto, sans-serif">
 
-<nav th:replace="partials/navbar :: navbar"></nav>
+<nav th:replace="partials/navbar2 :: navbar2"></nav>
 
 <!--<h1 class="text-center">Create A Parent</h1>-->
 <!--<form class="text-center" th:action="@{/sign-up}" method="POST" th:object="${user}">-->
@@ -32,30 +32,39 @@
 <!--</form>-->
 
 
+
 <div class="container-fluid mx-auto first-div; mt-5">
     <div id="title-banner" class="main-banner row bg-dark disabled container-fluid col align-items-center"  style="height: 304px; position: absolute">
         <br>
         <div class="title-intro col-lg-6 text-center text-white">
-            <h1 class="text-center">Create A Parent</h1>
-            <form class="text-center" th:action="@{/sign-up}" method="POST" th:object="${user}">
+            <h1 class="text-center text-center">Create A Parent</h1>
+            <form class="text-center col"  th:action="@{/sign-up}" method="POST" th:object="${user}">
+                <div>
                 <label for="username">Username</label>
                 <input id="username" th:field="*{username}" />
-
-                <label for="email">Email</label>
+                </div>
+                <div>
+                <label for="email" style="padding-left: 2em">Email</label>
                 <input id="email" th:field="*{email}" />
-
+                </div>
+                <div>
                 <label for="password">Password</label>
                 <input id="password" type="password" th:field="*{password}" />
+                </div>
+                <div>
+                <button type="submit" class="btn btn-warning text-center">Register</button>
+                </div>
+            </form>
 
                 <!--    <label for="isParent">Are you a parent?</label>-->
                 <!--    <input type="checkbox" id="isParent" th:field="*{parent}" value="*{parent}"/>-->
 
 <!--                <input value="Register!" type="submit"  />-->
-                <button type="submit" class="btn btn-warning">Register!</button>
-            </form>
+<!--                <button type="submit" class="btn btn-warning">Register!</button>-->
+<!--            </form>-->
         </div>
         <div class="col">
-            <img class="img-fluid rounded float-right" src="images/piggy-bank.jpeg" style="width: 800rem" alt="piggy-bank" >
+            <img class="img-fluid rounded float-right w-100" src="images/piggy-bank.jpeg" alt="piggy-bank" >
         </div>
 
 
@@ -63,6 +72,21 @@
     </div>
 </div>
 
+
+
+
+<!--<form class="text-center" th:action="@{/sign-up}" method="POST" th:object="${user}">-->
+<!--    <label for="username">Username</label>-->
+<!--    <input id="username" th:field="*{username}" />-->
+
+<!--    <label for="email">Email</label>-->
+<!--    <input id="email" th:field="*{email}" />-->
+
+<!--    <label for="password">Password</label>-->
+<!--    <input id="password" type="password" th:field="*{password}" />-->
+<!--    -->
+<!--    <input type="submit" class="btn btn-warning">Register!</input>-->
+<!--</form>-->
 
 
 
