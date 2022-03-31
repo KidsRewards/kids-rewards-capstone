@@ -5,12 +5,15 @@ import com.codeup.kidsrewardscapstone.models.Reward;
 import com.codeup.kidsrewardscapstone.models.User;
 import com.codeup.kidsrewardscapstone.repositories.FamilyRepository;
 import com.codeup.kidsrewardscapstone.repositories.UserRepository;
+import com.codeup.kidsrewardscapstone.services.EmailService;
+import com.sendgrid.helpers.mail.objects.Email;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.codeup.kidsrewardscapstone.repositories.RewardRepository;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +22,14 @@ public class RewardController {
     private RewardRepository rewardsDao;
     private UserRepository usersDao;
     private FamilyRepository familiesDao;
+    private EmailService emailService;
 
 
-    public RewardController(RewardRepository rewardsDao, UserRepository usersDao, FamilyRepository familiesDao) {
+    public RewardController(RewardRepository rewardsDao, UserRepository usersDao, FamilyRepository familiesDao, EmailService emailService) {
         this.rewardsDao = rewardsDao;
         this.usersDao = usersDao;
         this.familiesDao = familiesDao;
+        this.emailService = emailService;
     }
 
     @GetMapping("/rewards")
@@ -119,16 +124,38 @@ public class RewardController {
         return "rewards/show";
     }
 
-    @GetMapping("/rewards/{id}/purchase")
+//    @GetMapping("/rewards/{id}/purchase")
+    @PostMapping("/rewards/{id}/purchase")
     public String purchaseReward(@ModelAttribute Reward purchasedReward, @PathVariable long id){
         Reward rewardToPurchase = rewardsDao.getById(id);
 
         User assignedUser = rewardToPurchase.getUser();
 
-        if(assignedUser.getPointsTotal() > rewardToPurchase.getPoints()){
+        if(assignedUser.getPointsTotal() >= rewardToPurchase.getPoints()) {
             Long newTotal = assignedUser.getPointsTotal() - rewardToPurchase.getPoints();
             assignedUser.setPointsTotal(newTotal);
             usersDao.save(assignedUser);
+
+
+            Family currentFamily = familiesDao.findFamilyByUsers(assignedUser);
+
+            List<User> familyMembers = currentFamily.getUsers();
+            List<User> parents = new ArrayList<>();
+
+            for (User member : familyMembers) {
+                if (member.getParent()) {
+                    parents.add(member);
+                }
+            }
+
+            for (User parent : parents) {
+                System.out.println(parent.getEmail());
+                try {
+                    emailService.sendTextEmail(parent.getEmail(), rewardToPurchase);
+                } catch (IOException ex) {
+                    throw new RuntimeException("Sorry your email cannot be sent");
+                }
+            }
         }
 
         return "redirect:/rewards/user-rewards-all";
