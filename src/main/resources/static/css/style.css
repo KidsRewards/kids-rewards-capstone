@@ -293,4 +293,8 @@ html *, .h1, .li{
     justify-content: center;
 }
 
+.second-div{
+    position: absolute;
+    bottom: 0;
+}
 

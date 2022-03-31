@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
@@ -10,24 +10,57 @@
 
     <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
-<body class="homepage" style=" background-color: #5e807f;" >
+<body class="homepage" style=" background-color: #9dc5bb; background-repeat: no-repeat; background-size: cover" background="images/mow-lawn.jpeg" >
+<!--    <div class="homepage-overlay">-->
+<!--      <div style="background-color: white; max-width: fit-content; opacity: 75%; border-radius: 10px">-->
 
 <!--<h1 class="text-center">KidsRewards</h1>-->
 <nav th:replace="partials/navbar2 :: navbar2"></nav>
 
-<div class="container-fluid mx-auto first-div; mt-5" >
-    <div id="title-banner" class="main-banner row bg-success disabled container-fluid col  align-items-center"  style="height: 291px">
+<div class="container-fluid mx-auto first-div; mt-5" style="opacity: 75%" >
+    <div id="title-banner" class="main-banner row bg-dark disabled container-fluid col  align-items-center"  style="height: 291px; position: absolute">
         <br>
-        <div class="title-intro col-lg-6 text-center">
-            <h3 class="pt-3">KidsRewards is an application that can allow parents and teachers to assign tasks and provide associated rewards. The objective of the application is to establish a foundational sense of financial responsibility and goal achievement between parents and their children.</h3>
+        <div class="title-intro col-lg-12 text-center text-white" style="font-weight: bold">
+            <h4 class="pt-3">KidsRewards is an application that can allow parents and teachers to assign tasks and provide associated rewards. The objective of the application is to establish a foundational sense of financial responsibility and goal achievement between parents and their children. Assign your kids/students a task and decide how many points each task is worth. Once the child finishes the task and marks it complete then you can approve it. The child can keep track of there accumulated points and make a wishlist of items they would like to purchase with their points. If you approve the wishlist item you can also assign how many points is needed to buy that item. The item can now be tracked in the rewards store til you purchase it.</h4>
         </div>
-        <div class="col">
-            <img class="img-fluid rounded float-right" src="images/mow-lawn.jpeg" style="width: 1200rem" alt="mow-lawn" >
+<!--        <div class="title-intro col-lg-6 text-center text-white" style="font-weight: bold">-->
+<!--            <h4 class="pt-3">Assign your kids/students a task and decide how many points each task is worth. Once the child finishes the task and marks it complete then you can approve it. The child can keep track of there accumulated points and make a wishlist of items they would like to purchase with their points. If you approve the wishlist item you can also assign how many points is needed to buy that item. The item can now be tracked in the rewards store.</h4>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--            <img class="img-fluid rounded float-right" src="images/mow-lawn.jpeg" style="width: 1200rem" alt="mow-lawn" >-->
 
-        </div>
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
     </div>
 </div>
 
+
+
+<!--<div class="container-fluid second-div mx-auto mt-4; d-flex mb-4 text-white text-center; justify-content-around">-->
+<!--    <div class="row STEPS" style="position: fixed; bottom: 0">-->
+<!--        <div class="col-3">-->
+<!--&lt;!&ndash;            <h3><img src="/img/Step11.png" alt="Logo" width="100px"></h3>&ndash;&gt;-->
+<!--            <h1>Step 1</h1>-->
+<!--            <p><strong>Register as a parent or teacher!</strong></p><br>-->
+<!--        </div>-->
+<!--        <div class="col-3">-->
+<!--&lt;!&ndash;            <h3><img src="/img/Step2.png" alt="Logo" width="100px"></h3>&ndash;&gt;-->
+<!--            <h1>Step 2</h1>-->
+<!--            <p><strong>Create a family! </strong></p><br>-->
+<!--        </div>-->
+<!--        <div class="col-3">-->
+<!--&lt;!&ndash;            <h3><img src="/img/Step3.png" alt="Logo" width="100px"></h3>&ndash;&gt;-->
+<!--            <h1>Step 3</h1>-->
+<!--            <p><strong>Add a child!</strong></p><br>-->
+<!--        </div>-->
+<!--        <div class="col-3">-->
+<!--&lt;!&ndash;            <h3><img src="/img/Step4.png" alt="Logo" width="100px"></h3>&ndash;&gt;-->
+<!--            <h1>Step 4</h1>-->
+<!--            <p><strong>Add a task for the child!</strong></p><br>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <footer th:replace="partials/bootstrap :: scripts"></footer>
 <th:block th:replace="partials/footer :: styling"></th:block>
