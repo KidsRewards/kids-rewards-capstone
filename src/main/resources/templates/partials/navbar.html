@@ -10,10 +10,12 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             <ul class="me-auto mb-2 mb-lg-0 d-flex flex-grow-1 align-items-center" style="font-family: Roboto,serif; list-style: none;">
 
                 <li class="nav-item dropdown" sec:authorize="isAuthenticated()"  th:if="${loggedInUser.getParent()} == true">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Family
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
