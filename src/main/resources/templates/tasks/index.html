@@ -30,8 +30,8 @@
                         <p th:text="${task.description}" class="card-text"></p>
                         <p>Points: <span th:text="${task.points}"></span></p>
 <!--                        <p>Task ID: <span th:text="${task.getId()}"></span></p>-->
-                        <div th:if="${user}"> <a th:href="@{/tasks/{id}/review (id=${task.id})}" class="btn btn-success">Task Completed</a></div>
-                        <div th:if="${task.getStatus().getId()} == 2"><p class="text-warning">**Under Review**</p></div>
+                        <div th:if="${user}"> <a th:href="@{/tasks/{id}/review (id=${task.id})}" class="btn btn-warning">Task Completed</a></div>
+                        <div th:if="${task.getStatus().getId()} == 2"><p class="text-danger">**Under Review**</p></div>
 
                     </div>
                 </div>
