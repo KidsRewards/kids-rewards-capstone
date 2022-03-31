@@ -25,7 +25,7 @@
             <p>WishItem ID: <span th:text="${wishItem.getId()}"></span></p>
             <!--            <a th:href="@{/wishitems/{id}/approved (id=${wishItem.id})}" class="btn btn-success">Approved</a>-->
             <form th:action="@{/wishitems/{id}/approved (id = ${WishItem.getId()})}">
-                <button class="btn btn-danger">Approved</button>
+                <button class="btn btn-warning">Approved</button>
             </form>
             <!--            <a href="@{/rewards/{id}/delete} (id = ${reward.getId()})" class="btn btn-danger">Delete</a>-->
         </div>

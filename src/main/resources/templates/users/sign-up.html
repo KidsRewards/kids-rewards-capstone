@@ -14,35 +14,56 @@
 
 <nav th:replace="partials/navbar3:: navbar3"></nav>
 
-<h1 class="text-center">Create A Parent</h1>
-<form class="text-center" th:action="@{/sign-up}" method="POST" th:object="${user}">
-    <label for="username">Username</label>
-    <input id="username" th:field="*{username}" />
+<!--<h1 class="text-center">Create A Parent</h1>-->
+<!--<form class="text-center" th:action="@{/sign-up}" method="POST" th:object="${user}">-->
+<!--    <label for="username">Username</label>-->
+<!--    <input id="username" th:field="*{username}" />-->
 
-    <label for="email">Email</label>
-    <input id="email" th:field="*{email}" />
+<!--    <label for="email">Email</label>-->
+<!--    <input id="email" th:field="*{email}" />-->
 
-    <label for="password">Password</label>
-    <input id="password" type="password" th:field="*{password}" />
+<!--    <label for="password">Password</label>-->
+<!--    <input id="password" type="password" th:field="*{password}" />-->
 
-<!--    <label for="isParent">Are you a parent?</label>-->
-<!--    <input type="checkbox" id="isParent" th:field="*{parent}" value="*{parent}"/>-->
+<!--&lt;!&ndash;    <label for="isParent">Are you a parent?</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="checkbox" id="isParent" th:field="*{parent}" value="*{parent}"/>&ndash;&gt;-->
 
-    <input value="Register!" type="submit" />
-</form>
+<!--    <input value="Register!" type="submit" />-->
+<!--</form>-->
 
 
 <div class="container-fluid mx-auto first-div; mt-5">
-    <div id="title-banner" class="main-banner row bg-success disabled container-fluid col align-items-center"  style="height: 296px">
+    <div id="title-banner" class="main-banner row bg-dark disabled container-fluid col align-items-center"  style="height: 304px; position: absolute">
         <br>
-        <div class="title-intro col-lg-6 text-center">
-            <h1 class="pt-3">Motivate your kids to clean there rooms with incentives and rewards.</h1>
+        <div class="title-intro col-lg-6 text-center text-white">
+            <h1 class="text-center">Create A Parent</h1>
+            <form class="text-center" th:action="@{/sign-up}" method="POST" th:object="${user}">
+                <label for="username">Username</label>
+                <input id="username" th:field="*{username}" />
+
+                <label for="email">Email</label>
+                <input id="email" th:field="*{email}" />
+
+                <label for="password">Password</label>
+                <input id="password" type="password" th:field="*{password}" />
+
+                <!--    <label for="isParent">Are you a parent?</label>-->
+                <!--    <input type="checkbox" id="isParent" th:field="*{parent}" value="*{parent}"/>-->
+
+<!--                <input value="Register!" type="submit"  />-->
+                <button type="submit" class="btn btn-warning">Register!</button>
+            </form>
         </div>
         <div class="col">
-            <img class="img-fluid rounded float-right" src="images/kids-bedroom2.jpeg" style="width: 393px" alt="mow-lawn" >
+            <img class="img-fluid rounded float-right" src="images/piggy-bank.jpeg" style="width: 800rem" alt="piggy-bank" >
         </div>
+
+
+
     </div>
 </div>
+
+
 
 
 
