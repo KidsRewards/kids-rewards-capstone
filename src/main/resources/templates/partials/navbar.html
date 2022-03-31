@@ -1,7 +1,6 @@
-<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-light" style="background-color: #17b890"
+<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-light" style="background-color: #17b890; font-family: Roboto, sans-serif"
      xmlns:sec="http://www.w3.org/1999/xhtml">
-
-    <th:block th:include="partials/bootstrap :: styling"></th:block>
+    <link rel="stylesheet" th:href="@{../static/css/style.css}">
 
     <div class="container-fluid" >
         <a class="navbar-brand" href="/" style="font-family: Roboto,serif">KidsRewards</a>
@@ -34,7 +33,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                         <a class="dropdown-item" href="/tasks/index">Tasks To Do</a>
 <!--                        <div th:if="${loggedInUser.getParent()} == true">-->
-                            <a class="dropdown-item"  href="/tasks/create">Add a Task</a>
+                        <a class="dropdown-item"  href="/tasks/create">Add a Task</a>
 <!--                        </div>-->
 
                         <div class="dropdown-divider"></div>
@@ -59,7 +58,6 @@
                 <li class="nav-item dropdown" style="font-family: Roboto,serif">
                     <a class="nav-link dropdown-toggle" href="#"   id="navbarDropdown1" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
                         Rewards Store</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                         <a class="dropdown-item" href="/rewards/user-rewards-all">View rewards</a>
