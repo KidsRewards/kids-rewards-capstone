@@ -10,7 +10,8 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="me-auto mb-2 mb-lg-0" style="font-family: Roboto,serif">
+
+            <ul class="me-auto mb-2 mb-lg-0 d-flex flex-grow-1 align-items-center" style="font-family: Roboto,serif; list-style: none;">
 
                 <li class="nav-item dropdown" sec:authorize="isAuthenticated()"  th:if="${loggedInUser.getParent()} == true">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
@@ -75,7 +76,7 @@
                         </div>
                     </div>
                 </li>
-
+                <ul class="navbar-nav ml-auto">
                 <li class="nav-item active" sec:authorize="!isAuthenticated()">
                     <a class="nav-link" href="/sign-up">Register</a>
                 </li>
@@ -91,8 +92,9 @@
                <a>Hi, </a> <span th:text="${#authentication.principal.username}"></span>
             </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about-us">About Us</a>
+                    <a class="nav-link float-end" href="/about-us">About Us</a>
                 </li>
+                </ul>
         </ul>
 
 <!--            <th:block th:include="/partials/bootstrap :: scripts"></th:block>-->
