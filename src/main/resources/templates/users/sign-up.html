@@ -10,9 +10,9 @@
 
 
 </head>
-<body class="users-sign-up" style="background-color: #5e807f">
+<body class="users-sign-up" style="background-color: #5e807f; font-family: Roboto, sans-serif">
 
-<nav th:replace="partials/navbar3:: navbar3"></nav>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 <h1 class="text-center">Create A Parent</h1>
 <form class="text-center" th:action="@{/sign-up}" method="POST" th:object="${user}">

@@ -21,6 +21,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
 }
 img{
     border-radius: 5px 5px 0 0;
@@ -45,6 +46,7 @@ img{
 /*.navbar{*/
 /*    background-color: #77B890;*/
 /*}*/
+
 .d-flex {
     background-color: #7395AE;
     width: 300px;
@@ -56,33 +58,33 @@ img{
 
 }
 
-.searchInput {
-    all: unset;
-    /*font: 16xpx system-ui;*/
-    height: 100%;
-    width: 100%;
-    padding: 1px 1px;
-}
+/*.searchInput {*/
+/*    all: unset;*/
+/*    !*font: 16xpx system-ui;*!*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    padding: 1px 1px;*/
+/*}*/
 
-::placeholder {
-    color: #fff;
-    opacity: 0.7;
-}
+/*::placeholder {*/
+/*    color: #fff;*/
+/*    opacity: 0.7;*/
+/*}*/
 
-svg {
-    color: #fff;
-    fill: currentColor;
-    width: 31px;
-    height: 31px;
-    padding: 2px;
-}
+/*svg {*/
+/*    color: #fff;*/
+/*    fill: currentColor;*/
+/*    width: 31px;*/
+/*    height: 31px;*/
+/*    padding: 2px;*/
+/*}*/
 
-.searchBtn {
-    all: unset;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
-}
+/*.searchBtn {*/
+/*    all: unset;*/
+/*    cursor: pointer;*/
+/*    width: 44px;*/
+/*    height: 44px;*/
+/*}*/
 
 
 /************************SIDEBAR ***********************/
@@ -262,10 +264,10 @@ button {
 
 
 
-html *, .h1, .li{
+html *, .h1, .li, *{
     font-size: 1rem !important;
     color: #000 !important;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
 }
 /*.a,.navbar-brand{*/
 /*    padding-bottom:20px ;*/

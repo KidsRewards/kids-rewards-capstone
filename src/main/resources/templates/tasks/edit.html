@@ -14,7 +14,7 @@
     <link rel="stylesheet" th:href="@{../static/css/style.css}">
 
 </head>
-<body class="tasks-edit" style="background-color: #5e807f">
+<body class="tasks-edit" style="background-color: #5e807f; font-family: Roboto, sans-serif">
 <nav th:replace="partials/navbar:: navbar"></nav>
 <div class="container">
     <!--Thymeleaf action syntax  for EDIT  -->
@@ -26,7 +26,7 @@
         </div>
             <input type="hidden" th:value="${task.getId()}" th:field="*{id}">
         <p>Icon</p>
-            <form class="update-icons">
+            <form class="update-icons" style="font-family: Roboto,sans-serif">
                 <select class="icons" th:field="*{icon}" name="icon" th:value="${task.getIcon()}">Icon
                     <option value="icon1">Icon 1</option>
                     <option value="icon2">Icon 2</option>

@@ -5,15 +5,14 @@
     <meta charset="UTF-8" />
     <title>Log In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no" >
-    <th:block th:include="/partials/bootstrap :: styling"></th:block>
     <link rel="stylesheet" th:href="@{../static/css/style.css}">
-
-
+    <th:block th:include="/partials/bootstrap :: styling"></th:block>
+    <nav th:replace="partials/navbar :: navbar"></nav>z
 </head>
 
-<body class="users-login" style="background-color: #5e807f">
+<body class="users-login" style="background-color: #5e807f; font-family: Roboto, sans-serif ">
 
-<nav th:replace="partials/navbar2 :: navbar2"></nav>
+
 <br>
 <br>
 <!--<h1 class="text-center">Kids Rewards User Log In</h1>-->
@@ -40,8 +39,8 @@
 <div class="container-fluid mx-auto first-div; mt-5" >
     <div id="title-banner" class="main-banner row bg-success disabled container-fluid col  align-items-center"  style="height: 296px">
         <br>
-        <div class="title-intro col-lg-6 text-center">
-            <h2 class="pt-3">The more your kids feel the allowance is fair, the more likely they'll think before they spend. Giving your child the experience of spending his own money is empowering.</h2>
+        <div class="title-intro col-lg-6 text-center" >
+            <h2 class="pt-3" style="font-family: Roboto,serif">The more your kids feel the allowance is fair, the more likely they'll think before they spend. Giving your child the experience of spending his own money is empowering.</h2>
         </div>
         <div class="col">
             <img class="img-fluid rounded float-right" src="images/mow-lawn.jpeg" style="width: 1200rem" alt="mow-lawn" >

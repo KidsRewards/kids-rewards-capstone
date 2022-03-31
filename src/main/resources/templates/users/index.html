@@ -9,11 +9,11 @@
     <link rel="stylesheet" th:href="@{../static/css/style.css}">
 <!--    <th:block th:include="partials/bootstrap :: styling"></th:block>-->
 </head>
-<body class="users-index" style="background-color: #5e807f">
+<body class="users-index" style="background-color: #5e807f; font-family: Roboto, sans-serif">
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="card text-center">
-    <div class="card-body">
+    <div class="card-body" style="font-family: Roboto, sans-serif">
         <h5 class="card-title">Add A Family!!!</h5>
         <p class="card-text">In order to start adding Tasks and Rewards, please first create a family and add your children.</p>
         <a href="/createfamily" class="btn btn-primary">Create A Family</a>
