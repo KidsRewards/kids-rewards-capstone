@@ -62,6 +62,7 @@ public class RewardController {
             }
         }
 
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("children", children);
         return "rewards/create";
     }
@@ -107,6 +108,7 @@ public class RewardController {
 //        family.getId();
 //        model.addAttribute("allRewards", rewardsDao.getById(loggedInUser.getId()));
 
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("allRewards", rewardsDao.findRewardByUser(loggedInUser));
 //        model.addAttribute("allRewards", rewardsDao.findAll());
         model.addAttribute("user", usersDao.getById(loggedInUser.getId()));
