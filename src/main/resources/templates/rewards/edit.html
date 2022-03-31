@@ -16,14 +16,14 @@
 <nav th:replace="partials/rewards :: navbar"></nav>
 <!--Thymeleaf action syntax-->
 <form th:action="@{/rewards/{id}/edit (id = ${rewardToEdit.getId()})}" th:method="POST" th:object="${rewardToEdit}">
-    <p>Icon</p>
-    <select th:field="*{icon}" name="icon" th:value="${rewardToEdit.getIcon()}">Icon
-        <option value="icon1">Icon 1</option>
-        <option value="icon2">Icon 2</option>
-        <option value="icon3">Icon 3</option>
-        <option value="icon4">Icon 4</option>
-        <option value="icon5">Icon 5</option>
-    </select>
+    <p></p>
+<!--    <select th:field="*{icon}" name="icon" th:value="${rewardToEdit.getIcon()}">Icon-->
+<!--        <option value="icon1">Icon 1</option>-->
+<!--        <option value="icon2">Icon 2</option>-->
+<!--        <option value="icon3">Icon 3</option>-->
+<!--        <option value="icon4">Icon 4</option>-->
+<!--        <option value="icon5">Icon 5</option>-->
+<!--    </select>-->
     <br>
     <br>
 
