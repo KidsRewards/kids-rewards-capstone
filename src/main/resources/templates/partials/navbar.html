@@ -10,20 +10,20 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-family: Roboto,serif">
 
-                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                <li class="nav-item dropdown" sec:authorize="isAuthenticated()"  th:if="${loggedInUser.getParent()} == true">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Family
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown4" th:if="${loggedInUser.getParent()} == true">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
                         <div th:if="${loggedInUser.getParent()} == true">
                             <a class="dropdown-item" href="/createfamily">Create Family</a>
                         </div>
 <!--                        <div class="dropdown-divider"></div>-->
                         <div th:if="${loggedInUser.getParent()} == true">
-                            <a class="dropdown-item" href="/createchild">Add a child</a>
+                            <a class="dropdown-item" href="/createchild">Add a Child</a>
                         </div>
                     </div>
                 </li>
@@ -34,7 +34,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                         <div th:if="${loggedInUser.getParent()} == false">
-                        <a class="dropdown-item" href="/tasks/index">Tasks To Do</a>
+                        <a class="dropdown-item" href="/tasks/index">Tasks To Complete</a>
                         </div>
 <!--                        <div class="dropdown-divider"></div>-->
                         <div th:if="${loggedInUser.getParent()} == true">
@@ -49,14 +49,14 @@
 
                 <li class="nav-item dropdown" style="font-family: Roboto,serif" sec:authorize="isAuthenticated()">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Wishitems
+                        Wish Items
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
 
-                        <a class="dropdown-item" href="/wishitems">View a wishitem</a>
+                        <a class="dropdown-item" href="/wishitems">View a Wish Item</a>
                         <div th:if="${loggedInUser.getParent()} == false">
-                            <a class="dropdown-item" href="/wishitems/create">Create a wishitem</a>
+                            <a class="dropdown-item" href="/wishitems/create">Create a Wish Item</a>
                         </div>
                     </div>
                 </li>
@@ -68,10 +68,10 @@
                         Rewards Store</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                         <div th:if="${loggedInUser.getParent()} == false">
-                        <a class="dropdown-item" href="/rewards/user-rewards-all">View rewards</a>
+                        <a class="dropdown-item" href="/rewards/user-rewards-all">View Rewards</a>
                         </div>
                         <div th:if="${loggedInUser.getParent()} == true">
-                            <a class="dropdown-item" href="/rewards/create">Create a reward</a>
+                            <a class="dropdown-item" href="/rewards/create">Create a Reward</a>
                         </div>
                     </div>
                 </li>
@@ -91,7 +91,7 @@
                <a>Hi, </a> <span th:text="${#authentication.principal.username}"></span>
             </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about-us">About</a>
+                    <a class="nav-link" href="/about-us">About Us</a>
                 </li>
         </ul>
 
