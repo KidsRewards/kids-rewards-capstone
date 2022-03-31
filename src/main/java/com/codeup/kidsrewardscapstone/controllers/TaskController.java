@@ -42,6 +42,7 @@ public class TaskController {
         Long id = loggedInUser.getId();
         System.out.println(id);
 
+            model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
             model.addAttribute("allTasks", taskDao.findAllByUserId(id));
             model.addAttribute("user", loggedInUser);
 
@@ -54,11 +55,6 @@ public class TaskController {
 
     }
 
-//    @GetMapping("/tasks/{id}")
-//    public String taskDetails(@PathVariable long id, Model model) {
-//        model.addAttribute("singleTask", taskDao.getById(id));
-//        return "tasks/show";
-//    }
     @GetMapping("/tasks/{id}")
     public String singleTask(@PathVariable long id, Model model){
         Task task = taskDao.getById(id);
@@ -67,6 +63,8 @@ public class TaskController {
             User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             isTaskOwner = loggedInUser.getId() == task.getUser().getId();
         }
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("singleTask", taskDao.getById(id));
         model.addAttribute("isTaskOwner", isTaskOwner);
             return "tasks/show";
@@ -91,6 +89,7 @@ public class TaskController {
             }
         }
 
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("children", children);
         return "tasks/create";
     }
@@ -112,9 +111,10 @@ public class TaskController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (loggedInUser.getId() == task.getUser().getId()) {
             model.addAttribute("task", task);
-
+            model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
             return "tasks/edit";
         } else {
+            model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
             return "redirect:/tasks/index";
         }
     }
@@ -129,7 +129,9 @@ public class TaskController {
     }
 
     @GetMapping("/tasks/{id}/delete")
-    public String delete(@PathVariable long id) {
+    public String delete(@PathVariable long id, Model model) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         taskDao.deleteById(id);
         return "redirect:/tasks";
     }
@@ -137,6 +139,9 @@ public class TaskController {
 //    Once button is clicked, it changes the status as Review
     @GetMapping("/tasks/{id}/review")
     public String reviewChildTask(@PathVariable long id, Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
+
         Task taskToReview = taskDao.getById(id);
         taskToReview.setStatus(statusDao.getById(2L));
         taskDao.save(taskToReview);
@@ -170,6 +175,8 @@ public class TaskController {
                 }
             }
         }
+
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("allTasks", taskToReview);
         return "tasks/reviewform";
     }
@@ -182,7 +189,7 @@ public class TaskController {
 //    }
 
     @GetMapping("/tasks/{id}/approved")
-    public String approveTask(@ModelAttribute Task taskApproved, @PathVariable long id){
+    public String approveTask(@ModelAttribute Task taskApproved, @PathVariable long id, Model model){
         Task taskToApprove = taskDao.getById(id);
 
         User assignedUser = taskToApprove.getUser();
@@ -193,6 +200,9 @@ public class TaskController {
         assignedUser.setPointsTotal(newPointTotal);
         taskDao.delete(taskApproved);
         usersDao.save(assignedUser);
+
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         return "redirect:/tasks/reviewform";
     }
 }
