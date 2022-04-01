@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title> 's Wish Items Page</title>
-  <th:block th:include="partials/bootstrap :: styling"></th:block>
+
+  <title>Wish Items Page</title>
   <link rel="stylesheet" th:href="@{../static/css/style.css}">
 
+
+  <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
 
 <header>
@@ -14,7 +16,7 @@
 </header>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-</head>
+
   <body class="wishitems-index" style="background-color: #5e807f">
   <h2 style="text-align: center">Here are the items in your Wish List:</h2>
 
@@ -41,11 +43,12 @@
       <p th:text="${wishItem.body}" class="card-text"></p>
       <p>Username: <span th:text="${wishItem.getUser().getUsername()}"></span></p>
 <!--      <p>WishItem ID: <span th:text="${wishItem.getId()}"></span></p>-->
-
-      <a th:href="@{/wishitems/{id}/edit (id=${wishItem.id})}" class="btn btn-warning">Edit</a>
-      <a th:href="@{/wishitems/{id}/delete (id=${wishItem.id})}" class="btn btn-danger">Delete</a>
-      <a th:if="${user}"> <a th:href="@{/wishitems/{id}/approved (id=${wishItem.id})}" class="btn btn-success">Approve</a>
+<div class="d-flex justify-content-center">
+      <a th:href="@{/wishitems/{id}/edit (id=${wishItem.id})}" class="btn btn-warning m-2">Edit</a>
+      <a th:href="@{/wishitems/{id}/delete (id=${wishItem.id})}" class="btn btn-danger m-2">Delete</a>
+      <a th:if="${user}" class="m-2"> <a th:href="@{/wishitems/{id}/approved (id=${wishItem.id})}" class="btn btn-success">Approve</a>
       </a>
+</div>
 
   </div>
   </div>

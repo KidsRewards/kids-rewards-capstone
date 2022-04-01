@@ -7,6 +7,7 @@ import com.codeup.kidsrewardscapstone.repositories.FamilyRepository;
 import com.codeup.kidsrewardscapstone.repositories.UserRepository;
 import com.codeup.kidsrewardscapstone.services.EmailService;
 import com.sendgrid.helpers.mail.objects.Email;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,9 @@ public class RewardController {
     private UserRepository usersDao;
     private FamilyRepository familiesDao;
     private EmailService emailService;
+
+    @Value("${FILESTACK_API_KEY}")
+    private String fileStackApiKey;
 
 
     public RewardController(RewardRepository rewardsDao, UserRepository usersDao, FamilyRepository familiesDao, EmailService emailService) {
@@ -62,6 +66,7 @@ public class RewardController {
             }
         }
 
+        model.addAttribute("fsKey", fileStackApiKey);
         model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("children", children);
         return "rewards/create";
