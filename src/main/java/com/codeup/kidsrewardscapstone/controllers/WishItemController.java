@@ -103,8 +103,9 @@ public class WishItemController {
 
     @PostMapping("/wishitems/{id}/approved")
     public String wishItemApproved(@ModelAttribute WishItem wishItemApproved, @PathVariable long id, @RequestParam(name = "points")String points) {
+        System.out.println(wishitemsDao.getById(id).getUser().getId());
         Reward newReward = new Reward();
-        newReward.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        newReward.setUser(wishitemsDao.getById(id).getUser());
         newReward.setTitle(wishItemApproved.getTitle());
         newReward.setBody(wishItemApproved.getBody());
         long newPoints = Long.parseLong(points);
@@ -112,7 +113,7 @@ public class WishItemController {
         newReward.setIcon("placeholder");
         wishitemsDao.delete(wishItemApproved);
         rewardsDao.save(newReward);
-        return "redirect:/rewards/user-rewards-all";
+        return "redirect:/tasks/reviewform";
     }
 
     @GetMapping("/wishitems/{id}/approved")
@@ -120,7 +121,7 @@ public class WishItemController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         WishItem currentWishItem = wishitemsDao.getById(id);
-                model.addAttribute("currentWishItem", currentWishItem);
+        model.addAttribute("currentWishItem", currentWishItem);
         return "wishitems/approvedform";
     }
 }
