@@ -36,9 +36,6 @@ public class UserController {
                 System.out.println(familiesDao.findFamilyByUsers(loggedInUser));
                 return "redirect:/tasks/reviewform";
             } else{
-//            model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
-//            model.addAttribute("familyName", familiesDao.findFamilyByUsers(loggedInUser));
-//            return "partials/navbar";
             return "users/index";
         }
     }

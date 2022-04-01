@@ -29,7 +29,7 @@ public class EmailService {
         String subject = "A reward has been purchased!";
         Email to = new Email(recepient);
         Content content = new Content("text/plain",
-                "Details about the reward purchased are shown below: \n" + reward.getTitle() + "\n" + reward.getBody() + "\n" + reward.getUser().getUsername()
+                "Details about the reward purchased are shown below: \nReward Purchased: " + reward.getTitle() + "\nReward Description: " + reward.getBody() + "\nPurchased By User: " + reward.getUser().getUsername()
                 );
         Mail mail = new Mail(from, subject, to, content);
 

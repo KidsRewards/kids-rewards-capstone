@@ -77,7 +77,7 @@ public class RewardController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         newReward.setUser(usersDao.getById(childId));
         rewardsDao.save(newReward);
-        return "redirect:/rewards/user-rewards-all";
+        return "redirect:/tasks/reviewform";
     }
 
     @GetMapping("/rewards/{id}/edit")
@@ -142,6 +142,7 @@ public class RewardController {
             Long newTotal = assignedUser.getPointsTotal() - rewardToPurchase.getPoints();
             assignedUser.setPointsTotal(newTotal);
             usersDao.save(assignedUser);
+            rewardsDao.delete(rewardToPurchase);
 
 
             Family currentFamily = familiesDao.findFamilyByUsers(assignedUser);
