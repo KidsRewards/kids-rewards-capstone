@@ -1,4 +1,4 @@
-<nav th:fragment="navbar2" class="navbar navbar-expand-lg navbar-light " style="background-color: #17b890"
+<nav th:fragment="navbar2" class="navbar navbar-expand-lg navbar-light d-flex" style="background-color: #17b890"
      xmlns:list-style="http://www.w3.org/1999/xhtml">
     <div class="container" style="justify-content: flex-start">
 
@@ -6,11 +6,13 @@
 
     </div>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse float-end" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto float-end">
             <li class="nav-item active">
                 <a class="nav-link" href="/sign-up">Register</a>
@@ -23,6 +25,6 @@
             </li>
         </ul>
     </div>
-<!--    </div>-->
+    <!--    </div>-->
 </nav>
 

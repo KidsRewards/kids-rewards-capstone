@@ -6,10 +6,10 @@
     <title>Log In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no" >
     <link rel="stylesheet" th:href="@{../static/css/style.css}">
-    <th:block th:include="/partials/bootstrap :: styling"></th:block>
-    <nav th:replace="partials/navbar2 :: navbar2"></nav>
-</head>
+    <th:block th:include="partials/bootstrap :: styling"></th:block>
 
+</head>
+<nav th:replace="partials/navbar2 :: navbar2"></nav>
 
 <body class="users-login" style="background-color: #5e807f; font-family: Roboto, sans-serif ">
 
@@ -104,7 +104,7 @@
 <!--        </div>-->
         <div class="col">
 
-            <img class="img-fluid rounded w-100 d-block" src="images/shopping.jpeg" alt="shopping" >
+            <img class="img-fluid rounded w-100 d-block" th:src="@{images/shopping.jpeg}" alt="shopping" >
 
         </div>
     </div>
