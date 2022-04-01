@@ -24,6 +24,7 @@
 <nav th:replace="partials/navbar:: navbar"></nav>
 
 <h1 style="text-align: center">Tasks To Complete</h1>
+
 <div class="container">
     <div class="row justify-content-center">
         <div th:each="task : ${allTasks}" class="d-flex card col-3 m-2">

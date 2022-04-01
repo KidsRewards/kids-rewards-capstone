@@ -17,8 +17,9 @@
 
 <h1 style="text-align: center">Tasks To Review</h1>
 
-<div class="container d-sm-table-row justify-content-center">
-  <div th:each="task : ${allTasks}" class="d-flex card" style="width: 18rem; margin: 1em;">
+<div class="container">
+<div class="row justify-content-center">
+  <div th:each="task : ${allTasks}" class="d-flex card col-3 m-2">
     <img th:src="${task.getIcon()}"  class="card-img-top" alt="">
     <div class="card-body">
       <h5 th:text="${task.title}" class="card-title"></h5>
@@ -30,6 +31,7 @@
         <a th:href="@{/tasks/{id}/approved (id=${task.id})}" class="btn btn-warning">Approve</a>
     </div>
   </div>
+</div>
 </div>
 
 

@@ -11,7 +11,7 @@
 
 </head>
 <body class="wishitems-approvedform" style="background-color: #5e807f">
-<nav th:replace="partials/wishitems :: navbar"></nav>
+<nav th:replace="partials/navbar :: navbar"></nav>
 <!--<h1 style="text-align: center">How many Points?</h1>-->
 <!--Thymeleaf action syntax-->
 <form th:action="@{/wishitems/{id}/approved (id = ${currentWishItem.getId()})}" th:method="POST" th:object="${currentWishItem}">
