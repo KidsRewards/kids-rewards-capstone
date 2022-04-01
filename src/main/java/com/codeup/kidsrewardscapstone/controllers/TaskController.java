@@ -102,7 +102,7 @@ public class TaskController {
 
         newTask.setStatus(statusDao.getById(1L));
         taskDao.save(newTask);
-        return "redirect:/tasks/index";
+        return "redirect:/tasks/reviewform";
     }
 
     @GetMapping("/tasks/{id}/edit")

@@ -98,7 +98,7 @@ public class WishItemController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         model.addAttribute("showWishItemApproved", wishitemsDao.findByStatus(2L));
-        return "wishItems/approved";
+        return "wishitems/approved";
     }
 
     @PostMapping("/wishitems/{id}/approved")
@@ -121,7 +121,7 @@ public class WishItemController {
         model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
         WishItem currentWishItem = wishitemsDao.getById(id);
                 model.addAttribute("currentWishItem", currentWishItem);
-        return "wishItems/approvedform";
+        return "wishitems/approvedform";
     }
 }
 

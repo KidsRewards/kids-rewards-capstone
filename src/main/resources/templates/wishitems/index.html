@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title> 's Wish Items Page</title>
-  <th:block th:include="partials/bootstrap :: styling"></th:block>
-  <link rel="stylesheet" th:href="@{css/style.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
 
+    <title>Wish Items Page</title>
+    <link rel="stylesheet" th:href="@{../static/css/style.css}">
+
+
+    <th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
 
 <header>
-<!--  <h1 style="text-align: center">Welcome PLACEHOLDER NAME!</h1>-->
+    <!--  <h1 style="text-align: center">Welcome PLACEHOLDER NAME!</h1>-->
 </header>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-</head>
-  <body class="wishitems-index" style="background-color: #5e807f">
-  <h2 style="text-align: center">Here are the items in your Wish List:</h2>
+
+<body class="wishitems-index" style="background-color: #5e807f">
+<h2 style="text-align: center">Here are the items in your Wish List:</h2>
 
 
 <!--   <div class="container d-flex justify-content-around">
@@ -34,22 +36,23 @@
     </div> -->
 
 <div class="container d-flex justify-content-around">
-  <div th:each="wishItem : ${allWishitems}" class="d-flex card" style="width: 18rem; margin: 1em;">
-    <img src="..." class="card-img-top" alt="">
-    <div class="card-body">
-      <h5 th:text="${wishItem.title}" class="card-title"></h5>
-      <p th:text="${wishItem.body}" class="card-text"></p>
-      <p>Username: <span th:text="${wishItem.getUser().getUsername()}"></span></p>
-<!--      <p>WishItem ID: <span th:text="${wishItem.getId()}"></span></p>-->
+    <div th:each="wishItem : ${allWishitems}" class="d-flex card" style="width: 18rem; margin: 1em;">
+        <img src="..." class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 th:text="${wishItem.title}" class="card-title"></h5>
+            <p th:text="${wishItem.body}" class="card-text"></p>
+            <p>Username: <span th:text="${wishItem.getUser().getUsername()}"></span></p>
+            <!--      <p>WishItem ID: <span th:text="${wishItem.getId()}"></span></p>-->
+            <div class="d-flex justify-content-center">
+                <a th:href="@{/wishitems/{id}/edit (id=${wishItem.id})}" class="btn btn-warning m-2">Edit</a>
+                <a th:href="@{/wishitems/{id}/delete (id=${wishItem.id})}" class="btn btn-danger m-2">Delete</a>
+                <a th:if="${user}" th:href="@{/wishitems/{id}/approved (id=${wishItem.id})}"
+                   class="btn btn-success m-2">Approve</a>
+            </div>
 
-      <a th:href="@{/wishitems/{id}/edit (id=${wishItem.id})}" class="btn btn-warning">Edit</a>
-      <a th:href="@{/wishitems/{id}/delete (id=${wishItem.id})}" class="btn btn-danger">Delete</a>
-      <a th:if="${user}"> <a th:href="@{/wishitems/{id}/approved (id=${wishItem.id})}" class="btn btn-success">Approve</a>
-      </a>
-
-  </div>
-  </div>
+        </div>
+    </div>
 </div>
-  <th:block th:replace="partials/bootstrap :: scripts"></th:block>
-  </body>
+<th:block th:replace="partials/bootstrap :: scripts"></th:block>
+</body>
 </html>

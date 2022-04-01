@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
     private UserRepository usersDao;
 
-    public HomeController(UserRepository usersDAO) {
-        this.usersDao = usersDAO;
+    public HomeController(UserRepository usersDao) {
+        this.usersDao = usersDao;
     }
 
     @GetMapping("/")
@@ -22,11 +22,11 @@ public class HomeController {
 
     @GetMapping("/about-us")
     public String showAboutUs(Model model) {
-        if(!SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
+        if(!SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")){
             User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
             return "about-us";
-        }else{
+        } else{
             return "about-us-two";
         }
     }
