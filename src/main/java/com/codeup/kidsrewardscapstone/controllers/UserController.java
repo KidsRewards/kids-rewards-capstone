@@ -57,5 +57,24 @@ public class UserController {
             return "redirect:/login";
     }
 
+    @GetMapping("/update-password")
+    public String showUserEditForm(Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
+
+        model.addAttribute("user", loggedInUser);
+        return "users/edit";
+    }
+
+    @PostMapping("/update-password")
+    public String savePassword(@ModelAttribute User user, Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("loggedInUser", usersDao.getById(loggedInUser.getId()));
+        if(loggedInUser.getParent()){
+            return "redirect:/tasks/reviewform";
+        } else{
+            return "redirect:/tasks/index";
+        }
+    }
 }
 
