@@ -84,7 +84,7 @@
                     <li class="nav-item dropdown" sec:authorize="isAuthenticated()" style="margin-top: 7px; margin-right: 8px">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown5" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi, <span th:text="${#authentication.principal.username}"></span></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown5">
-                            <a class="dropdown-item">Edit Profile</a>
+                            <a class="dropdown-item" href="/update-password">Update Password</a>
                         </div>
                     </li>
                     </div>

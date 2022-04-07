@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 
-    <title>Sign Up</title>
+    <title>Edit Email</title>
     <link rel="stylesheet" th:href="@{../static/css/style.css}">
 
 
@@ -12,28 +12,29 @@
 </head>
 <body class="users-sign-up" style="background-color: #5e807f; font-family: Roboto, sans-serif">
 
-<nav th:replace="partials/navbar2 :: navbar2"></nav>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="container-fluid mx-auto first-div; mt-5">
     <div id="title-banner" class="main-banner row bg-dark disabled align-items-center">
         <br>
         <div class="title-intro col-lg-6 text-center ">
-            <h1 class="text-center text-center text-white">Create A Parent</h1>
-            <form class="text-center col" th:action="@{/sign-up}" method="POST" th:object="${user}">
+            <h1 class="text-center text-center text-white">Change Password</h1>
+            <form class="text-center col" th:action="@{/users/edit}" method="POST" th:object="${user}">
                 <div>
-                    <label for="username" class="text-white">Username</label>
-                    <input id="username" th:field="*{username}"/>
+                    <label for="oldPassword" class="text-white">Old Password</label>
+                    <input id="oldPassword"/>
+<!--                    <input id="oldPassword" th:field="*{password}"/>-->
                 </div>
                 <div>
-                    <label for="email" class="text-white" style="padding-left: 2em">Email</label>
-                    <input id="email" th:field="*{email}"/>
+                    <label for="newPassword" class="text-white" style="padding-left: 2em">New Password</label>
+                    <input id="newPassword"/>
                 </div>
                 <div>
-                    <label for="password" class="text-white">Password</label>
-                    <input id="password" type="password" th:field="*{password}"/>
+                    <label for="confirmPassword" class="text-white">Confirm Password</label>
+                    <input id="confirmPassword"/>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-warning text-center">Register</button>
+                    <button type="submit" class="btn btn-warning text-center">Submit</button>
                 </div>
             </form>
         </div>
