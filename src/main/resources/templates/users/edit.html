@@ -22,16 +22,16 @@
             <form class="text-center col" th:action="@{/users/edit}" method="POST" th:object="${user}">
                 <div>
                     <label for="oldPassword" class="text-white">Old Password</label>
-                    <input id="oldPassword"/>
+                    <input id="oldPassword" type="password"/>
 <!--                    <input id="oldPassword" th:field="*{password}"/>-->
                 </div>
                 <div>
                     <label for="newPassword" class="text-white" style="padding-left: 2em">New Password</label>
-                    <input id="newPassword"/>
+                    <input id="newPassword" type="password"/>
                 </div>
                 <div>
                     <label for="confirmPassword" class="text-white">Confirm Password</label>
-                    <input id="confirmPassword"/>
+                    <input id="confirmPassword" type="password"/>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-warning text-center">Submit</button>
